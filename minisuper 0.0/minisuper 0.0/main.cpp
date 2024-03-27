@@ -1,6 +1,4 @@
-#include <iostream>
-#include <cstdlib>
-using namespace std;
+#include "bibliotecas.h"
 
 int main() {
 
