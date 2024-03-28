@@ -2,10 +2,9 @@
 #define BIBLIOTECAS_H
 
 #include <iostream>
+#include <sstream>
 #include <cstdlib>
-#include <cmath>
 #include <exception>
-
 using namespace std;
 
 
