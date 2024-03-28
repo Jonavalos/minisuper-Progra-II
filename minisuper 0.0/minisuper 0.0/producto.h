@@ -22,7 +22,7 @@ public:
 	//tirar excepcion de categoria no existente
 	
 
-private:
+protected:
 	string _codigo;
 	string _nombreComercial;
 	string _descripcion;

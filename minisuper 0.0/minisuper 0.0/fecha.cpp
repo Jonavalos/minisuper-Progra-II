@@ -12,7 +12,7 @@ fecha::~fecha()
 
 string fecha::toString() const
 {
-	stringstream s; // " ( 1 / 2 / 3 ) "
-	s << " ( " << _dia << " / " << _mes << " / " << _anio << " ) ";
+	stringstream s; // " (1/2/3) "
+	s << " (" << _dia << "/" << _mes << "/" << _anio << ") ";
 	return s.str();
 }
