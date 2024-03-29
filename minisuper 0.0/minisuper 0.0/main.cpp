@@ -2,7 +2,7 @@
 #include "conserva.h"
 #include "prodPerecedero.h"
 int main() {
-	
+	//1
 	//cout << "hello world!" << endl;
 	
 	//producto* ptr1 = new producto("001", "papas", "son papas", 1000, "02", 100, 100);
