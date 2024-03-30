@@ -1,6 +1,9 @@
 #include "bibliotecas.h"
 #include "conserva.h"
 #include "prodPerecedero.h"
+#include "abarrote.h"
+#include "embutido.h"
+
 int main() {
 	//2
 	//cout << "hello world!" << endl;
@@ -30,6 +33,25 @@ int main() {
 	prodPerecedero p4(p3);
 	cout << p4;
 
+	producto* abarrotePtr = new abarrote("004", "pan", "pan con queso", 650, "02", 100, 100, 1, 1, 1, true, 1.5, "Panaderia de pan");
+	producto* aPtr = new abarrote(*((abarrote*)abarrotePtr));
+	delete abarrotePtr;
+	cout << *aPtr;
+	delete aPtr;
+
+	abarrote p5("004", "pan", "pan con queso", 650, "02", 100, 100, 1, 1, 1, true, 1.5, "Panaderia");
+	abarrote p6(p5);
+	cout << p6;
+
+	producto* embutidoPtr = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 100, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
+	producto* ePtr = new embutido((embutido&)*embutidoPtr);
+	delete embutidoPtr;
+	cout << *ePtr;
+	delete ePtr;
+
+	embutido p7("005", "Salami", "Salami de la salada", 1150, "03", 100, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
+	embutido p8(p7);
+	cout << p8;
 
 	return 0;
 }

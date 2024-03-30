@@ -45,7 +45,7 @@ string prodPerecedero::toString() const
 	
 	s << "Peso: " << _peso << endl;
 	s << "Fecha caducidad:" << _perecederoPtr->fechaCaducidadToString() << endl;
-	s << "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" << endl;
+	//s << "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" << endl;
 
 	return s.str();
 }
