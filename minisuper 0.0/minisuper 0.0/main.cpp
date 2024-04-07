@@ -84,5 +84,5 @@ int main() {
 -categoria invalida
 -fecha invalida
 -limite/existencia
-
+-ingreso opcion menu
 */

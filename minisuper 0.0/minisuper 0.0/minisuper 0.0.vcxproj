@@ -135,6 +135,7 @@
     <ClCompile Include="embutido.cpp" />
     <ClCompile Include="empaque.cpp" />
     <ClCompile Include="fecha.cpp" />
+    <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="perecedero.cpp" />
     <ClCompile Include="prodPerecedero.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="embutido.h" />
     <ClInclude Include="empaque.h" />
     <ClInclude Include="fecha.h" />
+    <ClInclude Include="interfaz.h" />
     <ClInclude Include="perecedero.h" />
     <ClInclude Include="prodPerecedero.h" />
     <ClInclude Include="producto.h" />
