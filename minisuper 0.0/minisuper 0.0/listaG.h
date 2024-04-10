@@ -16,7 +16,12 @@ public:
 	nodoG<T*> getNodoLugar(int lugar);
 	bool eliminarLugar(int lugar);
 
-	string toString();
+	string toString() const;
+
+	friend ostream& operator <<(ostream& COUT, const listaG& obj) {
+		COUT << obj.toString() << endl;
+		return COUT;
+	}
 
 private:
 	nodoG<T>* head;
@@ -136,17 +141,19 @@ inline bool listaG<T>::eliminarLugar(int lugar)
 }
 
 template<class T>
-inline string listaG<T>::toString()
+inline string listaG<T>::toString() const
 {
 	stringstream s;
 	nodoG<T>* pex = head;
 	int n = 1;
+	s << " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ LISTA ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ " << endl;
 	while (pex != nullptr) {
-		s << n << " - " << *pex->getObj() << endl;
+		s << n <<" -> " << endl;
+		s << *pex->getObj() << endl;
 		pex = pex->getNext();
 		n++;
 	}
-
+	s << " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ " << endl;
 	return s.str();
 }
 
