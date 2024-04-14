@@ -1,4 +1,10 @@
 #include "interfaz.h"
+#include "bibliotecas.h"
+#include "conserva.h"
+#include "prodPerecedero.h"
+#include "abarrote.h"
+#include "embutido.h"
+#include "listaG.h"
 
 int interfaz::menu() {
 	int op;
@@ -72,7 +78,24 @@ int interfaz::ingresarProducto() {
 }
 
 void interfaz::tipoConserva() {
-	//...
+	string codigo, nombreComercial, descripcion, categoria;
+	double precioCosto;
+	int existencia, limite, intEnvasado;
+	bool envasado;
+
+	cout << "Ingresar Producto Tipo Conserva" << endl;
+	cout << "Ingrese los siguientes datos: " << endl;
+	cout << "Codigo: "; cin >> codigo;
+	cout << "Nombre comercial: "; cin >> nombreComercial;
+	cout << "Descripcion: "; cin >> descripcion;
+	cout << "Precio costo: "; cin >> precioCosto;
+	cout << "Categoria: "; cin >> categoria;
+	cout << "Existencia: "; cin >> existencia;
+	cout << "Limite: "; cin >> limite;
+	cout << "Envasado: (1. Si, 0. No): "; cin >> intEnvasado; if (intEnvasado == 1) { envasado = true; } else { envasado = false; }
+
+	producto* prod = new conserva(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, envasado);
+
 }
 
 void interfaz::tipoAbarrote() {
