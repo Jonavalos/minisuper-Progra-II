@@ -77,13 +77,14 @@ int interfaz::ingresarProducto() {
 	return opc;
 }
 
-void interfaz::tipoConserva() {
+template<class T>
+void interfaz::tipoConserva(listaG<T>& lista) {
 	string codigo, nombreComercial, descripcion, categoria;
 	double precioCosto;
 	int existencia, limite, intEnvasado;
 	bool envasado;
 
-	cout << "Ingresar Producto Tipo Conserva" << endl;
+	cout << "Ingresar Producto Tipo Conserva" << endl << endl;
 	cout << "Ingrese los siguientes datos: " << endl;
 	cout << "Codigo: "; cin >> codigo;
 	cout << "Nombre comercial: "; cin >> nombreComercial;
@@ -95,22 +96,84 @@ void interfaz::tipoConserva() {
 	cout << "Envasado: (1. Si, 0. No): "; cin >> intEnvasado; if (intEnvasado == 1) { envasado = true; } else { envasado = false; }
 
 	producto* prod = new conserva(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, envasado);
-
+	lista.ingresarUltimo(prod);
 }
 
-void interfaz::tipoAbarrote() {
-	//...
+template<class T>
+void interfaz::tipoAbarrote(listaG<T>& lista) {
+	string codigo, nombreComercial, descripcion, categoria, empresaNombre;
+	double precioCosto, peso;
+	int existencia, limite, intNacional, dia, mes, anio;
+	bool nacional;
+
+	cout << "Ingresar Producto Tipo Abarrote" << endl << endl;
+	cout << "Ingrese los siguientes datos: " << endl;
+	cout << "Codigo: "; cin >> codigo;
+	cout << "Nombre comercial: "; cin >> nombreComercial;
+	cout << "Descripcion: "; cin >> descripcion;
+	cout << "Precio costo: "; cin >> precioCosto;
+	cout << "Categoria: "; cin >> categoria;
+	cout << "Existencia: "; cin >> existencia;
+	cout << "Limite: "; cin >> limite;
+	cout << "Fecha(dia, mes, año): "; cin >> dia; cin >> mes; cin >> anio;
+	cout << "Nacional: (1. Si, 0. No): "; cin >> intNacional; if (intNacional == 1) { nacional = true; }
+	else { nacional = false; }
+	cout << "Peso: "; cin >> peso;
+	cout << "Nombre de la empresa: "; cin >> empresaNombre;
+
+
+	producto* prod = new abarrote(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, dia, mes, anio, nacional, peso, empresaNombre);
+	lista.ingresarUltimo(prod);
 }
 
-void interfaz::tipoEmbutido() {
-	//...
+template<class T>
+void interfaz::tipoEmbutido(listaG<T>& lista) {
+	string codigo, nombreComercial, descripcion, categoria, nombreAnimal, marca, parteDelAnimal;
+	double precioCosto, peso;
+	int existencia, limite, intNacional, dia, mes, anio, intTripa;
+	bool nacional, tripa;
+
+	cout << "Ingresar Producto Tipo Embutido" << endl << endl;
+	cout << "Ingrese los siguientes datos: " << endl;
+	cout << "Codigo: "; cin >> codigo;
+	cout << "Nombre comercial: "; cin >> nombreComercial;
+	cout << "Descripcion: "; cin >> descripcion;
+	cout << "Precio costo: "; cin >> precioCosto;
+	cout << "Categoria: "; cin >> categoria;
+	cout << "Existencia: "; cin >> existencia;
+	cout << "Limite: "; cin >> limite;
+	cout << "Fecha(dia, mes, año): "; cin >> dia; cin >> mes; cin >> anio;
+	cout << "Nacional: (1. Si, 0. No): "; cin >> intNacional; if (intNacional == 1) { nacional = true; }
+	else { nacional = false; }
+	cout << "Peso: "; cin >> peso;
+	cout << "Nombre del animal: "; cin >> nombreAnimal;
+	cout << "Parte del animal: "; cin >> parteDelAnimal;
+	cout << "Tiene tripa: (1. Si, 0. No): "; cin >> intTripa; if (intTripa == 1) { tripa = true; }
+	else { tripa = false; }
+	cout << "Marca: "; cin >> marca;
+
+	producto* prod = new embutido(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, dia, mes, anio, nacional, peso, nombreAnimal, parteDelAnimal, tripa, marca);
+	lista.ingresarUltimo(prod);
 }
 
-void interfaz::eliminarProducto() {
-	//...
+template<class T>
+void interfaz::eliminarProducto(listaG<T>& lista) {
+	int lugar = 0;
+
+	cout << "Eliminar Producto" << endl;
+	cout << lista;
+	cout << "Ingrese el lugar del producto que desea eliminar: "; cin >> lugar;
+	if (lista.eliminarLugar(lugar)) {
+		cout << "Eliminado con exito. " << endl << endl;
+		cout << lista;
+	}
+	else {
+		cout << "Hubo un error al elimiar el producto. " << endl;
+	}
 }
 
-void interfaz::modificarProducto() {
+template<class T>
+void interfaz::modificarProducto(listaG<T>& lista) {
 	//...
 }
 

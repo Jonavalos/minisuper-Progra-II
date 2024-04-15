@@ -15,6 +15,7 @@ public:
 
 	nodoG<T*> getNodoLugar(int lugar);
 	bool eliminarLugar(int lugar);
+	/*bool eliminarLugar(string);*/
 
 	string toString() const;
 
@@ -139,6 +140,31 @@ inline bool listaG<T>::eliminarLugar(int lugar)
 	return false;
 
 }
+
+//template<class T>
+//inline bool listaG<T>::eliminarLugar(string nombre) {
+//	nodoG<T>* pex = head;
+//	nodoG<T>* victima = nullptr;
+//
+//	if (pex->getObj()->getNombre() == nombre) {
+//		victima = head;
+//		head = head->getNext();
+//		delete victima;
+//		return true;
+//	}
+//	else {
+//		while (pex->getNext() != nullptr) {
+//			if (pex->getObj()->getNombre() == nombre) {	//*
+//				victima = pex->getNext();
+//				pex->setNext(victima->getNext());
+//				delete victima;
+//				return true;
+//			}
+//			pex = pex->getNext();
+//		}
+//	}
+//	return false;
+//}
 
 template<class T>
 inline string listaG<T>::toString() const

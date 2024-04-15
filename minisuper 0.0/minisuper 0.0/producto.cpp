@@ -38,6 +38,10 @@ bool producto::operator==(const producto& obj)
 	return false;
 }
 
+string producto::getNombre() {
+	return _nombreComercial;
+}
+
 double producto::getGanancia() const
 {
 	return _precioCosto * categoria::porcentajeGanancia(_categoria);

@@ -1,11 +1,15 @@
 #ifndef INTERFAZ_H
 #define INTERFAZ_H
-#include <iostream>
-using namespace std;
+#include "bibliotecas.h"
+#include "conserva.h"
+#include "prodPerecedero.h"
+#include "abarrote.h"
+#include "embutido.h"
+#include "listaG.h"
 
 class interfaz {
 public:
-
+	
 	static int menu();
 	//menu->
 		static int mantenimiento();
@@ -18,11 +22,16 @@ public:
 				//productos->
 				static int ingresarProducto();
 					//ingreso->
-					static void tipoConserva();
-					static void tipoAbarrote();
-					static void tipoEmbutido();
-				static void eliminarProducto();
-				static void modificarProducto();
+					template<class T>
+					static void tipoConserva(listaG<T>&);
+					template<class T>
+					static void tipoAbarrote(listaG<T>&);
+					template<class T>
+					static void tipoEmbutido(listaG<T>&);
+				template<class T>
+				static void eliminarProducto(listaG<T>&);
+				template<class T>
+				static void modificarProducto(listaG<T>&);
 
 		static int ventas();
 			//ventas->

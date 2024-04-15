@@ -68,7 +68,7 @@ int main() {
 	listaGenericaProducto->ingresarUltimo(*embutidoPtr);
 	cout << *listaGenericaProducto;
 
-	listaGenericaProducto->eliminarLugar(4);
+	listaGenericaProducto->eliminarLugar("Salami");
 
 	cout << *listaGenericaProducto;
 
@@ -106,7 +106,9 @@ int main() {
 -categoria invalida
 -fecha invalida
 -limite/existencia
--ingreso opcion menu
+-opciones menu de la interfaz
+	-ingreso de lugar para eliminar
+	-ingreso de sí o no para ingresar productos
 -lugar invalido en lista (eliminar inexistente)
 
 */

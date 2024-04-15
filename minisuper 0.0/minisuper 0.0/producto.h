@@ -17,6 +17,8 @@ public:
 	//operadores
 	virtual bool operator==(const producto& obj);
 
+	string getNombre();
+
 	//supongo que se usa la categoria con su % de ganancia para sacar la ganancia aqui
 	//**PREGUNTAR**
 	//tirar excepcion de categoria no existente

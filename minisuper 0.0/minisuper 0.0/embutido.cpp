@@ -27,6 +27,10 @@ embutido::~embutido() {
 	delete _empaquePtr;
 }
 
+string embutido::getNombre() {
+	return _nombreComercial;
+}
+
 string embutido::toString() const
 {
 	stringstream s;

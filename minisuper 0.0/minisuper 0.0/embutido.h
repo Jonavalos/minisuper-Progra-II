@@ -15,6 +15,8 @@ public:
 	embutido(const embutido& obj);
 	virtual ~embutido();
 
+	string getNombre();
+
 	virtual string toString() const;
 
 private:
