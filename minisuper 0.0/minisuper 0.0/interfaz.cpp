@@ -43,13 +43,13 @@ int interfaz::mantFacturas() {
 	return opc;
 }
 
-void interfaz::eliminarFact() {
-	//...
-}
-
-void interfaz::actualizarFact() {
-	//...
-}
+//void interfaz::eliminarFact() {
+//	//...
+//}
+//
+//void interfaz::actualizarFact() {
+//	//...
+//}
 
 int interfaz::mantProductos() {
 	int opc;
@@ -172,8 +172,8 @@ void interfaz::eliminarProducto(listaG<T>& lista) {
 	}
 }
 
-template<class T>
-void interfaz::modificarProducto(listaG<T>& lista) {
+template<class producto>
+void interfaz::modificarProducto(listaG<producto>& lista) {
 	int opc, nuevaExist, lugar;
 	double nuevoPrecio;
 
@@ -185,11 +185,11 @@ void interfaz::modificarProducto(listaG<T>& lista) {
 	cout << "Ingrese el lugar que desea modificar: "; cin >> lugar;
 	if (opc == 1) {
 		cout << "Ingrese el nuevo precio costo: "; cin >> nuevoPrecio;
-		lista.modificarPrecioCosto(lugar, nuevoPrecio);
+		(lista.getObjLugar(lugar)).setPrecioCosto(nuevoPrecio);
 	}
 	else {
 		cout << "Ingrese la nueva existencia: "; cin >> nuevaExist;
-		lista.modificarExistencia(lugar, nuevaExist);
+		(lista.getObjLugar(lugar)).setExistencia(nuevoPrecio);
 	}
 }
 
@@ -232,11 +232,19 @@ void interfaz::todosLosProd(listaG<T>& lista) {
 template<class T>
 void interfaz::prodDeDeterminadaCat(listaG<T>& lista) {
 	string cate;
+	int lugar = 1;
 
 	cout << "Reporte de Productos de Determinada Categoria" << endl;
 	cout << "Digite la categoria que desea mostrar(01, 02, 03): "; cin >> cate;
 
-	cout << lista.reportarCategoria(cate);
+	while (lugar <= lista.getCant() && lista.getNodoLugar(lugar) != nullptr) {
+		if (lista.getObjLugar(lugar).getCategoria() == cate) {
+			cout << lista.getObjLugar(lugar).toString();
+		}
+		else {
+			lugar++;
+		}
+	}
 }
 
 template<class T>
@@ -246,12 +254,12 @@ void interfaz::prodBajosExist(listaG<T>& lista) {
 	cout << lista.reportarBajosExistencia();
 }
 
-template<class T>
-void interfaz::factDeterminadoCliente(listaG<T>& lista) {
-
-}
-
-template<class T>
-void interfaz::mejoresClientes(listaG<T>& lista) {
-
-}
+//template<class T>
+//void interfaz::factDeterminadoCliente(listaG<T>& lista) {
+//
+//}
+//
+//template<class T>
+//void interfaz::mejoresClientes(listaG<T>& lista) {
+//
+//}

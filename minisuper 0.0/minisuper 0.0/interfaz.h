@@ -16,8 +16,8 @@ public:
 			//mantenimiento->
 			static int mantFacturas();
 				//facturas->
-				static void eliminarFact();
-				static void actualizarFact();
+				/*static void eliminarFact();
+				static void actualizarFact();*/
 			static int mantProductos();
 				//productos->
 				static int ingresarProducto();
@@ -45,10 +45,10 @@ public:
 			static void prodDeDeterminadaCat(listaG<T>&);
 			template<class T>
 			static void prodBajosExist(listaG<T>&);
-			template<class T>
+			/*template<class T>
 			static void factDeterminadoCliente(listaG<T>&);
 			template<class T>
-			static void mejoresClientes(listaG<T>&);
+			static void mejoresClientes(listaG<T>&);*/
 
 };
 
