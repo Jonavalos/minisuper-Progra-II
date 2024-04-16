@@ -13,6 +13,18 @@ conserva::~conserva()
 {
 }
 
+string conserva::getNombre() {
+	return _nombreComercial;
+}
+
+void conserva::setPrecioCosto(double nuevoPrecio) {
+	_precioCosto = nuevoPrecio;
+}
+
+void conserva::setExistencia(int nuevaExist) {
+	_existencia = nuevaExist;
+}
+
 string conserva::toString() const
 {
 	stringstream s;

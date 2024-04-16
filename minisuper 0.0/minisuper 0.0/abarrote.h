@@ -14,6 +14,10 @@ public:
 	abarrote(const abarrote& obj);
 	virtual ~abarrote();
 
+	virtual string getNombre();
+	virtual void setPrecioCosto(double);
+	virtual void setExistencia(int);
+
 	virtual string toString() const;
 
 private:

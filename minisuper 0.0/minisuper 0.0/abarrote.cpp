@@ -22,6 +22,18 @@ abarrote::~abarrote()
 {
 }
 
+string abarrote::getNombre() {
+	return _nombreComercial;
+}
+
+void abarrote::setPrecioCosto(double nuevoPrecio) {
+	_precioCosto = nuevoPrecio;
+}
+
+void abarrote::setExistencia(int nuevaExist) {
+	_existencia = nuevaExist;
+}
+
 string abarrote::toString() const
 {
 	stringstream s;

@@ -174,7 +174,23 @@ void interfaz::eliminarProducto(listaG<T>& lista) {
 
 template<class T>
 void interfaz::modificarProducto(listaG<T>& lista) {
-	//...
+	int opc, nuevaExist, lugar;
+	double nuevoPrecio;
+
+	cout << "Modificacion de Productos" << endl;
+	cout << "1. Modificar precio costo" << endl;
+	cout << "2. Modificar existencia" << endl;
+	cout << "Ingrese una opcion: "; cin >> opc; //excpModProduct
+
+	cout << "Ingrese el lugar que desea modificar: "; cin >> lugar;
+	if (opc == 1) {
+		cout << "Ingrese el nuevo precio costo: "; cin >> nuevoPrecio;
+		lista.modificarPrecioCosto(lugar, nuevoPrecio);
+	}
+	else {
+		cout << "Ingrese la nueva existencia: "; cin >> nuevaExist;
+		lista.modificarExistencia(lugar, nuevaExist);
+	}
 }
 
 int interfaz::ventas() {

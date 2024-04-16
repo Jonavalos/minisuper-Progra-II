@@ -16,6 +16,8 @@ public:
 	nodoG<T*> getNodoLugar(int lugar);
 	bool eliminarLugar(int lugar);
 	/*bool eliminarLugar(string);*/
+	bool modificarPrecioCosto(int, double);
+	bool modificarExistencia(int, int);
 
 	string toString() const;
 
@@ -141,6 +143,52 @@ inline bool listaG<T>::eliminarLugar(int lugar)
 
 }
 
+template<class T>
+inline bool listaG<T>::modificarPrecioCosto(int lugar, double nuevoPrecio) {
+	nodoG<T>* pex = head;
+	nodoG<T>* victima = nullptr;
+	int n = 1;
+
+	if (lugar == 1) {
+		pex->getObj()->setPrecioCosto(nuevoPrecio);
+		return true;
+	}
+	else {
+		while (pex->getNext() != nullptr) {
+			if (n + 1 == lugar) {
+				pex->getNext->getObj()->setPrecioCosto(nuevoPrecio);
+				return true;
+			}
+			n++;
+			pex = pex->getNext();
+		}
+	}
+	return false;
+}
+
+template<class T>
+inline bool listaG<T>::modificarExistencia(int lugar, int nuevaExist) {
+	nodoG<T>* pex = head;
+	nodoG<T>* victima = nullptr;
+	int n = 1;
+
+	if (lugar == 1) {
+		pex->getObj()->setExistencia(nuevaExist);
+		return true;
+	}
+	else {
+		while (pex->getNext() != nullptr) {
+			if (n + 1 == lugar) {
+				pex->getNext->getObj()->setExistencia(nuevaExist);
+				return true;
+			}
+			n++;
+			pex = pex->getNext();
+		}
+	}
+	return false;
+}
+
 //template<class T>
 //inline bool listaG<T>::eliminarLugar(string nombre) {
 //	nodoG<T>* pex = head;
@@ -154,7 +202,7 @@ inline bool listaG<T>::eliminarLugar(int lugar)
 //	}
 //	else {
 //		while (pex->getNext() != nullptr) {
-//			if (pex->getObj()->getNombre() == nombre) {	//*
+//			if (pex->getObj()->getNombre() == nombre) {
 //				victima = pex->getNext();
 //				pex->setNext(victima->getNext());
 //				delete victima;

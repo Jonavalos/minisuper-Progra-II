@@ -8,6 +8,10 @@ public:
 	conserva(string codigo, string nombreComercial, string descripcion, double precioCosto, string categoria, int existencia, int limite, bool envasado);
 	conserva(const conserva& obj);
 	virtual ~conserva();
+
+	virtual string getNombre();
+	virtual void setPrecioCosto(double);
+	virtual void setExistencia(int);
 	
 	virtual string toString() const;
 

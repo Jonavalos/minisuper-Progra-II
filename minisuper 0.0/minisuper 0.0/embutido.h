@@ -15,7 +15,9 @@ public:
 	embutido(const embutido& obj);
 	virtual ~embutido();
 
-	string getNombre();
+	virtual string getNombre();
+	virtual void setPrecioCosto(double);
+	virtual void setExistencia(int);
 
 	virtual string toString() const;
 

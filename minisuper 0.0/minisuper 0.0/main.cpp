@@ -4,6 +4,7 @@
 #include "abarrote.h"
 #include "embutido.h"
 #include "listaG.h"
+#include "interfaz.h"
 
 int main() {
 	//2
@@ -54,21 +55,19 @@ int main() {
 	embutido p8(p7);
 	cout << p8;*/
 
-	producto* ptr1 = new producto("001", "papas", "son papas", 1000, "02", 100, 100);
 	producto* ptr2 = new conserva("002", "miel", "es miel", 1000, "01", 100, 100, true);
 	producto* ptr4 = new prodPerecedero("003", "arroz", "es arroz", 1000, "02", 100, 100, 1, 1, 1, true, 300.5);
 	producto* abarrotePtr = new abarrote("004", "pan", "pan con queso", 650, "02", 100, 100, 1, 1, 1, true, 1.5, "Panaderia de pan");
 	producto* embutidoPtr = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 100, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
 	
 	listaG<producto>* listaGenericaProducto = new listaG<producto>();
-	listaGenericaProducto->ingresarUltimo(*ptr1);
 	listaGenericaProducto->ingresarUltimo(*ptr2);
 	listaGenericaProducto->ingresarUltimo(*ptr4);
 	listaGenericaProducto->ingresarUltimo(*abarrotePtr);
 	listaGenericaProducto->ingresarUltimo(*embutidoPtr);
 	cout << *listaGenericaProducto;
 
-	listaGenericaProducto->eliminarLugar("Salami");
+	interfaz::modificarProducto((listaG<producto>&)*listaGenericaProducto);
 
 	cout << *listaGenericaProducto;
 

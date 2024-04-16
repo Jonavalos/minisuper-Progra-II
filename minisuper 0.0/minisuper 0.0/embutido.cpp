@@ -31,6 +31,14 @@ string embutido::getNombre() {
 	return _nombreComercial;
 }
 
+void embutido::setPrecioCosto(double nuevoPrecio) {
+	_precioCosto = nuevoPrecio;
+}
+
+void embutido::setExistencia(int nuevaExist) {
+	_existencia = nuevaExist;
+}
+
 string embutido::toString() const
 {
 	stringstream s;
