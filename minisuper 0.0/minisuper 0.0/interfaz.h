@@ -35,7 +35,7 @@ public:
 
 		static int ventas();
 			//ventas->
-			static void crearFact();
+			/*static void crearFact();*/
 
 		static int reporte();
 			//reporte->

@@ -204,10 +204,10 @@ int interfaz::ventas() {
 	return opc;
 }
 
-void interfaz::crearFact() {
-	cout << "Crear facturas" << endl;
-	//...
-}
+//void interfaz::crearFact() {
+//	cout << "Crear facturas" << endl;
+//	//...
+//}
 
 int interfaz::reporte() {
 	int opc;
