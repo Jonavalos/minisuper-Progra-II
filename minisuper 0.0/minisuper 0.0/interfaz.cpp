@@ -241,7 +241,9 @@ void interfaz::prodDeDeterminadaCat(listaG<T>& lista) {
 
 template<class T>
 void interfaz::prodBajosExist(listaG<T>& lista) {
+	cout << "Reporte de Productos Bajos en Existencia" << endl;
 
+	cout << lista.reportarBajosExistencia();
 }
 
 template<class T>

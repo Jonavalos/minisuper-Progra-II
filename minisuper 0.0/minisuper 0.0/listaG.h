@@ -15,11 +15,10 @@ public:
 
 	nodoG<T*> getNodoLugar(int lugar);
 	bool eliminarLugar(int lugar);
-	/*bool eliminarLugar(string);*/
-	bool modificarPrecioCosto(int, double);
+	/*bool modificarPrecioCosto(int, double);
 	bool modificarExistencia(int, int);
 	string reportarCategoria(string);
-	string reportarBajosExistencia();
+	string reportarBajosExistencia();*/
 
 	string toString() const;
 
@@ -145,111 +144,86 @@ inline bool listaG<T>::eliminarLugar(int lugar)
 
 }
 
-template<class T>
-inline bool listaG<T>::modificarPrecioCosto(int lugar, double nuevoPrecio) {
-	nodoG<T>* pex = head;
-	nodoG<T>* victima = nullptr;
-	int n = 1;
-
-	if (lugar == 1) {
-		pex->getObj()->setPrecioCosto(nuevoPrecio);
-		return true;
-	}
-	else {
-		while (pex->getNext() != nullptr) {
-			if (n + 1 == lugar) {
-				pex->getNext->getObj()->setPrecioCosto(nuevoPrecio);
-				return true;
-			}
-			n++;
-			pex = pex->getNext();
-		}
-	}
-	return false;
-}
-
-template<class T>
-inline bool listaG<T>::modificarExistencia(int lugar, int nuevaExist) {
-	nodoG<T>* pex = head;
-	nodoG<T>* victima = nullptr;
-	int n = 1;
-
-	if (lugar == 1) {
-		pex->getObj()->setExistencia(nuevaExist);
-		return true;
-	}
-	else {
-		while (pex->getNext() != nullptr) {
-			if (n + 1 == lugar) {
-				pex->getNext->getObj()->setExistencia(nuevaExist);
-				return true;
-			}
-			n++;
-			pex = pex->getNext();
-		}
-	}
-	return false;
-}
-
-template<class T>
-inline string listaG<T>::reportarCategoria(string cate) {
-	stringstream s;
-
-	nodoG<T>* pex = head;
-	int n = 1;
-	while (pex != nullptr) {
-		if (pex->getObj()->getCategoria() == cate) {
-			s << n << " -> " << endl;
-			s << *pex->getObj() << endl;
-			pex = pex->getNext();
-			n++;
-		}
-	}
-
-	return s.str();
-}
-
-template<class T>
-inline string listaG<T>::reportarBajosExistencia() {
-	stringstream s;
-
-	nodoG<T>* pex = head;
-	int n = 1;
-	while (pex != nullptr) {
-		if (pex->getObj()->getExistencia() <= 0) {
-			s << n << " -> " << endl;
-			s << *pex->getObj() << endl;
-			pex = pex->getNext();
-			n++;
-		}
-	}
-
-	return s.str();
-}
-
 //template<class T>
-//inline bool listaG<T>::eliminarLugar(string nombre) {
+//inline bool listaG<T>::modificarPrecioCosto(int lugar, double nuevoPrecio) {
 //	nodoG<T>* pex = head;
 //	nodoG<T>* victima = nullptr;
+//	int n = 1;
 //
-//	if (pex->getObj()->getNombre() == nombre) {
-//		victima = head;
-//		head = head->getNext();
-//		delete victima;
+//	if (lugar == 1) {
+//		pex->getObj()->setPrecioCosto(nuevoPrecio);
 //		return true;
 //	}
 //	else {
 //		while (pex->getNext() != nullptr) {
-//			if (pex->getObj()->getNombre() == nombre) {
-//				victima = pex->getNext();
-//				pex->setNext(victima->getNext());
-//				delete victima;
+//			if (n + 1 == lugar) {
+//				pex->getNext->getObj()->setPrecioCosto(nuevoPrecio);
 //				return true;
 //			}
+//			n++;
 //			pex = pex->getNext();
 //		}
 //	}
 //	return false;
+//}
+
+//template<class T>
+//inline bool listaG<T>::modificarExistencia(int lugar, int nuevaExist) {
+//	nodoG<T>* pex = head;
+//	nodoG<T>* victima = nullptr;
+//	int n = 1;
+//
+//	if (lugar == 1) {
+//		pex->getObj()->setExistencia(nuevaExist);
+//		return true;
+//	}
+//	else {
+//		while (pex->getNext() != nullptr) {
+//			if (n + 1 == lugar) {
+//				pex->getNext->getObj()->setExistencia(nuevaExist);
+//				return true;
+//			}
+//			n++;
+//			pex = pex->getNext();
+//		}
+//	}
+//	return false;
+//}
+//
+//template<class T>
+//inline string listaG<T>::reportarCategoria(string cate) {
+//	stringstream s;
+//
+//	nodoG<T>* pex = head;
+//	int n = 1;
+//	while (pex != nullptr) {
+//		if (pex->getObj()->getCategoria() == cate) {
+//			s << n << " -> " << endl;
+//			s << *pex->getObj() << endl;
+//			pex = pex->getNext();
+//			n++;
+//		}
+//	}
+//
+//	return s.str();
+//}
+//
+//template<class T>
+//inline string listaG<T>::reportarBajosExistencia() {
+//	stringstream s;
+//
+//	nodoG<T>* pex = head;
+//	int n = 1;
+//	while (pex != nullptr) {
+//		if (pex->getObj()->getExistencia() <= 0) {
+//			s << n << " -> " << endl;
+//			s << *pex->getObj() << endl;
+//			pex = pex->getNext();
+//			n++;
+//		}
+//	}
+//
+//	return s.str();
 //}
 
 template<class T>

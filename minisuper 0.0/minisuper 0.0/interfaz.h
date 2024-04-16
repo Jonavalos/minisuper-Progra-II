@@ -30,8 +30,8 @@ public:
 					static void tipoEmbutido(listaG<T>&);
 				template<class T>
 				static void eliminarProducto(listaG<T>&);
-				template<class T>
-				static void modificarProducto(listaG<T>&);
+				template<class producto>
+				static void modificarProducto(listaG<producto>&);
 
 		static int ventas();
 			//ventas->
