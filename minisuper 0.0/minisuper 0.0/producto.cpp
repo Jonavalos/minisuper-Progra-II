@@ -38,6 +38,26 @@ bool producto::operator==(const producto& obj)
 	return false;
 }
 
+string producto::getNombre() {
+	return _nombreComercial;
+}
+
+void producto::setPrecioCosto(double nuevoPrecio) {
+	_precioCosto = nuevoPrecio;
+}
+
+void producto::setExistencia(int nuevaExist) {
+	_existencia = nuevaExist;
+}
+
+string producto::getCategoria() {
+	return _categoria;
+}
+
+int producto::getExistencia() {
+	return _existencia;
+}
+
 double producto::getGanancia() const
 {
 	return _precioCosto * categoria::porcentajeGanancia(_categoria);

@@ -39,11 +39,16 @@ public:
 
 		static int reporte();
 			//reporte->
-			static void todosLosProd();
-			static void prodDeDeterminadaCat();
-			static void prodBajosExist();
-			static void factDeterminadoCliente();
-			static void mejoresClientes();
+			template<class T>
+			static void todosLosProd(listaG<T>&);
+			template<class T>
+			static void prodDeDeterminadaCat(listaG<T>&);
+			template<class T>
+			static void prodBajosExist(listaG<T>&);
+			template<class T>
+			static void factDeterminadoCliente(listaG<T>&);
+			template<class T>
+			static void mejoresClientes(listaG<T>&);
 
 };
 

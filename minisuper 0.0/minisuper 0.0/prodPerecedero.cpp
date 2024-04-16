@@ -30,18 +30,6 @@ prodPerecedero::~prodPerecedero()
 	delete _perecederoPtr;
 }
 
-string prodPerecedero::getNombre() {
-	return _nombreComercial;
-}
-
-void prodPerecedero::setPrecioCosto(double nuevoPrecio) {
-	_precioCosto = nuevoPrecio;
-}
-
-void prodPerecedero::setExistencia(int nuevaExist) {
-	_existencia = nuevaExist;
-}
-
 string prodPerecedero::toString() const
 {
 	stringstream s;

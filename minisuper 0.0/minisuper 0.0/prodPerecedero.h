@@ -13,10 +13,6 @@ public:
 	prodPerecedero(const prodPerecedero& obj);
 	virtual ~prodPerecedero();
 
-	virtual string getNombre();
-	virtual void setPrecioCosto(double);
-	virtual void setExistencia(int);
-
 	virtual string toString() const;
 private:
 	bool _nacional;

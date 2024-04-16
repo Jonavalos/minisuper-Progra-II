@@ -18,6 +18,8 @@ public:
 	/*bool eliminarLugar(string);*/
 	bool modificarPrecioCosto(int, double);
 	bool modificarExistencia(int, int);
+	string reportarCategoria(string);
+	string reportarBajosExistencia();
 
 	string toString() const;
 
@@ -187,6 +189,42 @@ inline bool listaG<T>::modificarExistencia(int lugar, int nuevaExist) {
 		}
 	}
 	return false;
+}
+
+template<class T>
+inline string listaG<T>::reportarCategoria(string cate) {
+	stringstream s;
+
+	nodoG<T>* pex = head;
+	int n = 1;
+	while (pex != nullptr) {
+		if (pex->getObj()->getCategoria() == cate) {
+			s << n << " -> " << endl;
+			s << *pex->getObj() << endl;
+			pex = pex->getNext();
+			n++;
+		}
+	}
+
+	return s.str();
+}
+
+template<class T>
+inline string listaG<T>::reportarBajosExistencia() {
+	stringstream s;
+
+	nodoG<T>* pex = head;
+	int n = 1;
+	while (pex != nullptr) {
+		if (pex->getObj()->getExistencia() <= 0) {
+			s << n << " -> " << endl;
+			s << *pex->getObj() << endl;
+			pex = pex->getNext();
+			n++;
+		}
+	}
+
+	return s.str();
 }
 
 //template<class T>

@@ -17,9 +17,11 @@ public:
 	//operadores
 	virtual bool operator==(const producto& obj);
 
-	virtual string getNombre() = 0;
-	virtual void setPrecioCosto(double) = 0;
-	virtual void setExistencia(int) = 0;
+	virtual string getNombre();
+	virtual void setPrecioCosto(double);
+	virtual void setExistencia(int);
+	virtual string getCategoria();
+	int getExistencia();
 
 	//supongo que se usa la categoria con su % de ganancia para sacar la ganancia aqui
 	//**PREGUNTAR**

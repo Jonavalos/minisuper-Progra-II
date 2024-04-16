@@ -224,22 +224,32 @@ int interfaz::reporte() {
 	return opc;
 }
 
-void interfaz::todosLosProd() {
+template<class T>
+void interfaz::todosLosProd(listaG<T>& lista) {
+	cout << *lista;
+}
+
+template<class T>
+void interfaz::prodDeDeterminadaCat(listaG<T>& lista) {
+	string cate;
+
+	cout << "Reporte de Productos de Determinada Categoria" << endl;
+	cout << "Digite la categoria que desea mostrar(01, 02, 03): "; cin >> cate;
+
+	cout << lista.reportarCategoria(cate);
+}
+
+template<class T>
+void interfaz::prodBajosExist(listaG<T>& lista) {
 
 }
 
-void interfaz::prodDeDeterminadaCat() {
+template<class T>
+void interfaz::factDeterminadoCliente(listaG<T>& lista) {
 
 }
 
-void interfaz::prodBajosExist() {
-
-}
-
-void interfaz::factDeterminadoCliente() {
-
-}
-
-void interfaz::mejoresClientes() {
+template<class T>
+void interfaz::mejoresClientes(listaG<T>& lista) {
 
 }

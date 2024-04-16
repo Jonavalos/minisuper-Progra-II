@@ -132,6 +132,7 @@
     <ClCompile Include="carne.cpp" />
     <ClCompile Include="categoria.cpp" />
     <ClCompile Include="conserva.cpp" />
+    <ClCompile Include="controladora.cpp" />
     <ClCompile Include="embutido.cpp" />
     <ClCompile Include="empaque.cpp" />
     <ClCompile Include="fecha.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="carne.h" />
     <ClInclude Include="categoria.h" />
     <ClInclude Include="conserva.h" />
+    <ClInclude Include="controladora.h" />
     <ClInclude Include="embutido.h" />
     <ClInclude Include="empaque.h" />
     <ClInclude Include="fecha.h" />

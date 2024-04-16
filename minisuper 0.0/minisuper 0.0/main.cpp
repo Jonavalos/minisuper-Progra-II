@@ -1,10 +1,4 @@
-#include "bibliotecas.h"
-#include "conserva.h"
-#include "prodPerecedero.h"
-#include "abarrote.h"
-#include "embutido.h"
-#include "listaG.h"
-#include "interfaz.h"
+#include "controladora.h"
 
 int main() {
 	//2
@@ -67,9 +61,7 @@ int main() {
 	listaGenericaProducto->ingresarUltimo(*embutidoPtr);
 	cout << *listaGenericaProducto;
 
-	interfaz::modificarProducto((listaG<producto>&)*listaGenericaProducto);
-
-	cout << *listaGenericaProducto;
+	interfaz::menu();
 
 	delete listaGenericaProducto;
 	
