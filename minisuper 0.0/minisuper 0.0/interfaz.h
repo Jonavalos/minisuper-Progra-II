@@ -169,7 +169,7 @@ void interfaz::modificarProducto(listaG<T>& lista) {
 	}
 	else {
 		cout << "Ingrese la nueva existencia: "; cin >> nuevaExist;
-		(lista.getObjLugar(lugar))->setExistencia(nuevoPrecio);
+		(lista.getObjLugar(lugar))->setExistencia(nuevaExist);
 	}
 }
 
@@ -187,8 +187,8 @@ void interfaz::prodDeDeterminadaCat(listaG<T>& lista) {
 	cout << "Digite la categoria que desea mostrar(01, 02, 03): "; cin >> cate;
 
 	while (lugar <= lista.getCant() && lista.getNodoLugar(lugar) != nullptr) {
-		if (lista.getObjLugar(lugar).getCategoria() == cate) {
-			cout << lista.getObjLugar(lugar).toString();
+		if (lista.getObjLugar(lugar)->getCategoria() == cate) {
+			cout << lista.getObjLugar(lugar)->toString();
 		}
 		else {
 			lugar++;

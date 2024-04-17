@@ -48,7 +48,6 @@ int main() {
 	embutido p7("005", "Salami", "Salami de la salada", 1150, "03", 100, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
 	embutido p8(p7);
 	cout << p8;*/
-	controladora co;
 
 	producto* ptr2 = new conserva("002", "miel", "es miel", 1000, "01", 100, 100, true);
 	producto* ptr4 = new prodPerecedero("003", "arroz", "es arroz", 1000, "02", 100, 100, 1, 1, 1, true, 300.5);
@@ -60,6 +59,7 @@ int main() {
 	listaGenericaProducto->ingresarUltimo(*ptr4);
 	listaGenericaProducto->ingresarUltimo(*abarrotePtr);
 	listaGenericaProducto->ingresarUltimo(*embutidoPtr);
+	controladora co(*listaGenericaProducto);
 	
 	co.control0();
 

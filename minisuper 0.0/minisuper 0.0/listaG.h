@@ -107,7 +107,7 @@ inline nodoG<T>* listaG<T>::getNodoLugar(int lugar)
 			return nullptr;
 		}
 	}
-
+	return nullptr;
 }
 
 template<class T>

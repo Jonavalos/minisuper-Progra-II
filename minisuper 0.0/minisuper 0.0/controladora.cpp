@@ -27,6 +27,6 @@ void controladora::control0() {
 }
 
 void controladora::control1() {
-	interfaz::modificarProducto(*lista);
+	interfaz::prodDeDeterminadaCat(*lista);
 }
 
