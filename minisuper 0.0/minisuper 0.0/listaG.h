@@ -86,7 +86,7 @@ inline void listaG<T>::ingresarUltimo(const T& obj)
 
 }
 
-template<class T>
+template<class T>//hacer private
 inline nodoG<T>* listaG<T>::getNodoLugar(int lugar)
 {
 	nodoG<T>* pex = head;
