@@ -74,7 +74,7 @@ int main() {
 -usar los ifndef define endif
 -con los accesores booleanos, usar 'is' en lugar de 'get' (isOpen, getOpen)
 -usar todos los tipos de constructores hasta evacuar dudas con georges (ver ejemplo en prodPerecedero)
-
+-templates en .h y no .cpp
 */
 
 
