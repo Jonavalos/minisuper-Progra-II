@@ -13,9 +13,9 @@ public:
 	void ingresarPrimero(const T& obj);
 	void ingresarUltimo(const T& obj);
 
-	nodoG<T*> getNodoLugar(int lugar);
+	nodoG<T>* getNodoLugar(int lugar);
+	T* getObjLugar(int lugar);
 	bool eliminarLugar(int lugar);
-	T getObjLugar(int lugar);
 	int getCant();
 
 	string toString() const;
@@ -29,9 +29,6 @@ private:
 	nodoG<T>* head;
 
 };
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
 
 template<class T>
 inline listaG<T>::listaG()
@@ -90,9 +87,9 @@ inline void listaG<T>::ingresarUltimo(const T& obj)
 }
 
 template<class T>
-inline nodoG<T*> listaG<T>::getNodoLugar(int lugar)
+inline nodoG<T>* listaG<T>::getNodoLugar(int lugar)
 {
-	nodoG<T*> pex = head;
+	nodoG<T>* pex = head;
 	int n = 0;
 
 	if (lugar == 1) {
@@ -100,7 +97,7 @@ inline nodoG<T*> listaG<T>::getNodoLugar(int lugar)
 	}
 	else {
 		while (n + 1 < lugar && pex != nullptr) {
-			pex = pex.getNext();
+			pex = pex->getNext();
 			n++;
 		}
 		if (n + 1 == lugar) {
@@ -111,6 +108,12 @@ inline nodoG<T*> listaG<T>::getNodoLugar(int lugar)
 		}
 	}
 
+}
+
+template<class T>
+inline T* listaG<T>::getObjLugar(int lugar)
+{
+	return getNodoLugar(lugar)->getObj();
 }
 
 template<class T>
@@ -143,37 +146,14 @@ inline bool listaG<T>::eliminarLugar(int lugar)
 }
 
 template<class T>
-inline T listaG<T>::getObjLugar(int lugar)
-{
-	nodoG<T*> pex = head;
-	int n = 0;
-
-	if (lugar == 1) {
-		return pex.getObj();
-	}
-	else {
-		while (n + 1 < lugar && pex != nullptr) {
-			pex = pex.getNext();
-			n++;
-		}
-		if (n + 1 == lugar) {
-			return pex.getObj();
-		}
-		if (pex == nullptr) {
-			return nullptr;
-		}
-	}
-}
-
-template<class T>
 inline int listaG<T>::getCant()
 {
-	nodoG<T*> pex = head;
+	nodoG<T>* pex = head;
 	int n = 0;
 
 	while (pex != nullptr) {
 		n++;
-		pex = pex.getNext();
+		pex = pex->getNext();
 	}
 
 	return n;
@@ -187,7 +167,7 @@ inline string listaG<T>::toString() const
 	int n = 1;
 	s << " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ LISTA ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ " << endl;
 	while (pex != nullptr) {
-		s << n <<" -> " << endl;
+		s << n << " -> " << endl;
 		s << *pex->getObj() << endl;
 		pex = pex->getNext();
 		n++;
@@ -197,6 +177,6 @@ inline string listaG<T>::toString() const
 }
 
 
-
 #endif // !LISTAG_H
+
 
