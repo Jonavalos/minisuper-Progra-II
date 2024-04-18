@@ -49,10 +49,10 @@ int main() {
 	embutido p8(p7);
 	cout << p8;*/
 
-	producto* ptr2 = new conserva("002", "miel", "es miel", 1000, "01", 100, 100, true);	
+	producto* ptr2 = new conserva("002", "miel", "es miel", 1000, "01", 1, 100, true);	
 	producto* ptr4 = new prodPerecedero("003", "arroz", "es arroz", 1000, "02", 100, 100, 1, 1, 1, true, 300.5);
 	producto* abarrotePtr = new abarrote("004", "pan", "pan con queso", 650, "02", 100, 100, 1, 1, 1, true, 1.5, "Panaderia de pan");
-	producto* embutidoPtr = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 100, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
+	producto* embutidoPtr = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 1, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
 	producto* ptr3 = new conserva("006", "algo", "es algo", 1000, "01", 100, 100, true);
 
 	listaG<producto>* listaGenericaProducto = new listaG<producto>();
