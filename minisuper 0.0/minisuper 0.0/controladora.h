@@ -14,7 +14,21 @@ public:
 	int controlMenu();
 
 	void control0();
-	void control1();
+	int control1();
+		int control1_1();
+			void control1_1_1();
+			void control1_1_2();
+			void control1_1_3();
+		void control1_2();
+		void control1_3();
+	void control2();
+	int control3();
+		void control3_1();
+		void control3_2();
+		void control3_3();
+		void control3_4();
+		void control3_5();
+	
 
 private:
 

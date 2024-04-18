@@ -131,6 +131,7 @@
     <ClCompile Include="baseObj.cpp" />
     <ClCompile Include="carne.cpp" />
     <ClCompile Include="categoria.cpp" />
+    <ClCompile Include="cliente.cpp" />
     <ClCompile Include="conserva.cpp" />
     <ClCompile Include="controladora.cpp" />
     <ClCompile Include="embutido.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="bibliotecas.h" />
     <ClInclude Include="carne.h" />
     <ClInclude Include="categoria.h" />
+    <ClInclude Include="cliente.h" />
     <ClInclude Include="conserva.h" />
     <ClInclude Include="controladora.h" />
     <ClInclude Include="embutido.h" />

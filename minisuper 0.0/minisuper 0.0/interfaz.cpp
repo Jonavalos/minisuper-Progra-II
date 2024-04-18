@@ -22,38 +22,6 @@ int interfaz::menu() {
 int interfaz::mantenimiento() {
 	int opc;
 
-	cout << "Menu de Mantenimiento" << endl;
-	cout << "1. Facturas" << endl;
-	cout << "2. Productos" << endl;
-	cout << "3. Retornar" << endl;
-	cout << "Ingrese una opcion: "; cin >> opc; //excpMant
-
-	return opc;
-}
-
-int interfaz::mantFacturas() {
-	int opc;
-
-	cout << "Menu de Facturas" << endl;
-	cout << "1. Eliminar factura" << endl;
-	cout << "2. Actualizar factura" << endl;
-	cout << "3. Retornar" << endl;
-	cout << "Ingrese una opcion: "; cin >> opc; //excpMantFact
-
-	return opc;
-}
-
-//void interfaz::eliminarFact() {
-//	//...
-//}
-//
-//void interfaz::actualizarFact() {
-//	//...
-//}
-
-int interfaz::mantProductos() {
-	int opc;
-
 	cout << "Menu de Ventas" << endl;
 	cout << "1. Ingreso productos" << endl;
 	cout << "2. Eliminar productos" << endl;
@@ -77,23 +45,10 @@ int interfaz::ingresarProducto() {
 	return opc;
 }
 
-
-
-int interfaz::ventas() {
-	int opc;
-
-	cout << "Menu de Ventas" << endl;
-	cout << "1. Crear nactura nueva" << endl;
-	cout << "2. Retornar" << endl;
-	cout << "Ingrese una opcion: "; cin >> opc; //excpVentas
-
-	return opc;
+void interfaz::crearFact() {
+	cout << "Crear facturas" << endl;
+	//...
 }
-
-//void interfaz::crearFact() {
-//	cout << "Crear facturas" << endl;
-//	//...
-//}
 
 int interfaz::reporte() {
 	int opc;
@@ -109,15 +64,3 @@ int interfaz::reporte() {
 
 	return opc;
 }
-
-
-
-//template<class T>
-//void interfaz::factDeterminadoCliente(listaG<T>& lista) {
-//
-//}
-//
-//template<class T>
-//void interfaz::mejoresClientes(listaG<T>& lista) {
-//
-//}

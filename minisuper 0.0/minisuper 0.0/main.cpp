@@ -64,6 +64,8 @@ int main() {
 	controladora co(listaGenericaProducto);
 	co.control0();
 
+
+
 	delete listaGenericaProducto;
 	
 

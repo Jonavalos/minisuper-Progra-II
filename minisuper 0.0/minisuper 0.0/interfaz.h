@@ -13,12 +13,6 @@ public:
 	static int menu();
 	//menu->
 		static int mantenimiento();
-			//mantenimiento->
-			static int mantFacturas();
-				//facturas->
-				/*static void eliminarFact();
-				static void actualizarFact();*/
-			static int mantProductos();
 				//productos->
 				static int ingresarProducto();
 					//ingreso->
@@ -33,9 +27,8 @@ public:
 				template<class producto>
 				static void modificarProducto(listaG<producto>&);
 
-		static int ventas();
-			//ventas->
-			/*static void crearFact();*/
+		/*ventas->*/
+		static void crearFact();
 
 		static int reporte();
 			//reporte->
@@ -45,10 +38,10 @@ public:
 			static void prodDeDeterminadaCat(listaG<T>&);
 			template<class T>
 			static void prodBajosExist(listaG<T>&);
-			/*template<class T>
+			template<class T>
 			static void factDeterminadoCliente(listaG<T>&);
 			template<class T>
-			static void mejoresClientes(listaG<T>&);*/
+			static void mejoresClientes(listaG<T>&);
 
 };
 
@@ -76,7 +69,7 @@ void interfaz::tipoConserva(listaG<T>& lista) {
 	else { envasado = false; }
 
 	producto* prod = new conserva(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, envasado);
-	lista.ingresarUltimo(prod);
+	lista.ingresarUltimo(*prod);
 }
 
 template<class T>
@@ -103,7 +96,7 @@ void interfaz::tipoAbarrote(listaG<T>& lista) {
 
 
 	producto* prod = new abarrote(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, dia, mes, anio, nacional, peso, empresaNombre);
-	lista.ingresarUltimo(prod);
+	lista.ingresarUltimo(*prod);
 }
 
 template<class T>
@@ -133,7 +126,7 @@ void interfaz::tipoEmbutido(listaG<T>& lista) {
 	cout << "Marca: "; cin >> marca;
 
 	producto* prod = new embutido(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, dia, mes, anio, nacional, peso, nombreAnimal, parteDelAnimal, tripa, marca);
-	lista.ingresarUltimo(prod);
+	lista.ingresarUltimo(*prod);
 }
 
 template<class T>
@@ -175,7 +168,7 @@ void interfaz::modificarProducto(listaG<T>& lista) {
 
 template<class T>
 void interfaz::todosLosProd(listaG<T>& lista) {
-	cout << *lista;
+	cout << lista.toString();
 }
 
 template<class T>
@@ -190,17 +183,34 @@ void interfaz::prodDeDeterminadaCat(listaG<T>& lista) {
 		if (lista.getObjLugar(lugar)->getCategoria() == cate) {
 			cout << lista.getObjLugar(lugar)->toString();
 		}
-		//else {
-			lugar++;
-		//}
+		lugar++;
 	}
 }
 
 template<class T>
 void interfaz::prodBajosExist(listaG<T>& lista) {
+	int lugar = 1;
+
 	cout << "Reporte de Productos Bajos en Existencia" << endl;
 
-	cout << lista.reportarBajosExistencia();
+	while (lugar <= lista.getCant() && lista.getNodoLugar(lugar) != nullptr) {
+		if (lista.getObjLugar(lugar)->getExistencia() <= 1) {
+			cout << lista.getObjLugar(lugar)->toString();
+		}
+		lugar++;
+	}
+}
+
+template<class T>
+void interfaz::factDeterminadoCliente(listaG<T>& lista) {
+	int lugar = 1;
+
+	cout << "Reporte de Clientes por su Cedula" << endl;
+}
+
+template<class T>
+void interfaz::mejoresClientes(listaG<T>& lista) {
+
 }
 
 
