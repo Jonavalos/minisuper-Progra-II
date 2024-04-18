@@ -5,10 +5,10 @@
 
 class controladora {
 public:
-	//inhabilitar constructores de copia buscar ejemplo con deletes
+	//inhabilitar constructores de copia buscar ejemplo con deletes, no se ocuparia crear mas de una controladora
 	controladora();
 	//template<class T>
-	controladora(listaG<producto>&);
+	controladora(listaG<producto>*);
 	virtual ~controladora();
 
 	int controlMenu();
@@ -22,9 +22,9 @@ private:
 
 };
 
-//template<class producto>
-inline controladora::controladora(listaG<producto>& nuevaLista) {
-	lista = &nuevaLista;
+//template<class producto> //borrar para la version final
+inline controladora::controladora(listaG<producto>* nuevaLista) {
+	lista = nuevaLista;
 }
 
 #endif // !CONTROLADORA_H

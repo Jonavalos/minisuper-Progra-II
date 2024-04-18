@@ -190,9 +190,9 @@ void interfaz::prodDeDeterminadaCat(listaG<T>& lista) {
 		if (lista.getObjLugar(lugar)->getCategoria() == cate) {
 			cout << lista.getObjLugar(lugar)->toString();
 		}
-		else {
+		//else {
 			lugar++;
-		}
+		//}
 	}
 }
 
