@@ -32,3 +32,15 @@ double carrito::getPrecioAcumulado()
 {
 	return _precioAcumulado;
 }
+
+void carrito::setCompraPtr(compraProducto* c)
+{
+}
+
+void carrito::setProducto(producto* prod)
+{
+}
+
+void carrito::setPrecioAcumulado()
+{
+}

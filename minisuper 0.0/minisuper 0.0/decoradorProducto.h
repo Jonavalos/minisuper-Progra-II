@@ -7,6 +7,8 @@ class decoradorProducto :public decoradorAbs	//HACER .CPP
 {												//ver que tan necesario es hacer un decorador para cada subclase producto
 												//depende si se va a trabajar solo con producto*
 public:
+	decoradorProducto()
+		: decoradorAbs(0.0, nullptr), _productoPtr(nullptr) {}
 	decoradorProducto(compraProducto* compraPtr, producto* productoPtr)
 		: decoradorAbs(productoPtr->getPrecioCosto(), compraPtr), _productoPtr(productoPtr) {}
 	virtual ~decoradorProducto(){}
@@ -22,6 +24,17 @@ public:
 	virtual double getPrecio() { //verificar impuestos y cosas
 		return _productoPtr->getPrecioCosto();
 	}
+	virtual void setCompraPtr(compraProducto* c) {
+		this->_compraPtr = c;
+	}
+	virtual void setProducto(producto* prod) {
+		_productoPtr = prod;
+	}
+	virtual void setPrecioAcumulado() {
+		if (_productoPtr != nullptr)
+			_precioAcumulado = _productoPtr->getPrecioCosto();
+	}
+
 	virtual string toString() {
 		stringstream s;
 		s << this->getNombre()<<" [ " << this->getCodigo()<<" ]	- >" << "	Precio: " << this->getPrecio() << endl;

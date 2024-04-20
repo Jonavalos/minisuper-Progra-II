@@ -10,3 +10,10 @@ cliente::cliente(const cliente& cli) : _cedula(cli._cedula) {
 cliente::~cliente() {
 
 }
+
+string cliente::toString() const
+{
+    stringstream s;
+    s << "Cedula: " << _cedula << endl;
+    return s.str();
+}

@@ -8,7 +8,7 @@ public:
 	cliente(string);
 	cliente(const cliente&);
 	virtual ~cliente();
-
+	string toString() const;
 private:
 
 	string _cedula;

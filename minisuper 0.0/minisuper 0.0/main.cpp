@@ -1,6 +1,8 @@
 #include "controladora.h"
 #include "decoradorProducto.h"
 #include "carrito.h"
+#include "cliente.h"
+#include "venta.h"
 int main() {
 	//2
 	//cout << "hello world!" << endl;
@@ -66,15 +68,25 @@ int main() {
 	//co.control0();
 
 	compraProducto* car1 = new carrito();
-	decoradorProducto* decMiel = new decoradorProducto(car1, miel);
-	decoradorProducto* decArroz = new decoradorProducto(decMiel, arroz);
-	decoradorProducto* decPan = new decoradorProducto(decArroz, pan);
-	decoradorProducto* decSalami= new decoradorProducto(decPan, salami);
+	compraProducto* decMiel = new decoradorProducto(car1, miel);
+	compraProducto* decArroz = new decoradorProducto(decMiel, arroz);
+	compraProducto* decPan = new decoradorProducto(decArroz, pan);
+	compraProducto* decSalami= new decoradorProducto();
+	decSalami->setCompraPtr(decPan);
+	decSalami->setProducto(salami);
+	decSalami->setPrecioAcumulado();
 
-	cout << decSalami->toString() << endl;
+	/*cout << decSalami->toString() << endl;
 	cout << "precio acumulado: " << endl;
-	cout << decSalami->getPrecioAcumulado() << endl;
+	cout << decSalami->getPrecioAcumulado() << endl;*/
 
+	fecha* f1 = new fecha(1, 1, 1);
+	cliente* client1 = new cliente("1111");
+	venta* venta1 = new venta(client1, f1, decSalami);
+	cout << venta1->toString() << endl;
+	
+	
+	
 	delete listaGenericaProducto;
 	
 
@@ -83,6 +95,9 @@ int main() {
 //TO DO
 /*
 -verificar impuestos en decoradorProducto
+-hacer .cpp de decoradorProducto
+-cuandos e añade un producto al carrito, disminuir su existencia en 1
+-verificar que se pueda añadir al carrito segun sus existencias
 
 */
 
