@@ -130,10 +130,14 @@
     <ClCompile Include="abarrote.cpp" />
     <ClCompile Include="baseObj.cpp" />
     <ClCompile Include="carne.cpp" />
+    <ClCompile Include="carrito.cpp" />
     <ClCompile Include="categoria.cpp" />
     <ClCompile Include="cliente.cpp" />
+    <ClCompile Include="compraProducto.cpp" />
     <ClCompile Include="conserva.cpp" />
     <ClCompile Include="controladora.cpp" />
+    <ClCompile Include="decoradorAbs.cpp" />
+    <ClCompile Include="decoradorProducto.cpp" />
     <ClCompile Include="embutido.cpp" />
     <ClCompile Include="empaque.cpp" />
     <ClCompile Include="fecha.cpp" />
@@ -144,16 +148,21 @@
     <ClCompile Include="perecedero.cpp" />
     <ClCompile Include="prodPerecedero.cpp" />
     <ClCompile Include="producto.cpp" />
+    <ClCompile Include="venta.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abarrote.h" />
     <ClInclude Include="baseObj.h" />
     <ClInclude Include="bibliotecas.h" />
     <ClInclude Include="carne.h" />
+    <ClInclude Include="carrito.h" />
     <ClInclude Include="categoria.h" />
     <ClInclude Include="cliente.h" />
+    <ClInclude Include="compraProducto.h" />
     <ClInclude Include="conserva.h" />
     <ClInclude Include="controladora.h" />
+    <ClInclude Include="decoradorAbs.h" />
+    <ClInclude Include="decoradorProducto.h" />
     <ClInclude Include="embutido.h" />
     <ClInclude Include="empaque.h" />
     <ClInclude Include="fecha.h" />
@@ -163,6 +172,7 @@
     <ClInclude Include="perecedero.h" />
     <ClInclude Include="prodPerecedero.h" />
     <ClInclude Include="producto.h" />
+    <ClInclude Include="venta.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

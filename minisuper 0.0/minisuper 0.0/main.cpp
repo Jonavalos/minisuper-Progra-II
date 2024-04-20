@@ -1,5 +1,6 @@
 #include "controladora.h"
-
+#include "decoradorProducto.h"
+#include "carrito.h"
 int main() {
 	//2
 	//cout << "hello world!" << endl;
@@ -49,28 +50,42 @@ int main() {
 	embutido p8(p7);
 	cout << p8;*/
 
-	producto* ptr2 = new conserva("002", "miel", "es miel", 1000, "01", 1, 100, true);	
-	producto* ptr4 = new prodPerecedero("003", "arroz", "es arroz", 1000, "02", 100, 100, 1, 1, 1, true, 300.5);
-	producto* abarrotePtr = new abarrote("004", "pan", "pan con queso", 650, "02", 100, 100, 1, 1, 1, true, 1.5, "Panaderia de pan");
-	producto* embutidoPtr = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 1, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
-	producto* ptr3 = new conserva("006", "algo", "es algo", 1000, "01", 100, 100, true);
+	producto* miel = new conserva("002", "miel", "es miel", 1000, "01", 1, 100, true);	
+	producto* arroz = new prodPerecedero("003", "arroz", "es arroz", 1000, "02", 100, 100, 1, 1, 1, true, 300.5);
+	producto* pan = new abarrote("004", "pan", "pan con queso", 650, "02", 100, 100, 1, 1, 1, true, 1.5, "Panaderia de pan");
+	producto* salami = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 1, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
+	producto* algo = new conserva("006", "algo", "es algo", 1000, "01", 100, 100, true);
 
 	listaG<producto>* listaGenericaProducto = new listaG<producto>();
-	listaGenericaProducto->ingresarUltimo(*ptr2);
-	listaGenericaProducto->ingresarUltimo(*ptr4);
-	listaGenericaProducto->ingresarUltimo(*abarrotePtr);
-	listaGenericaProducto->ingresarUltimo(*embutidoPtr);
-	listaGenericaProducto->ingresarUltimo(*ptr3);
-	controladora co(listaGenericaProducto);
-	co.control0();
+	listaGenericaProducto->ingresarUltimo(*miel);
+	listaGenericaProducto->ingresarUltimo(*arroz);
+	listaGenericaProducto->ingresarUltimo(*pan);
+	listaGenericaProducto->ingresarUltimo(*salami);
+	listaGenericaProducto->ingresarUltimo(*algo);
+	//controladora co(listaGenericaProducto);
+	//co.control0();
 
+	compraProducto* car1 = new carrito();
+	decoradorProducto* decMiel = new decoradorProducto(car1, miel);
+	decoradorProducto* decArroz = new decoradorProducto(decMiel, arroz);
+	decoradorProducto* decPan = new decoradorProducto(decArroz, pan);
+	decoradorProducto* decSalami= new decoradorProducto(decPan, salami);
 
+	cout << decSalami->toString() << endl;
+	cout << "precio acumulado: " << endl;
+	cout << decSalami->getPrecioAcumulado() << endl;
 
 	delete listaGenericaProducto;
 	
 
 	return 0;
 }
+//TO DO
+/*
+-verificar impuestos en decoradorProducto
+
+*/
+
 
 //Recomendaciones:
 /*

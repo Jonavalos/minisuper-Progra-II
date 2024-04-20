@@ -38,8 +38,18 @@ bool producto::operator==(const producto& obj)
 	return false;
 }
 
+string producto::getCodigo()
+{
+	return _codigo;
+}
+
 string producto::getNombre() {
 	return _nombreComercial;
+}
+
+double producto::getPrecioCosto()
+{
+	return _precioCosto;
 }
 
 void producto::setPrecioCosto(double nuevoPrecio) {

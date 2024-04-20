@@ -17,7 +17,9 @@ public:
 	//operadores
 	virtual bool operator==(const producto& obj);
 
+	virtual string getCodigo();
 	virtual string getNombre();
+	virtual double getPrecioCosto();
 	virtual void setPrecioCosto(double);
 	virtual void setExistencia(int);
 	virtual string getCategoria();
