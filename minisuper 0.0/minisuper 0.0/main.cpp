@@ -52,7 +52,7 @@ int main() {
 	embutido p8(p7);
 	cout << p8;*/
 
-	producto* miel = new conserva("002", "miel", "es miel", 1000, "01", 1, 100, true);	
+	producto* miel = new conserva("002", "miel", "es miel", 1020, "01", 1, 100, true);	
 	producto* arroz = new prodPerecedero("003", "arroz", "es arroz", 1000, "02", 100, 100, 1, 1, 1, true, 300.5);
 	producto* pan = new abarrote("004", "pan", "pan con queso", 650, "02", 100, 100, 1, 1, 1, true, 1.5, "Panaderia de pan");
 	producto* salami = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 1, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
@@ -71,10 +71,14 @@ int main() {
 	compraProducto* decMiel = new decoradorProducto(car1, miel);
 	compraProducto* decArroz = new decoradorProducto(decMiel, arroz);
 	compraProducto* decPan = new decoradorProducto(decArroz, pan);
-	compraProducto* decSalami= new decoradorProducto();
-	decSalami->setCompraPtr(decPan);
-	decSalami->setProducto(salami);
-	decSalami->setPrecioAcumulado();
+	compraProducto* decSalami= new decoradorProducto(decPan, salami);
+	compraProducto* decArroz2 = new decoradorProducto(decSalami, arroz);
+	compraProducto* decMiel2 = new decoradorProducto(decArroz2, miel);
+	compraProducto* decMiel3 = new decoradorProducto(decMiel2, miel);
+
+	//decSalami->setCompraPtr(decPan);
+	//decSalami->setProducto(salami);
+	//decSalami->setPrecioAcumulado();
 
 	/*cout << decSalami->toString() << endl;
 	cout << "precio acumulado: " << endl;
@@ -82,7 +86,7 @@ int main() {
 
 	fecha* f1 = new fecha(1, 1, 1);
 	cliente* client1 = new cliente("1111");
-	venta* venta1 = new venta(client1, f1, decSalami);
+	venta* venta1 = new venta(client1, f1, decMiel3);
 	cout << venta1->toString() << endl;
 	
 	
