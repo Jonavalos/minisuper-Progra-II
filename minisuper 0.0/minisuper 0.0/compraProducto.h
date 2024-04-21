@@ -5,8 +5,8 @@
 class compraProducto
 {
 public:
-	compraProducto(double precioAcumulado) : _precioAcumulado(precioAcumulado){}
-	virtual ~compraProducto(){}
+	compraProducto(double precioAcumulado);
+	virtual ~compraProducto();
 	virtual string getNombre() = 0;
 	virtual string getCodigo() = 0;
 	virtual double getPrecio() = 0;

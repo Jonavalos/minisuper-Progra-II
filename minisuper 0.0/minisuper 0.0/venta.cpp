@@ -2,7 +2,7 @@
 
 venta::venta() : _cliente(nullptr), _fecha(nullptr), _decProducto(nullptr){}
 
-venta::venta(cliente* client, fecha* fech, compraProducto* decProd): _cliente(client), _fecha(fech), _decProducto(decProd){}
+venta::venta(cliente* client, compraProducto* decProd): _cliente(client), _decProducto(decProd){}
 
 
 venta::~venta()

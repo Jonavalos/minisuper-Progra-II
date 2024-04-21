@@ -67,7 +67,7 @@ int controladora::control1() {
 }
 
 void controladora::control2() {
-	interfaz::crearFact();
+	interfaz::crearFact(*lista);
 }
 
 int controladora::control3() {

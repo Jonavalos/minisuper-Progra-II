@@ -5,8 +5,8 @@
 class decoradorAbs: public compraProducto
 {
 public:
-	decoradorAbs(double precioAcumulado, compraProducto* compraPtr): compraProducto(precioAcumulado), _compraPtr(compraPtr) {}
-	virtual ~decoradorAbs(){}
+	decoradorAbs(double precioAcumulado, compraProducto* compraPtr);
+	virtual ~decoradorAbs();
 
 	virtual string getNombre() = 0;
 	virtual string getCodigo() = 0;

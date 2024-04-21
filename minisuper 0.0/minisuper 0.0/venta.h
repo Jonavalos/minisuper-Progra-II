@@ -9,7 +9,7 @@ class venta
 {
 public:
 	venta();
-	venta(cliente* client, fecha* fech, compraProducto* decProd);
+	venta(cliente* client, compraProducto* decProd);
 	virtual ~venta();
 
 	string toString() const;

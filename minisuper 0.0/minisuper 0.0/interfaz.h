@@ -6,6 +6,10 @@
 #include "abarrote.h"
 #include "embutido.h"
 #include "listaG.h"
+#include "decoradorProducto.h"
+#include "carrito.h"
+#include "cliente.h"
+#include "venta.h"
 
 class interfaz {
 public:
@@ -28,7 +32,8 @@ public:
 				static void modificarProducto(listaG<producto>&);
 
 		/*ventas->*/
-		static void crearFact();
+		template<class T>
+		static void crearFact(listaG<T>& lista);
 
 		static int reporte();
 			//reporte->
@@ -213,5 +218,28 @@ void interfaz::mejoresClientes(listaG<T>& lista) {
 
 }
 
+template<class T>
+void interfaz::crearFact(listaG<T>& lista) {
+	//string cedula;
+	//int lugar;
+
+	///*auto now = chrono::system_clock::now();
+	//time_t now_c = chrono::system_clock::to_time_t(now);*/
+
+	//cout << "Ventas" << endl;
+	//cout << "Ingrese su cedula: "; cin >> cedula;
+	//cliente* cliente1 = new cliente(cedula);
+	//
+	//do {
+	//	//system("cls");
+	//	cout << lista.toString() << endl;
+	//	cout << "Digite el lugar del producto que desea comprar: "; cin >> lugar;
+	//	compraProducto* carrito = new carrito()
+	//	compraProducto* prod = new decoradorProducto(carrito, lista.getObjLugar(lugar));
+	//} while (lugar != 0);
+
+	//venta* venta1 = new venta(cliente1, prod);
+	//cout << venta1->toString();
+}
 
 #endif // !INTERFAZ_H

@@ -45,11 +45,6 @@ int interfaz::ingresarProducto() {
 	return opc;
 }
 
-void interfaz::crearFact() {
-	cout << "Crear facturas" << endl;
-	//...
-}
-
 int interfaz::reporte() {
 	int opc;
 

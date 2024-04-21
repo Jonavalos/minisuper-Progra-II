@@ -84,11 +84,11 @@ int main() {
 	cout << "precio acumulado: " << endl;
 	cout << decSalami->getPrecioAcumulado() << endl;*/
 
-	fecha* f1 = new fecha(1, 1, 1);
-	cliente* client1 = new cliente("1111");
-	venta* venta1 = new venta(client1, f1, decMiel3);
-	cout << venta1->toString() << endl;
+	/*cliente* client1 = new cliente("1111");
+	venta* venta1 = new venta(client1, decMiel3);
+	cout << venta1->toString() << endl;*/
 	
+	/*interfaz::crearFact(*listaGenericaProducto);*/
 	
 	
 	delete listaGenericaProducto;
@@ -99,8 +99,7 @@ int main() {
 //TO DO
 /*
 -verificar impuestos en decoradorProducto
--hacer .cpp de decoradorProducto
--cuandos e añade un producto al carrito, disminuir su existencia en 1
+-cuandos se añade un producto al carrito, disminuir su existencia en 1
 -verificar que se pueda añadir al carrito segun sus existencias
 
 */
