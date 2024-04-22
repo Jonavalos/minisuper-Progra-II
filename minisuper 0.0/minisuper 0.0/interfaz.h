@@ -236,13 +236,13 @@ void interfaz::crearFact(listaG<T>& lista) {
 		prod1 = new decoradorProducto(carrito1, lista.getObjLugar(lugar));
 	}
 
-	compraProducto* prod = new decoradorProducto();
+	/*compraProducto* prod = new decoradorProducto();
 	do {
 		cout << lista.toString() << endl;
 		cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
 
 		prod = new decoradorProducto(prod1, lista.getObjLugar(lugar));
-	} while (lugar != 0);
+	} while (lugar != 0);*/
 
 	venta* venta1 = new venta(cliente1, prod);
 
