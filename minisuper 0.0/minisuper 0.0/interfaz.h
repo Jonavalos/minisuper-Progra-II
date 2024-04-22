@@ -228,21 +228,20 @@ void interfaz::crearFact(listaG<T>& lista) {
 	cout << "Ventas" << endl;
 	cout << "Ingrese su cedula: "; cin >> cedula;
 	cliente* cliente1 = new cliente(cedula);
-	
-	cout << lista.toString() << endl;
-	cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
-	compraProducto* prod1 = new decoradorProducto();
-	if (lugar != 0) {
-		prod1 = new decoradorProducto(carrito1, lista.getObjLugar(lugar));
-	}
 
-	/*compraProducto* prod = new decoradorProducto();
+	compraProducto* prod = nullptr;
 	do {
 		cout << lista.toString() << endl;
 		cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
-
-		prod = new decoradorProducto(prod1, lista.getObjLugar(lugar));
-	} while (lugar != 0);*/
+		if (lugar != 0) {
+			if (prod == nullptr) {
+				prod = new decoradorProducto(carrito1, lista.getObjLugar(lugar));
+			}
+			else {
+				prod = new decoradorProducto(prod, lista.getObjLugar(lugar));
+			}
+		}
+	} while (lugar != 0);
 
 	venta* venta1 = new venta(cliente1, prod);
 
@@ -252,6 +251,11 @@ void interfaz::crearFact(listaG<T>& lista) {
 	cout << "Fecha y hora actual: " << ctime(&now_c) << endl;
 
 	cout << venta1->toString();
+
+	delete venta1;
+	delete cliente1;
+	delete carrito1;
+	delete prod;
 }
 
 #endif // !INTERFAZ_H

@@ -56,14 +56,12 @@ int main() {
 	producto* arroz = new prodPerecedero("003", "arroz", "es arroz", 1000, "02", 100, 100, 1, 1, 1, true, 300.5);
 	producto* pan = new abarrote("004", "pan", "pan con queso", 650, "02", 100, 100, 1, 1, 1, true, 1.5, "Panaderia de pan");
 	producto* salami = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 1, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
-	producto* algo = new conserva("006", "algo", "es algo", 1000, "01", 100, 100, true);
 
 	listaG<producto>* listaGenericaProducto = new listaG<producto>();
 	listaGenericaProducto->ingresarUltimo(*miel);
 	listaGenericaProducto->ingresarUltimo(*arroz);
 	listaGenericaProducto->ingresarUltimo(*pan);
 	listaGenericaProducto->ingresarUltimo(*salami);
-	listaGenericaProducto->ingresarUltimo(*algo);
 	//controladora co(listaGenericaProducto);
 	//co.control0();
 
