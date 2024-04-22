@@ -14,6 +14,6 @@ cliente::~cliente() {
 string cliente::toString() const
 {
     stringstream s;
-    s << "Cedula: " << _cedula << endl;
+    s << "Cedula: " << _cedula;
     return s.str();
 }

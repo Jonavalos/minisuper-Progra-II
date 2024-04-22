@@ -143,8 +143,10 @@
     <ClCompile Include="fecha.cpp" />
     <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="listaG.cpp" />
+    <ClCompile Include="listaGenVenta.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nodoG.cpp" />
+    <ClCompile Include="NodoGenVenta.cpp" />
     <ClCompile Include="perecedero.cpp" />
     <ClCompile Include="prodPerecedero.cpp" />
     <ClCompile Include="producto.cpp" />
@@ -168,7 +170,9 @@
     <ClInclude Include="fecha.h" />
     <ClInclude Include="interfaz.h" />
     <ClInclude Include="listaG.h" />
+    <ClInclude Include="listaGenVenta.h" />
     <ClInclude Include="nodoG.h" />
+    <ClInclude Include="NodoGenVenta.h" />
     <ClInclude Include="perecedero.h" />
     <ClInclude Include="prodPerecedero.h" />
     <ClInclude Include="producto.h" />

@@ -3,9 +3,9 @@
 #include "decoradorAbs.h"
 #include "producto.h"
 
-class decoradorProducto :public decoradorAbs	//HACER .CPP
-{												//ver que tan necesario es hacer un decorador para cada subclase producto
-												//depende si se va a trabajar solo con producto*
+class decoradorProducto :public decoradorAbs	
+{												
+												
 public:
 	decoradorProducto();
 	decoradorProducto(compraProducto* compraPtr, producto* productoPtr);
@@ -14,9 +14,13 @@ public:
 	virtual string getCodigo();
 	virtual double getPrecioAcumulado();
 	virtual double getPrecio();
+	virtual double getPrecioCosto();
 	virtual void setCompraPtr(compraProducto* c);
 	virtual void setProducto(producto* prod);
 	virtual void setPrecioAcumulado();
+	virtual double getCategoria();
+	virtual void aumentarCantidad();
+	virtual void setCantidad(int);
 
 	virtual string toString();
 

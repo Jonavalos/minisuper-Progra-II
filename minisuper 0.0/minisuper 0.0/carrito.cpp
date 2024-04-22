@@ -1,6 +1,6 @@
 #include "carrito.h"
 
-carrito::carrito(): compraProducto(0.0){}
+carrito::carrito(): compraProducto(0.0, 0){}
 
 carrito::~carrito()
 {
@@ -33,6 +33,14 @@ double carrito::getPrecioAcumulado()
 	return _precioAcumulado;
 }
 
+double carrito::getPrecioCosto() {
+	return 0.0;
+}
+
+double carrito::getCategoria() {
+	return 0.0;
+}
+
 void carrito::setCompraPtr(compraProducto* c)
 {
 }
@@ -42,5 +50,13 @@ void carrito::setProducto(producto* prod)
 }
 
 void carrito::setPrecioAcumulado()
+{
+}
+
+void carrito::setCantidad(int)
+{
+}
+
+void carrito::aumentarCantidad()
 {
 }

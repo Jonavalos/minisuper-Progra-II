@@ -1,10 +1,10 @@
 #include "decoradorProducto.h"
 
 decoradorProducto::decoradorProducto()
-	: decoradorAbs(0.0, nullptr), _productoPtr(nullptr) {}
+	: decoradorAbs(0.0, 1, nullptr), _productoPtr(nullptr) {}
 
 decoradorProducto::decoradorProducto(compraProducto* compraPtr, producto* productoPtr)
-	: decoradorAbs(productoPtr->getPrecioCosto(), compraPtr), _productoPtr(productoPtr) {}
+	: decoradorAbs(productoPtr->getPrecioCosto(), _cantidad, compraPtr), _productoPtr(productoPtr) {}
 
 decoradorProducto::~decoradorProducto() {}
 
@@ -21,6 +21,10 @@ double decoradorProducto::getPrecioAcumulado() {
 }
 
 double decoradorProducto::getPrecio() { //verificar impuestos y cosas
+	return _productoPtr->getPrecioCosto() * 1.13 * getCategoria();
+}
+
+double decoradorProducto::getPrecioCosto() {
 	return _productoPtr->getPrecioCosto();
 }
 
@@ -37,9 +41,32 @@ void decoradorProducto::setPrecioAcumulado() {
 		_precioAcumulado = _productoPtr->getPrecioCosto();
 }
 
+double decoradorProducto::getCategoria() {
+	if (_productoPtr->getCategoria() == "01") {
+		return 1.15;
+	}
+	else if (_productoPtr->getCategoria() == "02") {
+		return 1.2;
+	}
+	else if (_productoPtr->getCategoria() == "03") {
+		return 1.3;
+	}
+	else {
+		exception;
+	}
+}
+
+void decoradorProducto::aumentarCantidad() {
+	_cantidad++;
+}
+
+void decoradorProducto::setCantidad(int cant) {
+	_cantidad = cant;
+}
+
 string decoradorProducto::toString() {
 	stringstream s;
-	s << this->getNombre() << " [ " << this->getCodigo() << " ]	- >" << "	Precio: " << this->getPrecio() << endl;
-	s << _compraPtr->toString() << endl;
+	s << _cantidad << setw(10) << this->getNombre() << " [ " << this->getCodigo() << " ]" << setw(13) << this->getPrecioCosto() << setw(13) <<  this->getPrecio() << endl;
+	s << _compraPtr->toString();
 	return s.str();
 }

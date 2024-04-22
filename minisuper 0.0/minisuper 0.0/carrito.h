@@ -13,11 +13,15 @@ public:
 	virtual double getPrecio();
 	virtual string toString();
 	virtual double getPrecioAcumulado();
+	virtual double getPrecioCosto();
+	virtual double getCategoria();
 
 	virtual void setCompraPtr(compraProducto* c);
 	virtual void setProducto(producto* prod);
 	virtual void setPrecioAcumulado();
+	virtual void setCantidad(int);
 
+	virtual void aumentarCantidad();
 private:
 
 

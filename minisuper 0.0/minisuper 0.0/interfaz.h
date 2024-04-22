@@ -223,32 +223,35 @@ void interfaz::crearFact(listaG<T>& lista) {
 	compraProducto* carrito1 = new carrito;
 
 	string cedula;
-	int lugar;
+	int lugar, cant;
+	double total = 0, iva = 0;
 
 	cout << "Ventas" << endl;
 	cout << "Ingrese su cedula: "; cin >> cedula;
 	cliente* cliente1 = new cliente(cedula);
 
 	compraProducto* prod = nullptr;
+	venta* venta1 = nullptr;
 	do {
 		cout << lista.toString() << endl;
 		cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
 		if (lugar != 0) {
 			if (prod == nullptr) {
 				prod = new decoradorProducto(carrito1, lista.getObjLugar(lugar));
+				cout << "Digite la cantidad que desea: "; cin >> cant; prod->setCantidad(cant);
+				total += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 1.13 * prod->getCategoria());
+				iva += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 0.13);
 			}
 			else {
 				prod = new decoradorProducto(prod, lista.getObjLugar(lugar));
+				cout << "Digite la cantidad que desea: "; cin >> cant; prod->setCantidad(cant);
+				total += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 1.13 * prod->getCategoria());
+				iva += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 0.13);
 			}
 		}
 	} while (lugar != 0);
 
-	venta* venta1 = new venta(cliente1, prod);
-
-	//fecha y hora
-	auto now = chrono::system_clock::now();
-	time_t now_c = chrono::system_clock::to_time_t(now);
-	cout << "Fecha y hora actual: " << ctime(&now_c) << endl;
+	venta1 = new venta(cliente1, prod, total, iva);
 
 	cout << venta1->toString();
 
