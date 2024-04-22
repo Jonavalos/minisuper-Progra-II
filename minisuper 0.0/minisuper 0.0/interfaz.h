@@ -220,26 +220,38 @@ void interfaz::mejoresClientes(listaG<T>& lista) {
 
 template<class T>
 void interfaz::crearFact(listaG<T>& lista) {
-	//string cedula;
-	//int lugar;
+	compraProducto* carrito1 = new carrito;
 
-	///*auto now = chrono::system_clock::now();
-	//time_t now_c = chrono::system_clock::to_time_t(now);*/
+	string cedula;
+	int lugar;
 
-	//cout << "Ventas" << endl;
-	//cout << "Ingrese su cedula: "; cin >> cedula;
-	//cliente* cliente1 = new cliente(cedula);
-	//
-	//do {
-	//	//system("cls");
-	//	cout << lista.toString() << endl;
-	//	cout << "Digite el lugar del producto que desea comprar: "; cin >> lugar;
-	//	compraProducto* carrito = new carrito()
-	//	compraProducto* prod = new decoradorProducto(carrito, lista.getObjLugar(lugar));
-	//} while (lugar != 0);
+	cout << "Ventas" << endl;
+	cout << "Ingrese su cedula: "; cin >> cedula;
+	cliente* cliente1 = new cliente(cedula);
+	
+	cout << lista.toString() << endl;
+	cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
+	compraProducto* prod1 = new decoradorProducto();
+	if (lugar != 0) {
+		prod1 = new decoradorProducto(carrito1, lista.getObjLugar(lugar));
+	}
 
-	//venta* venta1 = new venta(cliente1, prod);
-	//cout << venta1->toString();
+	compraProducto* prod = new decoradorProducto();
+	do {
+		cout << lista.toString() << endl;
+		cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
+
+		prod = new decoradorProducto(prod1, lista.getObjLugar(lugar));
+	} while (lugar != 0);
+
+	venta* venta1 = new venta(cliente1, prod);
+
+	//fecha y hora
+	auto now = chrono::system_clock::now();
+	time_t now_c = chrono::system_clock::to_time_t(now);
+	cout << "Fecha y hora actual: " << ctime(&now_c) << endl;
+
+	cout << venta1->toString();
 }
 
 #endif // !INTERFAZ_H

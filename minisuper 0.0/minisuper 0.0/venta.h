@@ -16,7 +16,6 @@ public:
 
 private:
 	cliente* _cliente;
-	fecha* _fecha;
 	compraProducto* _decProducto;
 
 };

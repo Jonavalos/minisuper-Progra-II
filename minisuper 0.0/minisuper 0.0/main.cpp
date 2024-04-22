@@ -88,7 +88,7 @@ int main() {
 	venta* venta1 = new venta(client1, decMiel3);
 	cout << venta1->toString() << endl;*/
 	
-	/*interfaz::crearFact(*listaGenericaProducto);*/
+	interfaz::crearFact(*listaGenericaProducto);
 	
 	
 	delete listaGenericaProducto;
