@@ -98,8 +98,6 @@ int main() {
 }
 //TO DO
 /*
--verificar impuestos en decoradorProducto
--cuandos se añade un producto al carrito, disminuir su existencia en 1
 -verificar que se pueda añadir al carrito segun sus existencias
 
 */
@@ -134,8 +132,6 @@ int main() {
 -fecha invalida
 -limite/existencia
 -opciones menu de la interfaz
-	-ingreso de lugar para eliminar
-	-ingreso de sí o no para ingresar productos
 -lugar invalido en lista (eliminar inexistente)
 
 */

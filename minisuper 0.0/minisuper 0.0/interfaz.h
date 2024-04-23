@@ -34,7 +34,7 @@ public:
 
 		/*ventas->*/
 		template<class T>
-		static void crearFact(listaG<T>& lista, listaGenVenta<T>&);
+		static void crearFact(listaG<T>& lista, listaGenVenta<T>& listaVenta);
 
 		static int reporte();
 			//reporte->
@@ -232,7 +232,6 @@ void interfaz::crearFact(listaG<T>& lista, listaGenVenta<T>& listaVentas) {
 	cliente* cliente1 = new cliente(cedula);
 
 	compraProducto* prod = nullptr;
-	venta* venta1 = nullptr;
 	do {
 		cout << lista.toString() << endl;
 		cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
@@ -254,7 +253,7 @@ void interfaz::crearFact(listaG<T>& lista, listaGenVenta<T>& listaVentas) {
 		}
 	} while (lugar != 0);
 
-	venta1 = new venta(cliente1, prod, total, iva);
+	venta* venta1 = new venta(cliente1, prod, total, iva);
 	listaVentas.ingresarUltimo(venta1);
 
 	cout << venta1->toString();
