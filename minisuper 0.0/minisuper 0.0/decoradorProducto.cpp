@@ -52,7 +52,7 @@ double decoradorProducto::getCategoria() {
 		return 1.3;
 	}
 	else {
-		exception;
+		return 0;
 	}
 }
 
@@ -62,6 +62,10 @@ void decoradorProducto::aumentarCantidad() {
 
 void decoradorProducto::setCantidad(int cant) {
 	_cantidad = cant;
+}
+
+void decoradorProducto::setExistencia(int exist) {
+	_productoPtr->setExistencia(_productoPtr->getExistencia() - exist);
 }
 
 string decoradorProducto::toString() {

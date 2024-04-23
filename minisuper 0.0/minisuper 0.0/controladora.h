@@ -8,7 +8,7 @@ public:
 	//inhabilitar constructores de copia buscar ejemplo con deletes, no se ocuparia crear mas de una controladora
 	controladora();
 	//template<class T>
-	controladora(listaG<producto>*);
+	controladora(listaG<producto>*, listaGenVenta<venta>*);
 	virtual ~controladora();
 
 	int controlMenu();
@@ -33,12 +33,14 @@ public:
 private:
 
 	listaG<producto>* lista;
+	listaGenVenta<venta>* listaVentas;
 
 };
 
 //template<class producto> //borrar para la version final
-inline controladora::controladora(listaG<producto>* nuevaLista) {
+inline controladora::controladora(listaG<producto>* nuevaLista, listaGenVenta<venta>* nuevaListaVentas) {
 	lista = nuevaLista;
+	listaVentas = nuevaListaVentas;
 }
 
 #endif // !CONTROLADORA_H

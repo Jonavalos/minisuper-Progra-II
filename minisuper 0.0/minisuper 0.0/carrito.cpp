@@ -57,6 +57,10 @@ void carrito::setCantidad(int)
 {
 }
 
+void carrito::setExistencia(int)
+{
+}
+
 void carrito::aumentarCantidad()
 {
 }

@@ -21,6 +21,7 @@ public:
 	virtual double getCategoria();
 	virtual void aumentarCantidad();
 	virtual void setCantidad(int);
+	virtual void setExistencia(int);
 
 	virtual string toString();
 

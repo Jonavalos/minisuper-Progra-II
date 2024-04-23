@@ -10,6 +10,7 @@
 #include "carrito.h"
 #include "cliente.h"
 #include "venta.h"
+#include "listaGenVenta.h"
 
 class interfaz {
 public:
@@ -33,7 +34,7 @@ public:
 
 		/*ventas->*/
 		template<class T>
-		static void crearFact(listaG<T>& lista);
+		static void crearFact(listaG<T>& lista, listaGenVenta<T>&);
 
 		static int reporte();
 			//reporte->
@@ -219,7 +220,7 @@ void interfaz::mejoresClientes(listaG<T>& lista) {
 }
 
 template<class T>
-void interfaz::crearFact(listaG<T>& lista) {
+void interfaz::crearFact(listaG<T>& lista, listaGenVenta<T>& listaVentas) {
 	compraProducto* carrito1 = new carrito;
 
 	string cedula;
@@ -241,17 +242,20 @@ void interfaz::crearFact(listaG<T>& lista) {
 				cout << "Digite la cantidad que desea: "; cin >> cant; prod->setCantidad(cant);
 				total += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 1.13 * prod->getCategoria());
 				iva += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 0.13);
+				prod->setExistencia(cant);
 			}
 			else {
 				prod = new decoradorProducto(prod, lista.getObjLugar(lugar));
 				cout << "Digite la cantidad que desea: "; cin >> cant; prod->setCantidad(cant);
 				total += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 1.13 * prod->getCategoria());
 				iva += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 0.13);
+				prod->setExistencia(cant);
 			}
 		}
 	} while (lugar != 0);
 
 	venta1 = new venta(cliente1, prod, total, iva);
+	listaVentas.ingresarUltimo(venta1);
 
 	cout << venta1->toString();
 

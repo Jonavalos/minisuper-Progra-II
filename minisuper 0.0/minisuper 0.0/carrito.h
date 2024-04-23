@@ -20,6 +20,7 @@ public:
 	virtual void setProducto(producto* prod);
 	virtual void setPrecioAcumulado();
 	virtual void setCantidad(int);
+	virtual void setExistencia(int);
 
 	virtual void aumentarCantidad();
 private:

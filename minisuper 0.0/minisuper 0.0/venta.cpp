@@ -1,6 +1,6 @@
 #include "venta.h"
 
-venta::venta() : _cliente(nullptr), _decProducto(nullptr), _total(0) {}
+venta::venta() : _cliente(nullptr), _decProducto(nullptr), _total(0), _IVATotal(0.0) {}
 
 venta::venta(cliente* client, compraProducto* decProd, double total, double iva): _cliente(client), _decProducto(decProd), _total(total), _IVATotal(iva) {}
 

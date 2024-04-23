@@ -85,9 +85,11 @@ int main() {
 	/*cliente* client1 = new cliente("1111");
 	venta* venta1 = new venta(client1, decMiel3);
 	cout << venta1->toString() << endl;*/
+
+	listaGenVenta<venta>* listaGenericaVenta = new listaGenVenta<venta>();
 	
-	interfaz::crearFact(*listaGenericaProducto);
-	
+	interfaz::crearFact(*listaGenericaProducto, *listaGenericaVenta);
+	interfaz::todosLosProd(*listaGenericaProducto);
 	
 	delete listaGenericaProducto;
 	
