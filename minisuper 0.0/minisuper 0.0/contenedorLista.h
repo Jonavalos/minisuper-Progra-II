@@ -4,7 +4,7 @@
 
 class ContenedorLista {
 private:
-	NodoGenVenta* _ppio;
+	NodoVenta* _ppio;
 public:
 	ContenedorLista();
 	void ingresaDePrimero(venta& venta);

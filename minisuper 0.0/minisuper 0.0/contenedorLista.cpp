@@ -1,16 +1,16 @@
-#include "listaGenVenta.h"
+#include "contenedorLista.h"
 
 ContenedorLista::ContenedorLista() {
 	_ppio = nullptr;
 }
 
 void ContenedorLista::ingresaDePrimero(venta& venta) {
-	_ppio = new NodoGenVenta(venta, _ppio);
+	_ppio = new NodoVenta(venta, _ppio);
 }
 
 void ContenedorLista::ingresaDeUltimo(venta& venta) {
-	NodoGenVenta* PEx = _ppio;
-	NodoGenVenta* nuevoN = NULL;
+	NodoVenta* PEx = _ppio;
+	NodoVenta* nuevoN = NULL;
 
 	if (_ppio == NULL) {
 		ingresaDePrimero(venta);
@@ -19,14 +19,14 @@ void ContenedorLista::ingresaDeUltimo(venta& venta) {
 		while (PEx->getSigNodo() != NULL) {
 			PEx = PEx->getSigNodo();
 		}
-		nuevoN = new NodoGenVenta(venta, NULL);
+		nuevoN = new NodoVenta(venta, NULL);
 		PEx->setSigNodo(nuevoN);
 	}
 }
 
 bool ContenedorLista::eliminarLugar(int lugar) {
-	NodoGenVenta* pex = _ppio;
-	NodoGenVenta* victima = nullptr;
+	NodoVenta* pex = _ppio;
+	NodoVenta* victima = nullptr;
 	int n = 1;
 
 	if (lugar == 1) {
@@ -52,7 +52,7 @@ bool ContenedorLista::eliminarLugar(int lugar) {
 
 string ContenedorLista::toString() const {
 	stringstream s;
-	NodoGenVenta* pex = _ppio;
+	NodoVenta* pex = _ppio;
 	int n = 1;
 	s << " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ LISTA ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ " << endl;
 	while (pex != nullptr) {

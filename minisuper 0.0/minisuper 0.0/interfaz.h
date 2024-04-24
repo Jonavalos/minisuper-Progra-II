@@ -10,7 +10,7 @@
 #include "carrito.h"
 #include "cliente.h"
 #include "venta.h"
-#include "listaGenVenta.h"
+#include "contenedorLista.h"
 
 class interfaz {
 public:
@@ -259,10 +259,10 @@ void interfaz::crearFact(listaG<T>& lista, ContenedorLista* listaVentas) {
 
 	listaVentas->ingresaDeUltimo(*venta1);
 
-	delete venta1;
+	/*delete venta1;
 	delete cliente1;
 	delete carrito1;
-	delete prod;
+	delete prod;*/
 }
 
 #endif // !INTERFAZ_H

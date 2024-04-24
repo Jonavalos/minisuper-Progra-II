@@ -18,10 +18,14 @@ string venta::toString() const
 
 	s << "Factura N: " << endl;		//sacar número de factura mediante el contenedor de fact
 	s << "Fecha y hora actual: " << ctime(&now_c);
-	s << _cliente->toString() << endl << endl;
+	if (_cliente) {
+		s << _cliente->toString() << endl << endl;
+	}	
 	s << "Cant" << setw(10) << "Concepto" << setw(20) << "Precio" << setw(11) << "Importe" << endl;
-	s << _decProducto->toString() << endl;
-	s << "Subtotal: " << setw(5) << _decProducto->getPrecioAcumulado() << endl;
+	if (_decProducto) {
+		s << _decProducto->toString() << endl;
+		s << "Subtotal: " << setw(5) << _decProducto->getPrecioAcumulado() << endl;
+	}	
 	s << "IVA: " << setw(10) << _IVATotal << endl;
 	s << "TOTAL: " << setw(8) << _total << endl;
 

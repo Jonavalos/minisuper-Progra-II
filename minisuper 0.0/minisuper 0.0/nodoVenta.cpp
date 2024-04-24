@@ -1,30 +1,30 @@
 #include "nodoVenta.h"
 
-NodoGenVenta::NodoGenVenta() {
+NodoVenta::NodoVenta() {
 	_ventaPtr = NULL;
 	_ptrNod = NULL;
 }
 
-NodoGenVenta::NodoGenVenta(venta& venta, NodoGenVenta* ptr) {
+NodoVenta::NodoVenta(venta& venta, NodoVenta* ptr) {
 	_ventaPtr = &venta;
 	_ptrNod = ptr;
 }
 
-NodoGenVenta::~NodoGenVenta() {}
+NodoVenta::~NodoVenta() {}
 
-void NodoGenVenta::setObj(venta& venta) {
+void NodoVenta::setObj(venta& venta) {
 	if (_ventaPtr != NULL) delete _ventaPtr;
 	_ventaPtr = &venta;
 }
 
-void NodoGenVenta::setSigNodo(NodoGenVenta* ptr) {
+void NodoVenta::setSigNodo(NodoVenta* ptr) {
 	_ptrNod = ptr;
 }
 
-venta* NodoGenVenta::getObj() {
+venta* NodoVenta::getObj() {
 	return _ventaPtr;
 }
 
-NodoGenVenta* NodoGenVenta::getSigNodo() {
+NodoVenta* NodoVenta::getSigNodo() {
 	return _ptrNod;
 }

@@ -65,14 +65,14 @@ int main() {
 	//controladora co(listaGenericaProducto);
 	//co.control0();
 
-	compraProducto* car1 = new carrito();
+	/*compraProducto* car1 = new carrito();
 	compraProducto* decMiel = new decoradorProducto(car1, miel);
 	compraProducto* decArroz = new decoradorProducto(decMiel, arroz);
 	compraProducto* decPan = new decoradorProducto(decArroz, pan);
 	compraProducto* decSalami= new decoradorProducto(decPan, salami);
 	compraProducto* decArroz2 = new decoradorProducto(decSalami, arroz);
 	compraProducto* decMiel2 = new decoradorProducto(decArroz2, miel);
-	compraProducto* decMiel3 = new decoradorProducto(decMiel2, miel);
+	compraProducto* decMiel3 = new decoradorProducto(decMiel2, miel);*/
 
 	//decSalami->setCompraPtr(decPan);
 	//decSalami->setProducto(salami);
@@ -86,16 +86,16 @@ int main() {
 	/*venta* venta1 = new venta(client1, decMiel3);
 	cout << venta1->toString() << endl;*/
 
-	ContenedorLista* listaGenericaVenta = new ContenedorLista();
+	ContenedorLista* listaVentas1 = new ContenedorLista();
 	
-	interfaz::crearFact(*listaGenericaProducto, listaGenericaVenta);
+	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 
 	/*venta* venta1 = new venta(client1, decMiel3, 23864, 246);
 	listaGenericaVenta->ingresaDeUltimo(*venta1);*/
-	cout << listaGenericaVenta->toString();
+	cout << listaVentas1->toString();
 	
 	delete listaGenericaProducto;
-	delete listaGenericaVenta;
+	delete listaVentas1;
 
 	return 0;
 }

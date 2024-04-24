@@ -3,20 +3,20 @@
 #include "bibliotecas.h"
 #include "venta.h"
 
-class NodoGenVenta {
+class NodoVenta {
 private:
 	venta* _ventaPtr;
-	NodoGenVenta* _ptrNod;
+	NodoVenta* _ptrNod;
 public:
-	NodoGenVenta();
-	NodoGenVenta(venta& per, NodoGenVenta* ptr);
-	virtual ~NodoGenVenta();
+	NodoVenta();
+	NodoVenta(venta& per, NodoVenta* ptr);
+	virtual ~NodoVenta();
 
 	void setObj(venta& per);
-	void setSigNodo(NodoGenVenta* ptr);
+	void setSigNodo(NodoVenta* ptr);
 
 	venta* getObj();
-	NodoGenVenta* getSigNodo();
+	NodoVenta* getSigNodo();
 
 };
 
