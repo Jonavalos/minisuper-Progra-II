@@ -43,3 +43,8 @@ double venta::getTotal()
 {
 	return _total;
 }
+
+cliente* venta::getCliente()
+{
+	return _cliente;
+}

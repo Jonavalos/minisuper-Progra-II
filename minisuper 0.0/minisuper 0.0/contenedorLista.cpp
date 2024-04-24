@@ -60,6 +60,135 @@ bool ContenedorLista::eliminarLugar(int lugar) {
 	return false;
 }
 
+string ContenedorLista::cedulasTop5Clientes()
+{
+	ordenar();
+
+	stringstream s;
+	if (getVenta(1) != nullptr) {
+		s << "Top 1 ->" << getVenta(1)->getCliente()->toString() << endl;
+	}
+	if (getVenta(2) != nullptr) {
+		s << "Top 2 ->" << getVenta(2)->getCliente()->toString() << endl;
+	}
+	if (getVenta(3) != nullptr) {
+		s << "Top 3 ->" << getVenta(3)->getCliente()->toString() << endl;
+	}
+	if (getVenta(4) != nullptr) {
+		s << "Top 4 ->" << getVenta(4)->getCliente()->toString() << endl;
+	}
+	if (getVenta(5) != nullptr) {
+		s << "Top 5 ->" << getVenta(5)->getCliente()->toString() << endl;
+	}
+	
+	return s.str();
+
+}
+
+void ContenedorLista::ordenar()
+{
+	for (int i = 1; i <= cantidadNodos(); i++) {
+		for (int j = i + 1; j <= cantidadNodos(); j++) {
+			if (getVenta(i)->getTotal() < getVenta(j)->getTotal()) {
+				intercambiarNodos(getNodo(i), getNodo(j));
+			}
+		}
+	}
+}
+
+bool ContenedorLista::intercambiarNodos(NodoVenta* n1, NodoVenta* n2)
+{
+	if (n1 == n2 || !n1 || !n2) { return false; }
+	NodoVenta* nodoPrevio1 = nullptr;
+	NodoVenta* pex1 = _ppio;
+	NodoVenta* nodoPrevio2 = nullptr;
+	NodoVenta* pex2 = _ppio;
+
+	while (pex1 && pex1 != n1) {
+		nodoPrevio1 = pex1;
+		pex1 = pex1->getSigNodo();
+	}
+	while (pex2 && pex2 != n2) {
+		nodoPrevio2 = pex2;
+		pex2 = pex2->getSigNodo();
+	}
+
+
+	if (!pex1 || !pex2) { return false; }
+
+
+	if (nodoPrevio1)
+		nodoPrevio1->setSigNodo(n2);
+	else
+		_ppio = n2;
+
+	if (nodoPrevio2)
+		nodoPrevio2->setSigNodo(n1);
+	else
+		_ppio = n1;
+
+	NodoVenta* auxiliar = n1->getSigNodo();
+	n1->setSigNodo(n2->getSigNodo());
+	n2->setSigNodo(auxiliar);
+
+	return true;
+}
+
+int ContenedorLista::cantidadNodos()
+{
+	NodoVenta* pex = _ppio;
+	int cantidad = 0;
+	while (pex != nullptr) {
+		cantidad++;
+		pex = pex->getSigNodo();
+	}
+	return cantidad;
+}
+
+venta* ContenedorLista::getVenta(int lugar)
+{
+	//return getNodo(lugar)->getObj();
+	int cont = 0;
+	NodoVenta* pex = _ppio;
+	if (lugar == 1) {
+		return pex->getObj();
+	}
+	else {
+		while (pex != nullptr && cont + 1 < lugar) {
+			pex = pex->getSigNodo();
+			cont++;
+		}
+		if (cont + 1 == lugar && pex != nullptr) {
+			return pex->getObj();
+		}
+		if (pex == nullptr) {
+			return nullptr;
+		}
+	}
+}
+
+NodoVenta* ContenedorLista::getNodo(int lugar)
+{
+	int cont = 0;
+	NodoVenta* pex = _ppio;
+	if (lugar == 1) {
+		return pex;
+	}
+	else {
+		while (pex != nullptr && cont + 1 < lugar) {
+			pex = pex->getSigNodo();
+			cont++;
+		}
+		if (cont + 1 == lugar && pex!=nullptr) {
+			return pex;
+		}
+		if (pex == nullptr) {
+			return nullptr;
+		}
+	}
+	return nullptr;
+}
+
 string ContenedorLista::toString() const {
 	stringstream s;
 	NodoVenta* pex = _ppio;

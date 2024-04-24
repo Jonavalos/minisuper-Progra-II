@@ -15,6 +15,7 @@ public:
 	string toString() const;
 
 	double getTotal();
+	cliente* getCliente();
 
 private:
 	cliente* _cliente;
