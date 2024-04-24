@@ -10,5 +10,7 @@
 #include <iomanip>
 using namespace std;
 
+#define SEPARA_VALOR ','
+#define SEPARA_REGISTRO '\n'
 
 #endif // !BIBLIOTECAS_H
