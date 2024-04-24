@@ -34,7 +34,7 @@ public:
 
 		/*ventas->*/
 		template<class T>
-		static void crearFact(listaG<T>& lista, listaGenVenta<T>& listaVenta);
+		static void crearFact(listaG<T>& lista, ContenedorLista* listaVenta);
 
 		static int reporte();
 			//reporte->
@@ -220,7 +220,7 @@ void interfaz::mejoresClientes(listaG<T>& lista) {
 }
 
 template<class T>
-void interfaz::crearFact(listaG<T>& lista, listaGenVenta<T>& listaVentas) {
+void interfaz::crearFact(listaG<T>& lista, ContenedorLista* listaVentas) {
 	compraProducto* carrito1 = new carrito;
 
 	string cedula;
@@ -254,9 +254,10 @@ void interfaz::crearFact(listaG<T>& lista, listaGenVenta<T>& listaVentas) {
 	} while (lugar != 0);
 
 	venta* venta1 = new venta(cliente1, prod, total, iva);
-	listaVentas.ingresarUltimo(venta1);
 
 	cout << venta1->toString();
+
+	listaVentas->ingresaDeUltimo(*venta1);
 
 	delete venta1;
 	delete cliente1;

@@ -146,7 +146,7 @@
     <ClCompile Include="listaGenVenta.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="nodoG.cpp" />
-    <ClCompile Include="NodoGenVenta.cpp" />
+    <ClCompile Include="nodoVenta.cpp" />
     <ClCompile Include="perecedero.cpp" />
     <ClCompile Include="prodPerecedero.cpp" />
     <ClCompile Include="producto.cpp" />
@@ -172,7 +172,7 @@
     <ClInclude Include="listaG.h" />
     <ClInclude Include="listaGenVenta.h" />
     <ClInclude Include="nodoG.h" />
-    <ClInclude Include="NodoGenVenta.h" />
+    <ClInclude Include="nodoVenta.h" />
     <ClInclude Include="perecedero.h" />
     <ClInclude Include="prodPerecedero.h" />
     <ClInclude Include="producto.h" />

@@ -82,17 +82,20 @@ int main() {
 	cout << "precio acumulado: " << endl;
 	cout << decSalami->getPrecioAcumulado() << endl;*/
 
-	/*cliente* client1 = new cliente("1111");
-	venta* venta1 = new venta(client1, decMiel3);
+	/*cliente* client1 = new cliente("1111");*/
+	/*venta* venta1 = new venta(client1, decMiel3);
 	cout << venta1->toString() << endl;*/
 
-	listaGenVenta<venta>* listaGenericaVenta = new listaGenVenta<venta>();
+	ContenedorLista* listaGenericaVenta = new ContenedorLista();
 	
-	interfaz::crearFact(*listaGenericaProducto, *listaGenericaVenta);
-	interfaz::todosLosProd(*listaGenericaProducto);
+	interfaz::crearFact(*listaGenericaProducto, listaGenericaVenta);
+
+	/*venta* venta1 = new venta(client1, decMiel3, 23864, 246);
+	listaGenericaVenta->ingresaDeUltimo(*venta1);*/
+	cout << listaGenericaVenta->toString();
 	
 	delete listaGenericaProducto;
-	
+	delete listaGenericaVenta;
 
 	return 0;
 }

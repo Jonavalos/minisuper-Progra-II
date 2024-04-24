@@ -84,7 +84,7 @@
     <ClCompile Include="listaGenVenta.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="NodoGenVenta.cpp">
+    <ClCompile Include="nodoVenta.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,7 +158,7 @@
     <ClInclude Include="listaGenVenta.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="NodoGenVenta.h">
+    <ClInclude Include="nodoVenta.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
