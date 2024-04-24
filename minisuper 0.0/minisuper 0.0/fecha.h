@@ -7,7 +7,7 @@ public:
 	fecha();
 	fecha(int dia, int mes, int anio);
 	fecha(const fecha& obj);
-	~fecha();
+	virtual ~fecha();
 	string toString() const;
 
 

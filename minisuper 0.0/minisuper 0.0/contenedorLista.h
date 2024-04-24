@@ -7,6 +7,7 @@ private:
 	NodoVenta* _ppio;
 public:
 	ContenedorLista();
+	virtual ~ContenedorLista();
 	void ingresaDePrimero(venta& venta);
 	void ingresaDeUltimo(venta& venta);
 	bool eliminarLugar(int);

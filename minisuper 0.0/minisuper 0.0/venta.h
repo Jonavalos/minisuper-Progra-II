@@ -14,6 +14,8 @@ public:
 
 	string toString() const;
 
+	double getTotal();
+
 private:
 	cliente* _cliente;
 	compraProducto* _decProducto;

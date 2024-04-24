@@ -24,7 +24,9 @@ embutido::embutido(const embutido& obj) : carne(obj), _marca(obj._marca) {
 }
 
 embutido::~embutido() {
-	delete _empaquePtr;
+	if (_empaquePtr != nullptr) {
+		delete _empaquePtr;
+	}
 }
 
 string embutido::toString() const

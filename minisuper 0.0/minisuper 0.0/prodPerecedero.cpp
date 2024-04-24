@@ -4,6 +4,12 @@ prodPerecedero::prodPerecedero() :producto(), _nacional(true), _peso(0.0) {
 	_perecederoPtr = new perecedero();
 }
 
+prodPerecedero::~prodPerecedero(){
+	if (_perecederoPtr != nullptr) {
+		delete _perecederoPtr;
+	}
+}
+
 prodPerecedero::prodPerecedero(string codigo, string nombreComercial, string descripcion, double precioCosto, string categoria, int existencia, int limite, int dia, int mes, int anio, bool nacional, double peso)
 	:producto(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite), _nacional(nacional), _peso(peso) {
 	_perecederoPtr = new perecedero(dia, mes, anio);
@@ -25,10 +31,6 @@ prodPerecedero::prodPerecedero(const prodPerecedero& obj)
 	_perecederoPtr = new perecedero(*obj._perecederoPtr);
 }
 
-prodPerecedero::~prodPerecedero()
-{
-	delete _perecederoPtr;
-}
 
 string prodPerecedero::toString() const
 {

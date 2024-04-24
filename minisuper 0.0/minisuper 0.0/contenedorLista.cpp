@@ -4,6 +4,16 @@ ContenedorLista::ContenedorLista() {
 	_ppio = nullptr;
 }
 
+ContenedorLista::~ContenedorLista()
+{
+	NodoVenta* PEx = _ppio;
+	while (PEx != nullptr) {
+		_ppio = _ppio->getSigNodo();
+		delete PEx;
+		PEx = _ppio;
+	}
+}
+
 void ContenedorLista::ingresaDePrimero(venta& venta) {
 	_ppio = new NodoVenta(venta, _ppio);
 }

@@ -10,7 +10,11 @@ NodoVenta::NodoVenta(venta& venta, NodoVenta* ptr) {
 	_ptrNod = ptr;
 }
 
-NodoVenta::~NodoVenta() {}
+NodoVenta::~NodoVenta() {
+	if (_ventaPtr != nullptr) {
+		delete _ventaPtr;
+	}
+}
 
 void NodoVenta::setObj(venta& venta) {
 	if (_ventaPtr != NULL) delete _ventaPtr;

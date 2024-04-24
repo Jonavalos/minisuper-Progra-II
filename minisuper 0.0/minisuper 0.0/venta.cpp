@@ -6,6 +6,13 @@ venta::venta(cliente* client, compraProducto* decProd, double total, double iva)
 
 venta::~venta()
 {
+	if (_cliente) {
+		delete _cliente;
+	}
+	if (_decProducto) {
+		delete _decProducto;
+	}
+	
 }
 
 string venta::toString() const
@@ -30,4 +37,9 @@ string venta::toString() const
 	s << "TOTAL: " << setw(8) << _total << endl;
 
 	return s.str();
+}
+
+double venta::getTotal()
+{
+	return _total;
 }

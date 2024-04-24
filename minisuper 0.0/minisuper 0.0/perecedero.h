@@ -5,10 +5,10 @@ class perecedero //preguntar acerca de los atributos (no tiene segun el DRC)
 {
 public:
 	perecedero();
+	virtual ~perecedero();
 	perecedero(int dia, int mes, int anio);
 	perecedero(fecha* fechaCaducidad);
 	perecedero(const perecedero& obj);
-	~perecedero();
 	fecha* getFechaCaducidad() const;
 	string fechaCaducidadToString() const;
 
