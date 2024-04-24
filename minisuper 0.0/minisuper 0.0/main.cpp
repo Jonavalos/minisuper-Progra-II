@@ -99,7 +99,7 @@ int main() {
 	/*venta* venta1 = new venta(client1, decMiel3, 23864, 246);
 	listaGenericaVenta->ingresaDeUltimo(*venta1);*/
 	//cout << listaVentas1->toString();
-	cout << listaVentas1->cedulasTop5Clientes();
+	cout << listaVentas1->top5() << endl;
 
 	delete listaGenericaProducto;
 	delete listaVentas1;

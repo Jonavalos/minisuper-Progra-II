@@ -9,6 +9,7 @@ public:
 	cliente(const cliente&);
 	virtual ~cliente();
 	string toString() const;
+	string getCedula() const;
 private:
 
 	string _cedula;

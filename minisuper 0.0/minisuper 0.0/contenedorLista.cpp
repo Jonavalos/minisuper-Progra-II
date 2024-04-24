@@ -62,9 +62,16 @@ bool ContenedorLista::eliminarLugar(int lugar) {
 
 string ContenedorLista::cedulasTop5Clientes()
 {
+	stringstream s;
 	ordenar();
 
-	stringstream s;
+	/*for (int i = 1; i < 6;i++) {
+		if (getVenta(i) != nullptr) {
+			s << "Top "<<i<<" ->" << getVenta(i)->getCliente()->toString() << endl;
+		}
+	}*/
+
+	
 	if (getVenta(1) != nullptr) {
 		s << "Top 1 ->" << getVenta(1)->getCliente()->toString() << endl;
 	}
@@ -202,4 +209,46 @@ string ContenedorLista::toString() const {
 	}
 	s << " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ " << endl;
 	return s.str();
+}
+
+bool ContenedorLista::existe(string id)
+{
+	NodoVenta* pex = _ppio;
+	while (pex != nullptr) {
+		if (pex->getObj()->getCliente()->getCedula() == id) {
+			return true;
+		}
+		pex = pex->getSigNodo();
+	}
+}
+
+double ContenedorLista::sumaTotalCliente(string id)
+{
+	double total=0.0;
+	NodoVenta* pex = _ppio;
+	while (pex != nullptr) {
+		if (pex->getObj()->getCliente()->getCedula() == id) {
+			total = total + pex->getObj()->getTotal();
+		}
+		pex = pex->getSigNodo();
+	}
+	return total;
+}
+
+string ContenedorLista::top5()
+{
+	string uno = "", dos = "", tres = "", cuatro = "", cinco = "";
+
+	vecVentaCliente vec;
+
+	NodoVenta* pex = _ppio;
+	while (pex != nullptr) {
+		
+		ventaCliente* obj = new ventaCliente(pex->getObj()->getCliente()->getCedula(), sumaTotalCliente(pex->getObj()->getCliente()->getCedula()));
+		vec.ingresar(obj);
+
+		pex = pex->getSigNodo();
+	}
+	vec.ordenar();
+	return vec.toString();
 }

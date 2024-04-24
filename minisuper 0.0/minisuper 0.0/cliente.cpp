@@ -17,3 +17,8 @@ string cliente::toString() const
     s << "Cedula: " << _cedula;
     return s.str();
 }
+
+string cliente::getCedula() const
+{
+    return _cedula;
+}
