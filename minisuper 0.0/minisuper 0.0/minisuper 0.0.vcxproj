@@ -141,6 +141,7 @@
     <ClCompile Include="decoradorProducto.cpp" />
     <ClCompile Include="embutido.cpp" />
     <ClCompile Include="empaque.cpp" />
+    <ClCompile Include="excepciones.cpp" />
     <ClCompile Include="fecha.cpp" />
     <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="listaG.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="decoradorProducto.h" />
     <ClInclude Include="embutido.h" />
     <ClInclude Include="empaque.h" />
+    <ClInclude Include="excepciones.h" />
     <ClInclude Include="fecha.h" />
     <ClInclude Include="interfaz.h" />
     <ClInclude Include="listaG.h" />

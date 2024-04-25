@@ -104,7 +104,7 @@ int main() {
 	listaVentas1->reportarFacturasPorCliente("1111");*/
 
 	cout << listaGenericaProducto->toString();
-	ansi_term::reset();
+	/*ansi_term::reset();*/
 	interfaz::prodBajosExist(*listaGenericaProducto);
 
 	delete listaGenericaProducto;
