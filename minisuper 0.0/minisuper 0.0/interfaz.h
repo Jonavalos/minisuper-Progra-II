@@ -44,10 +44,8 @@ public:
 			static void prodDeDeterminadaCat(listaG<T>&);
 			template<class T>
 			static void prodBajosExist(listaG<T>&);
-			template<class T>
-			static void factDeterminadoCliente(listaG<T>&);
-			template<class T>
-			static void mejoresClientes(listaG<T>&);
+			static void factDeterminadoCliente(ContenedorLista&);
+			static void mejoresClientes(ContenedorLista&);
 
 };
 
@@ -208,18 +206,6 @@ void interfaz::prodBajosExist(listaG<T>& lista) {
 }
 
 template<class T>
-void interfaz::factDeterminadoCliente(listaG<T>& lista) {
-	int lugar = 1;
-
-	cout << "Reporte de Clientes por su Cedula" << endl;
-}
-
-template<class T>
-void interfaz::mejoresClientes(listaG<T>& lista) {
-
-}
-
-template<class T>
 void interfaz::crearFact(listaG<T>& lista, ContenedorLista* listaVentas) {
 	compraProducto* carrito1 = new carrito;
 
@@ -258,11 +244,6 @@ void interfaz::crearFact(listaG<T>& lista, ContenedorLista* listaVentas) {
 	cout << venta1->toString();
 
 	listaVentas->ingresaDeUltimo(*venta1);
-
-	/*delete venta1;
-	delete cliente1;
-	delete carrito1;
-	delete prod;*/
 }
 
 #endif // !INTERFAZ_H

@@ -76,6 +76,7 @@ public:
 	int cantidadNodos();
 	venta* getVenta(int lugar);
 	NodoVenta* getNodo(int lugar);
+	void reportarFacturasPorCliente(string);
 	string toString() const;
 
 	bool existe(string id);

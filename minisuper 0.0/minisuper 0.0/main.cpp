@@ -91,15 +91,16 @@ int main() {
 	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	/*interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	interfaz::crearFact(*listaGenericaProducto, listaVentas1);*/
 
 	/*venta* venta1 = new venta(client1, decMiel3, 23864, 246);
 	listaGenericaVenta->ingresaDeUltimo(*venta1);*/
 	//cout << listaVentas1->toString();
-	cout << listaVentas1->top5() << endl;
+	/*cout << listaVentas1->top5() << endl;*/
+	listaVentas1->reportarFacturasPorCliente("1111");
 
 	delete listaGenericaProducto;
 	delete listaVentas1;

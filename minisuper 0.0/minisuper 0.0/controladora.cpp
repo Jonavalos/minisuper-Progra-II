@@ -87,11 +87,11 @@ void controladora::control3_3() {
 }
 
 void controladora::control3_4() {
-	interfaz::factDeterminadoCliente(*lista);
+	interfaz::factDeterminadoCliente(*listaVentas);
 }
 
 void controladora::control3_5() {
-	interfaz::mejoresClientes(*lista);
+	interfaz::mejoresClientes(*listaVentas);
 }
 
 void controladora::control1_1_1() {

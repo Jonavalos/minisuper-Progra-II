@@ -59,3 +59,18 @@ int interfaz::reporte() {
 
 	return opc;
 }
+
+void interfaz::factDeterminadoCliente(ContenedorLista& listaVenta) {
+	string cedula;
+
+	cout << "Reporte de Clientes por su Cedula" << endl;
+	cout << "Digite la cedula del cliente: "; cin >> cedula;
+
+	listaVenta.reportarFacturasPorCliente(cedula);
+}
+
+void interfaz::mejoresClientes(ContenedorLista& listaVenta) {
+	cout << "Lista de los 5 Mejores Clientes" << endl << endl;
+
+	cout << listaVenta.top5();
+}

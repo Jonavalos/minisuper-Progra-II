@@ -168,10 +168,11 @@ venta* ContenedorLista::getVenta(int lugar)
 		if (cont + 1 == lugar && pex != nullptr) {
 			return pex->getObj();
 		}
-		if (pex == nullptr) {
+		else {
 			return nullptr;
 		}
 	}
+	return nullptr;
 }
 
 NodoVenta* ContenedorLista::getNodo(int lugar)
@@ -194,6 +195,17 @@ NodoVenta* ContenedorLista::getNodo(int lugar)
 		}
 	}
 	return nullptr;
+}
+
+void ContenedorLista::reportarFacturasPorCliente(string cedula) {
+	NodoVenta* pex = _ppio;
+
+	while (pex != nullptr) {
+		if (cedula == pex->getObj()->getCliente()->getCedula()) {
+			cout << pex->getObj()->toString() << endl;
+		}
+		pex = pex->getSigNodo();
+	}
 }
 
 string ContenedorLista::toString() const {
@@ -220,6 +232,7 @@ bool ContenedorLista::existe(string id)
 		}
 		pex = pex->getSigNodo();
 	}
+	return false;
 }
 
 double ContenedorLista::sumaTotalCliente(string id)
