@@ -44,6 +44,7 @@ namespace ansi_term {
 
     enum code_page {
         IBMPC_OEM = 437,
+        UNICODE = 65001
     };
 
     void init(int = UNICODE);
