@@ -103,9 +103,7 @@ int main() {
 	/*cout << listaVentas1->top5() << endl;*//*
 	listaVentas1->reportarFacturasPorCliente("1111");*/
 
-	cout << listaGenericaProducto->toString();
-	/*ansi_term::reset();*/
-	interfaz::prodBajosExist(*listaGenericaProducto);
+	interfaz::tipoConserva(*listaGenericaProducto);
 
 	delete listaGenericaProducto;
 	delete listaVentas1;

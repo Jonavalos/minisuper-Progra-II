@@ -8,6 +8,7 @@
 #include <chrono>
 #include <ctime>
 #include <iomanip>
+#include <regex>
 using namespace std;
 
 #define SEPARA_VALOR ','

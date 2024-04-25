@@ -19,3 +19,7 @@ const char* excepcionExistencia::what() const {
 const char* excepcionRango::what() const {
     return "Error: lugar inexistente";
 }
+
+const char* excepcionCaracteres::what() const {
+    return "Error: caracteres invalidos";
+}

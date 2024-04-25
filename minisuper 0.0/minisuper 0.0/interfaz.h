@@ -11,6 +11,7 @@
 #include "cliente.h"
 #include "venta.h"
 #include "contenedorLista.h"
+#include "excepciones.h"
 
 class interfaz {
 public:
@@ -47,6 +48,8 @@ public:
 			static void factDeterminadoCliente(ContenedorLista&);
 			static void mejoresClientes(ContenedorLista&);
 
+
+	static bool caracteresValidos(string s);
 };
 
 
@@ -66,11 +69,57 @@ void interfaz::tipoConserva(listaG<T>& lista) {
 	cout << "Nombre comercial: "; cin >> nombreComercial;
 	cout << "Descripcion: "; cin >> descripcion;
 	cout << "Precio costo: "; cin >> precioCosto;
-	cout << "Categoria: "; cin >> categoria;
-	cout << "Existencia: "; cin >> existencia;
-	cout << "Limite: "; cin >> limite;
-	cout << "Envasado: (1. Si, 0. No): "; cin >> intEnvasado; if (intEnvasado == 1) { envasado = true; }
-	else { envasado = false; }
+	try {
+		cout << "Categoria: "; cin >> categoria;
+		if ((categoria != "01") && (categoria != "02") && (categoria != "03")) {
+			throw excepcionCategoria();
+		}
+	}
+	catch (excepcionCategoria& ex) {
+		cerr << ex.what();
+		do {
+			cout << "Categoria: "; cin >> categoria;
+		} while ((categoria != "01") && (categoria != "02") && (categoria != "03"));
+	}
+	try {
+		cout << "Existencia: "; cin >> existencia;
+		if (existencia < 0) {
+			throw excepcionExistencia();
+		}
+	}
+	catch (excepcionExistencia& ex) {
+		cerr << ex.what();
+		do {
+			cout << "Existencia: "; cin >> existencia;
+		} while (existencia < 0);
+	}
+	try {
+		cout << "Limite: "; cin >> limite;
+		if (limite < 0) {
+			throw excepcionLimite();
+		}
+	}
+	catch (excepcionLimite& ex) {
+		cerr << ex.what();
+		do {
+			cout << "Limite: "; cin >> limite;
+		} while (limite < 0);
+	}
+	try {
+		cout << "Envasado: (1. Si, 0. No): "; cin >> intEnvasado; if (intEnvasado == 1) { envasado = true; }
+		else { envasado = false; }
+		if (intEnvasado < 0 || intEnvasado > 1) {
+			throw excepcionRango();
+		}
+	}
+	catch (excepcionRango& ex) {
+		cerr << ex.what();
+		do {
+			cout << "Envasado: (1. Si, 0. No): "; cin >> intEnvasado;
+		} while (intEnvasado < 0 || intEnvasado > 1);
+		if (intEnvasado == 1) { envasado = true; }
+		else { envasado = false; }
+	}
 
 	producto* prod = new conserva(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, envasado);
 	lista.ingresarUltimo(*prod);

@@ -34,4 +34,9 @@ public:
 	const char* what() const;
 };
 
+class excepcionCaracteres : public excepcion {
+public:
+	const char* what() const;
+};
+
 #endif // !EXCEPCIONES_H
