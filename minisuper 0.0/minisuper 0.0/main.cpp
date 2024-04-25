@@ -3,6 +3,7 @@
 #include "carrito.h"
 #include "cliente.h"
 #include "venta.h"
+#include "ansi_term.h"
 int main() {
 	//2
 	//cout << "hello world!" << endl;
@@ -88,9 +89,9 @@ int main() {
 
 	ContenedorLista* listaVentas1 = new ContenedorLista();
 	
+	/*interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	interfaz::crearFact(*listaGenericaProducto, listaVentas1);*/
 	/*interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
@@ -99,8 +100,12 @@ int main() {
 	/*venta* venta1 = new venta(client1, decMiel3, 23864, 246);
 	listaGenericaVenta->ingresaDeUltimo(*venta1);*/
 	//cout << listaVentas1->toString();
-	/*cout << listaVentas1->top5() << endl;*/
-	listaVentas1->reportarFacturasPorCliente("1111");
+	/*cout << listaVentas1->top5() << endl;*//*
+	listaVentas1->reportarFacturasPorCliente("1111");*/
+
+	cout << listaGenericaProducto->toString();
+	ansi_term::reset();
+	interfaz::prodBajosExist(*listaGenericaProducto);
 
 	delete listaGenericaProducto;
 	delete listaVentas1;

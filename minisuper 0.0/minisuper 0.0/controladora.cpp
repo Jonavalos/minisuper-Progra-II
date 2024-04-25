@@ -2,6 +2,7 @@
 
 controladora::controladora() {
 	lista = new listaG<producto>;
+	listaVentas = new ContenedorLista;
 }
 controladora::~controladora() {
 	if (lista != nullptr) {

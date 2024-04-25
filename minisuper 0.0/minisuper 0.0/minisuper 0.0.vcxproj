@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="abarrote.cpp" />
+    <ClCompile Include="ansi_term.cpp" />
     <ClCompile Include="baseObj.cpp" />
     <ClCompile Include="carne.cpp" />
     <ClCompile Include="carrito.cpp" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abarrote.h" />
+    <ClInclude Include="ansi_term.h" />
     <ClInclude Include="baseObj.h" />
     <ClInclude Include="bibliotecas.h" />
     <ClInclude Include="carne.h" />
