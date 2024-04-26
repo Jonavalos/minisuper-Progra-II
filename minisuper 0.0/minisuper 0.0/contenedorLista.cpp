@@ -259,13 +259,20 @@ bool ContenedorLista::vecVentaCliente::ingresar(ventaCliente* obj) {
 
 string ContenedorLista::vecVentaCliente::toString() {
 	stringstream s;
-	for (int i = 0; i < 5; i++) {
-		s << i + 1 << " - " << vec[i]->_id << endl;
+	for (int i = 0; i < can; i++) {	
+		if (vec[i]!=nullptr && i<5) {
+			s << i + 1 << " - ";
+			s << vec[i]->_id << endl;
+		}			
 	}
 	return s.str();
 }
 
 void ContenedorLista::vecVentaCliente::ordenar() {
+	if (can < 2) {
+		return;
+	}
+
 	for (int i = 0; i < can; i++) {
 		for (int j = i + 1; j < can; j++) {
 			if (vec[i]->_total <= vec[j]->_total) {
