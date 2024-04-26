@@ -1,8 +1,9 @@
 #ifndef LISTAGENVENTA_H
 #define LISTAGENVENTA_H
 #include "nodoVenta.h"
+#include "iteradorLista.h"
 
-class ContenedorLista {
+class ContenedorLista { //Contenedor Ventas
 private:
 	NodoVenta* _ppio;
 
@@ -38,7 +39,7 @@ public:
 	void ingresaDePrimero(venta& venta);
 	void ingresaDeUltimo(venta& venta);
 	bool eliminarLugar(int);
-	string cedulasTop5Clientes();
+
 	void ordenar();
 	bool intercambiarNodos(NodoVenta* n1, NodoVenta* n2);
 	int cantidadNodos();
@@ -50,7 +51,16 @@ public:
 	bool existe(string id);
 	double sumaTotalCliente(string id);
 	string top5();
+
+
+	
+
+	iteradorLista* getIterador()const {
+		return new iteradorLista(_ppio);
+	}
+
 };
+
 
 
 #endif // !LISTAGENVENTA_H

@@ -2,7 +2,8 @@
 #define PRODUCTO_H
 #include "categoria.h"
 #include "fecha.h"
-class producto
+#include "baseObj.h"
+class producto: public baseObj
 {
 public:
 	producto();

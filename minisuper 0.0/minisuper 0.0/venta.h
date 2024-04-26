@@ -17,6 +17,11 @@ public:
 	double getTotal();
 	cliente* getCliente();
 
+	friend ostream& operator << (ostream& COUT, venta& obj) {
+		COUT << obj.toString() << endl;
+		return COUT;
+	}
+
 private:
 	cliente* _cliente;
 	compraProducto* _decProducto;

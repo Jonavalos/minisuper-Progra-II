@@ -63,6 +63,7 @@ int main() {
 	listaGenericaProducto->ingresarUltimo(*arroz);
 	listaGenericaProducto->ingresarUltimo(*pan);
 	listaGenericaProducto->ingresarUltimo(*salami);
+	//cout << listaGenericaProducto->toString() << endl;
 	//controladora co(listaGenericaProducto);
 	//co.control0();
 
@@ -87,15 +88,17 @@ int main() {
 	/*venta* venta1 = new venta(client1, decMiel3);
 	cout << venta1->toString() << endl;*/
 
-	ContenedorLista* listaVentas1 = new ContenedorLista();
+	/*ContenedorLista* listaVentas1 = new ContenedorLista();
 	
-	/*interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	interfaz::crearFact(*listaGenericaProducto, listaVentas1);*/
-	/*interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	interfaz::crearFact(*listaGenericaProducto, listaVentas1);*/
+	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+
+	cout << listaVentas1->toString() << endl;
+	cout << listaVentas1->top5() << endl;*/
 
 	/*venta* venta1 = new venta(client1, decMiel3, 23864, 246);
 	listaGenericaVenta->ingresaDeUltimo(*venta1);*/
@@ -103,10 +106,10 @@ int main() {
 	/*cout << listaVentas1->top5() << endl;*//*
 	listaVentas1->reportarFacturasPorCliente("1111");*/
 
-	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 
-	delete listaGenericaProducto;
-	delete listaVentas1;
+	/*delete listaGenericaProducto;
+	delete listaVentas1;*/
 
 	return 0;
 }

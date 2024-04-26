@@ -144,6 +144,8 @@
     <ClCompile Include="excepciones.cpp" />
     <ClCompile Include="fecha.cpp" />
     <ClCompile Include="interfaz.cpp" />
+    <ClCompile Include="iteradorLista.cpp" />
+    <ClCompile Include="iteradorListaG.cpp" />
     <ClCompile Include="listaG.cpp" />
     <ClCompile Include="contenedorLista.cpp" />
     <ClCompile Include="main.cpp" />
@@ -173,6 +175,8 @@
     <ClInclude Include="excepciones.h" />
     <ClInclude Include="fecha.h" />
     <ClInclude Include="interfaz.h" />
+    <ClInclude Include="iteradorLista.h" />
+    <ClInclude Include="iteradorListaG.h" />
     <ClInclude Include="listaG.h" />
     <ClInclude Include="contenedorLista.h" />
     <ClInclude Include="nodoG.h" />

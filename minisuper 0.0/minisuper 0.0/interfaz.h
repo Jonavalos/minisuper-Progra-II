@@ -247,7 +247,7 @@ void interfaz::eliminarProducto(listaG<T>& lista) {
 
 template<class T>
 void interfaz::modificarProducto(listaG<T>& lista) {
-	int opc, nuevaExist, lugar;
+	int opc=0, nuevaExist=0, lugar = 0;;
 	double nuevoPrecio;
 
 	cout << "Modificacion de Productos" << endl;

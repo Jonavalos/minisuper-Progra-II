@@ -5,7 +5,8 @@
 class baseObj
 {
 public:
-
+	virtual ~baseObj(){}
+	virtual string toString() const = 0;
 
 
 
@@ -13,6 +14,4 @@ public:
 
 
 #endif // !BASOBJ_H
-
-
 

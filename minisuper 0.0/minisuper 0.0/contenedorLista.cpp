@@ -60,37 +60,7 @@ bool ContenedorLista::eliminarLugar(int lugar) {
 	return false;
 }
 
-string ContenedorLista::cedulasTop5Clientes()
-{
-	stringstream s;
-	ordenar();
 
-	/*for (int i = 1; i < 6;i++) {
-		if (getVenta(i) != nullptr) {
-			s << "Top "<<i<<" ->" << getVenta(i)->getCliente()->toString() << endl;
-		}
-	}*/
-
-	
-	if (getVenta(1) != nullptr) {
-		s << "Top 1 ->" << getVenta(1)->getCliente()->toString() << endl;
-	}
-	if (getVenta(2) != nullptr) {
-		s << "Top 2 ->" << getVenta(2)->getCliente()->toString() << endl;
-	}
-	if (getVenta(3) != nullptr) {
-		s << "Top 3 ->" << getVenta(3)->getCliente()->toString() << endl;
-	}
-	if (getVenta(4) != nullptr) {
-		s << "Top 4 ->" << getVenta(4)->getCliente()->toString() << endl;
-	}
-	if (getVenta(5) != nullptr) {
-		s << "Top 5 ->" << getVenta(5)->getCliente()->toString() << endl;
-	}
-	
-	return s.str();
-
-}
 
 void ContenedorLista::ordenar()
 {
@@ -208,20 +178,23 @@ void ContenedorLista::reportarFacturasPorCliente(string cedula) {
 	}
 }
 
-string ContenedorLista::toString() const {
+string ContenedorLista::toString() const
+{
 	stringstream s;
-	NodoVenta* pex = _ppio;
 	int n = 1;
+	iteradorLista* i = getIterador();
 	s << " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ LISTA ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ " << endl;
-	while (pex != nullptr) {
+	while (i->masElementos()) {
 		s << n << " -> " << endl;
-		s << pex->getObj()->toString() << endl;
-		pex = pex->getSigNodo();
+		s << *(i->proximoElemento()) << endl;
 		n++;
 	}
 	s << " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ " << endl;
+	delete i;
 	return s.str();
 }
+
+
 
 bool ContenedorLista::existe(string id)
 {
@@ -250,8 +223,6 @@ double ContenedorLista::sumaTotalCliente(string id)
 
 string ContenedorLista::top5()
 {
-	string uno = "", dos = "", tres = "", cuatro = "", cinco = "";
-
 	vecVentaCliente vec;
 
 	NodoVenta* pex = _ppio;
@@ -265,6 +236,8 @@ string ContenedorLista::top5()
 	vec.ordenar();
 	return vec.toString();
 }
+
+//-----------------------------------------------------------------------
 
 bool ContenedorLista::vecVentaCliente::existe(string id) {
 	for (int i = 0; i < can; i++) {

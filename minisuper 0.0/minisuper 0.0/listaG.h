@@ -1,7 +1,7 @@
 #ifndef LISTAG_H
 #define LISTAG_H
 #include "nodoG.h"
-
+#include "iteradorListaG.h"
 template <class T>
 class listaG
 {
@@ -25,7 +25,10 @@ public:
 		return COUT;
 	}
 
-	
+	//
+	virtual iteradorListaG<T>* getIterador() const {
+		return new iteradorListaG<T>(head);
+	}
 
 private:
 	nodoG<T>* head;
@@ -165,16 +168,16 @@ template<class T>
 inline string listaG<T>::toString() const
 {
 	stringstream s;
-	nodoG<T>* pex = head;
 	int n = 1;
+	iteradorListaG<T>* i = getIterador();
 	s << " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ LISTA ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ " << endl;
-	while (pex != nullptr) {
+	while (i->masElementos()) {
 		s << n << " -> " << endl;
-		s << *pex->getObj() << endl;
-		pex = pex->getNext();
+		s << *(i->proximoElemento()) << endl;
 		n++;
 	}
 	s << " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ " << endl;
+	delete i;
 	return s.str();
 }
 
