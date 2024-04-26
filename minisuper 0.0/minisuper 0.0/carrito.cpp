@@ -41,6 +41,16 @@ double carrito::getCategoria() {
 	return 0.0;
 }
 
+int carrito::getLimite()
+{
+	return 0;
+}
+
+int carrito::getExistencia()
+{
+	return 0;
+}
+
 void carrito::setCompraPtr(compraProducto* c)
 {
 }

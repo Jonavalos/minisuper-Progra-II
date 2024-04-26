@@ -28,6 +28,14 @@ double decoradorProducto::getPrecioCosto() {
 	return _productoPtr->getPrecioCosto();
 }
 
+int decoradorProducto::getLimite() {
+	return _productoPtr->getLimite();
+}
+
+int decoradorProducto::getExistencia() {
+	return _productoPtr->getExistencia();
+}
+
 void decoradorProducto::setCompraPtr(compraProducto* c) {
 	this->_compraPtr = c;
 }

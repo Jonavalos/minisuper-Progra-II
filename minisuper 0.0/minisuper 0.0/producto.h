@@ -24,6 +24,7 @@ public:
 	virtual void setExistencia(int);
 	virtual string getCategoria();
 	int getExistencia();
+	int getLimite();
 
 	//supongo que se usa la categoria con su % de ganancia para sacar la ganancia aqui
 	//**PREGUNTAR**

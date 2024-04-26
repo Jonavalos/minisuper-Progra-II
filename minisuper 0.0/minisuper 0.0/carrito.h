@@ -15,6 +15,8 @@ public:
 	virtual double getPrecioAcumulado();
 	virtual double getPrecioCosto();
 	virtual double getCategoria();
+	virtual int getLimite();
+	virtual int getExistencia();
 
 	virtual void setCompraPtr(compraProducto* c);
 	virtual void setProducto(producto* prod);

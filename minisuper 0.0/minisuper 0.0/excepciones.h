@@ -19,22 +19,12 @@ public:
 	const char* what() const;
 };
 
-class excepcionLimite : public excepcion {
-public:
-	const char* what() const;
-};
-
-class excepcionExistencia : public excepcion {
-public:
-	const char* what() const;
-};
-
 class excepcionRango : public excepcion {
 public:
 	const char* what() const;
 };
 
-class excepcionCaracteres : public excepcion {
+class excepcionCantidad : public excepcion {
 public:
 	const char* what() const;
 };

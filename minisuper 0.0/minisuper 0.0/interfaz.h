@@ -50,6 +50,7 @@ public:
 
 
 	static bool caracteresValidos(string s);
+	static int ingresarCantidad(compraProducto*);
 };
 
 
@@ -63,63 +64,38 @@ void interfaz::tipoConserva(listaG<T>& lista) {
 	int existencia, limite, intEnvasado;
 	bool envasado;
 
-	cout << "Ingresar Producto Tipo Conserva" << endl << endl;
-	cout << "Ingrese los siguientes datos: " << endl;
-	cout << "Codigo: "; cin >> codigo;
-	cout << "Nombre comercial: "; cin >> nombreComercial;
-	cout << "Descripcion: "; cin >> descripcion;
-	cout << "Precio costo: "; cin >> precioCosto;
-	try {
-		cout << "Categoria: "; cin >> categoria;
-		if ((categoria != "01") && (categoria != "02") && (categoria != "03")) {
-			throw excepcionCategoria();
-		}
-	}
-	catch (excepcionCategoria& ex) {
-		cerr << ex.what();
-		do {
-			cout << "Categoria: "; cin >> categoria;
-		} while ((categoria != "01") && (categoria != "02") && (categoria != "03"));
-	}
-	try {
+	do {
+		cout << "Ingresar Producto Tipo Conserva" << endl << endl;
+		cout << "Ingrese los siguientes datos: " << endl;
+		cout << "Codigo: "; cin >> codigo;
+		cout << "Nombre comercial: "; cin >> nombreComercial;
+		cout << "Descripcion: "; cin >> descripcion;
+		cout << "Precio costo: "; cin >> precioCosto;
 		cout << "Existencia: "; cin >> existencia;
-		if (existencia < 0) {
-			throw excepcionExistencia();
-		}
-	}
-	catch (excepcionExistencia& ex) {
-		cerr << ex.what();
-		do {
-			cout << "Existencia: "; cin >> existencia;
-		} while (existencia < 0);
-	}
-	try {
 		cout << "Limite: "; cin >> limite;
-		if (limite < 0) {
-			throw excepcionLimite();
-		}
-	}
-	catch (excepcionLimite& ex) {
-		cerr << ex.what();
-		do {
-			cout << "Limite: "; cin >> limite;
-		} while (limite < 0);
-	}
-	try {
-		cout << "Envasado: (1. Si, 0. No): "; cin >> intEnvasado; if (intEnvasado == 1) { envasado = true; }
-		else { envasado = false; }
-		if (intEnvasado < 0 || intEnvasado > 1) {
-			throw excepcionRango();
-		}
-	}
-	catch (excepcionRango& ex) {
-		cerr << ex.what();
-		do {
+		try {
+			cout << "Categoria: "; cin >> categoria;
+			if ((categoria != "01") && (categoria != "02") && (categoria != "03")) {
+				throw excepcionCategoria();
+			}
 			cout << "Envasado: (1. Si, 0. No): "; cin >> intEnvasado;
-		} while (intEnvasado < 0 || intEnvasado > 1);
-		if (intEnvasado == 1) { envasado = true; }
-		else { envasado = false; }
-	}
+			if (intEnvasado == 1) {
+				envasado = true;
+			}
+			else if (intEnvasado == 0) {
+				envasado = false;
+			}
+			else {
+				throw excepcionRango();
+			}
+		}
+		catch (excepcionCategoria& ex) {
+			cerr << ex.what();
+		}
+		catch (excepcionRango& ex) {
+			cerr << ex.what();
+		}
+	} while ((categoria != "01" && categoria != "02" && categoria != "03") || (intEnvasado != 0 && intEnvasado != 1));
 
 	producto* prod = new conserva(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, envasado);
 	lista.ingresarUltimo(*prod);
@@ -132,21 +108,47 @@ void interfaz::tipoAbarrote(listaG<T>& lista) {
 	int existencia, limite, intNacional, dia, mes, anio;
 	bool nacional;
 
-	cout << "Ingresar Producto Tipo Abarrote" << endl << endl;
-	cout << "Ingrese los siguientes datos: " << endl;
-	cout << "Codigo: "; cin >> codigo;
-	cout << "Nombre comercial: "; cin >> nombreComercial;
-	cout << "Descripcion: "; cin >> descripcion;
-	cout << "Precio costo: "; cin >> precioCosto;
-	cout << "Categoria: "; cin >> categoria;
-	cout << "Existencia: "; cin >> existencia;
-	cout << "Limite: "; cin >> limite;
-	cout << "Fecha(dia, mes, año): "; cin >> dia; cin >> mes; cin >> anio;
-	cout << "Nacional: (1. Si, 0. No): "; cin >> intNacional; if (intNacional == 1) { nacional = true; }
-	else { nacional = false; }
-	cout << "Peso: "; cin >> peso;
-	cout << "Nombre de la empresa: "; cin >> empresaNombre;
-
+	do {
+		cout << "Ingresar Producto Tipo Abarrote" << endl << endl;
+		cout << "Ingrese los siguientes datos: " << endl;
+		cout << "Codigo: "; cin >> codigo;
+		cout << "Nombre comercial: "; cin >> nombreComercial;
+		cout << "Descripcion: "; cin >> descripcion;
+		cout << "Precio costo: "; cin >> precioCosto;
+		cout << "Existencia: "; cin >> existencia;
+		cout << "Limite: "; cin >> limite;
+		cout << "Peso: "; cin >> peso;
+		cout << "Nombre de la empresa: "; cin >> empresaNombre;
+		try {
+			cout << "Categoria: "; cin >> categoria;
+			if ((categoria != "01") && (categoria != "02") && (categoria != "03")) {
+				throw excepcionCategoria();
+			}
+			cout << "Fecha(dia, mes, año): "; cin >> dia; cin >> mes; cin >> anio;
+			if (dia > 31 || mes > 12) {
+				throw excepcionFecha();
+			}
+			cout << "Nacional: (1. Si, 0. No): "; cin >> intNacional;
+			if (intNacional == 1) {
+				nacional = true;
+			}
+			else if (intNacional == 0) {
+				nacional = false;
+			}
+			else {
+				throw excepcionRango();
+			}
+		}
+		catch (excepcionCategoria& ex) {
+			cerr << ex.what();
+		}
+		catch (excepcionRango& ex) {
+			cerr << ex.what();
+		}
+		catch (excepcionFecha& ex) {
+			cerr << ex.what();
+		}
+	} while ((categoria != "01" && categoria != "02" && categoria != "03") || (dia > 31 || mes > 12) || (intNacional != 0 && intNacional != 1));
 
 	producto* prod = new abarrote(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, dia, mes, anio, nacional, peso, empresaNombre);
 	lista.ingresarUltimo(*prod);
@@ -159,24 +161,59 @@ void interfaz::tipoEmbutido(listaG<T>& lista) {
 	int existencia, limite, intNacional, dia, mes, anio, intTripa;
 	bool nacional, tripa;
 
-	cout << "Ingresar Producto Tipo Embutido" << endl << endl;
-	cout << "Ingrese los siguientes datos: " << endl;
-	cout << "Codigo: "; cin >> codigo;
-	cout << "Nombre comercial: "; cin >> nombreComercial;
-	cout << "Descripcion: "; cin >> descripcion;
-	cout << "Precio costo: "; cin >> precioCosto;
-	cout << "Categoria: "; cin >> categoria;
-	cout << "Existencia: "; cin >> existencia;
-	cout << "Limite: "; cin >> limite;
-	cout << "Fecha(dia, mes, año): "; cin >> dia; cin >> mes; cin >> anio;
-	cout << "Nacional: (1. Si, 0. No): "; cin >> intNacional; if (intNacional == 1) { nacional = true; }
-	else { nacional = false; }
-	cout << "Peso: "; cin >> peso;
-	cout << "Nombre del animal: "; cin >> nombreAnimal;
-	cout << "Parte del animal: "; cin >> parteDelAnimal;
-	cout << "Tiene tripa: (1. Si, 0. No): "; cin >> intTripa; if (intTripa == 1) { tripa = true; }
-	else { tripa = false; }
-	cout << "Marca: "; cin >> marca;
+	do {
+		cout << "Ingresar Producto Tipo Embutido" << endl << endl;
+		cout << "Ingrese los siguientes datos: " << endl;
+		cout << "Codigo: "; cin >> codigo;
+		cout << "Nombre comercial: "; cin >> nombreComercial;
+		cout << "Descripcion: "; cin >> descripcion;
+		cout << "Precio costo: "; cin >> precioCosto;
+		cout << "Existencia: "; cin >> existencia;
+		cout << "Limite: "; cin >> limite;
+		cout << "Peso: "; cin >> peso;
+		cout << "Nombre del animal: "; cin >> nombreAnimal;
+		cout << "Parte del animal: "; cin >> parteDelAnimal;
+		cout << "Marca: "; cin >> marca;
+		try {
+			cout << "Categoria: "; cin >> categoria;
+			if ((categoria != "01") && (categoria != "02") && (categoria != "03")) {
+				throw excepcionCategoria();
+			}
+			cout << "Fecha(dia, mes, año): "; cin >> dia; cin >> mes; cin >> anio;
+			if (dia > 31 || mes > 12) {
+				throw excepcionFecha();
+			}
+			cout << "Nacional: (1. Si, 0. No): "; cin >> intNacional;
+			if (intNacional == 1) {
+				nacional = true;
+			}
+			else if (intNacional == 0) {
+				nacional = false;
+			}
+			else {
+				throw excepcionRango();
+			}
+			cout << "Tiene tripa: (1. Si, 0. No): "; cin >> intTripa;
+			if (intTripa == 1) {
+				tripa = true;
+			}
+			else if (intNacional == 0) {
+				tripa = false;
+			}
+			else {
+				throw excepcionRango();
+			}
+		}
+		catch (excepcionCategoria& ex) {
+			cerr << ex.what();
+		}
+		catch (excepcionRango& ex) {
+			cerr << ex.what();
+		}
+		catch (excepcionFecha& ex) {
+			cerr << ex.what();
+		}
+	} while ((categoria != "01" && categoria != "02" && categoria != "03") || (dia > 31 || mes > 12) || (intNacional != 0 && intNacional != 1) || (intTripa != 0 && intTripa != 1));
 
 	producto* prod = new embutido(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, dia, mes, anio, nacional, peso, nombreAnimal, parteDelAnimal, tripa, marca);
 	lista.ingresarUltimo(*prod);
@@ -188,7 +225,14 @@ void interfaz::eliminarProducto(listaG<T>& lista) {
 
 	cout << "Eliminar Producto" << endl;
 	cout << lista;
-	cout << "Ingrese el lugar del producto que desea eliminar: "; cin >> lugar;
+	do {
+		try {
+			cout << "Ingrese el lugar del producto que desea eliminar: "; cin >> lugar;
+		}
+		catch (excepcionRango& ex) {
+			cerr << ex.what();
+		}
+	} while (lugar > lista.getCant());
 	if (lista.eliminarLugar(lugar)) {
 		cout << "Eliminado con exito. " << endl << endl;
 		cout << lista;
@@ -206,9 +250,23 @@ void interfaz::modificarProducto(listaG<T>& lista) {
 	cout << "Modificacion de Productos" << endl;
 	cout << "1. Modificar precio costo" << endl;
 	cout << "2. Modificar existencia" << endl;
-	cout << "Ingrese una opcion: "; cin >> opc; //excpModProduct
+	do {
+		try {
+			cout << "Ingrese la opcion: "; cin >> opc;
+		}
+		catch (excepcionRango& ex) {
+			cerr << ex.what();
+		}
+	} while (opc > 2);
 
-	cout << "Ingrese el lugar que desea modificar: "; cin >> lugar;
+	do {
+		try {
+			cout << "Ingrese el lugar del producto que desea modificar: "; cin >> lugar;
+		}
+		catch (excepcionRango& ex) {
+			cerr << ex.what();
+		}
+	} while (lugar > lista.getCant());
 	if (opc == 1) {
 		cout << "Ingrese el nuevo precio costo: "; cin >> nuevoPrecio;
 		(lista.getObjLugar(lugar))->setPrecioCosto(nuevoPrecio);
@@ -230,7 +288,14 @@ void interfaz::prodDeDeterminadaCat(listaG<T>& lista) {
 	int lugar = 1;
 
 	cout << "Reporte de Productos de Determinada Categoria" << endl;
-	cout << "Digite la categoria que desea mostrar(01, 02, 03): "; cin >> cate;
+	do {
+		try {
+			cout << "Digite la categoria que desea mostrar(01, 02, 03): "; cin >> cate;
+		}
+		catch (excepcionCategoria& ex) {
+			cerr << ex.what();
+		}
+	} while (cate != "01" && cate != "02" && cate != "03");
 
 	while (lugar <= lista.getCant() && lista.getNodoLugar(lugar) != nullptr) {
 		if (lista.getObjLugar(lugar)->getCategoria() == cate) {
@@ -269,18 +334,25 @@ void interfaz::crearFact(listaG<T>& lista, ContenedorLista* listaVentas) {
 	compraProducto* prod = nullptr;
 	do {
 		cout << lista.toString() << endl;
-		cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
+		do {
+			try {
+				cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
+			}
+			catch (excepcionRango& ex) {
+				cerr << ex.what();
+			}
+		} while (lugar > lista.getCant());
 		if (lugar != 0) {
 			if (prod == nullptr) {
 				prod = new decoradorProducto(carrito1, lista.getObjLugar(lugar));
-				cout << "Digite la cantidad que desea: "; cin >> cant; prod->setCantidad(cant);
+				cant = ingresarCantidad(prod);
 				total += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 1.13 * prod->getCategoria());
 				iva += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 0.13);
 				prod->setExistencia(cant);
 			}
 			else {
 				prod = new decoradorProducto(prod, lista.getObjLugar(lugar));
-				cout << "Digite la cantidad que desea: "; cin >> cant; prod->setCantidad(cant);
+				cant = ingresarCantidad(prod);
 				total += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 1.13 * prod->getCategoria());
 				iva += ((cant * lista.getObjLugar(lugar)->getPrecioCosto()) * 0.13);
 				prod->setExistencia(cant);

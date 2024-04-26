@@ -68,6 +68,10 @@ int producto::getExistencia() {
 	return _existencia;
 }
 
+int producto::getLimite() {
+	return _limite;
+}
+
 double producto::getGanancia() const
 {
 	return _precioCosto * categoria::porcentajeGanancia(_categoria);

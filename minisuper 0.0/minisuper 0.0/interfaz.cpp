@@ -97,15 +97,6 @@ void interfaz::factDeterminadoCliente(ContenedorLista& listaVenta) {
 	string cedula;
 
 	cout << "Reporte de Clientes por su Cedula" << endl;
-	try {
-		cout << "Digite la cedula del cliente: "; cin >> cedula;
-		if (caracteresValidos(cedula)) {
-			throw excepcionCaracteres();
-		}
-	}
-	catch (excepcionCaracteres& ex) {
-		cerr << ex.what();
-	}
 
 	listaVenta.reportarFacturasPorCliente(cedula);
 }
@@ -119,4 +110,22 @@ void interfaz::mejoresClientes(ContenedorLista& listaVenta) {
 bool interfaz::caracteresValidos(string s) {
 	regex e("^([A-Za-z_])*$");
 	return regex_match(s, e);
+}
+
+int interfaz::ingresarCantidad(compraProducto* prod) {
+	int cant = 0;
+
+	do {
+		try {
+			cout << "Digite la cantidad que desea: "; cin >> cant; prod->setCantidad(cant);
+			if (cant > prod->getLimite() && cant > prod->getExistencia()) {
+				throw excepcionCantidad();
+			}
+		}
+		catch (excepcionCantidad& ex) {
+			cerr << ex.what();
+		}
+	} while (cant < prod->getLimite() && cant > prod->getExistencia());
+
+	return cant;
 }
