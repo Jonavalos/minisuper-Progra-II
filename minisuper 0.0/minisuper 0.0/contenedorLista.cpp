@@ -265,3 +265,45 @@ string ContenedorLista::top5()
 	vec.ordenar();
 	return vec.toString();
 }
+
+bool ContenedorLista::vecVentaCliente::existe(string id) {
+	for (int i = 0; i < can; i++) {
+		if (vec[i]->_id == id)
+			return true;
+	}
+	return false;
+}
+
+bool ContenedorLista::vecVentaCliente::ingresar(ventaCliente* obj) {
+	if (can < 50) {
+		if (!existe(obj->_id)) {
+			vec[can++] = obj;
+			return true;
+		}
+	}
+	return false;
+}
+
+string ContenedorLista::vecVentaCliente::toString() {
+	stringstream s;
+	for (int i = 0; i < 5; i++) {
+		s << i + 1 << " - " << vec[i]->_id << endl;
+	}
+	return s.str();
+}
+
+void ContenedorLista::vecVentaCliente::ordenar() {
+	for (int i = 0; i < can; i++) {
+		for (int j = i + 1; j < can; j++) {
+			if (vec[i]->_total <= vec[j]->_total) {
+				ventaCliente* aux = vec[i];
+				vec[i] = vec[j];
+				vec[j] = aux;
+			}
+		}
+	}
+}
+
+ContenedorLista::ventaCliente::ventaCliente() : _id(""), _total(0.0) {}
+
+ContenedorLista::ventaCliente::ventaCliente(string id, double total) : _id(id), _total(total) {}
