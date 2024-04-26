@@ -228,6 +228,9 @@ void interfaz::eliminarProducto(listaG<T>& lista) {
 	do {
 		try {
 			cout << "Ingrese el lugar del producto que desea eliminar: "; cin >> lugar;
+			if (lugar > lista.getCant()) {
+				throw excepcionRango();
+			}
 		}
 		catch (excepcionRango& ex) {
 			cerr << ex.what();
@@ -253,6 +256,9 @@ void interfaz::modificarProducto(listaG<T>& lista) {
 	do {
 		try {
 			cout << "Ingrese la opcion: "; cin >> opc;
+			if (lugar > lista.getCant()) {
+				throw excepcionRango();
+			}
 		}
 		catch (excepcionRango& ex) {
 			cerr << ex.what();
@@ -262,6 +268,9 @@ void interfaz::modificarProducto(listaG<T>& lista) {
 	do {
 		try {
 			cout << "Ingrese el lugar del producto que desea modificar: "; cin >> lugar;
+			if (lugar > lista.getCant()) {
+				throw excepcionRango();
+			}
 		}
 		catch (excepcionRango& ex) {
 			cerr << ex.what();
@@ -291,6 +300,9 @@ void interfaz::prodDeDeterminadaCat(listaG<T>& lista) {
 	do {
 		try {
 			cout << "Digite la categoria que desea mostrar(01, 02, 03): "; cin >> cate;
+			if (lugar > lista.getCant()) {
+				throw excepcionRango();
+			}
 		}
 		catch (excepcionCategoria& ex) {
 			cerr << ex.what();
@@ -337,6 +349,9 @@ void interfaz::crearFact(listaG<T>& lista, ContenedorLista* listaVentas) {
 		do {
 			try {
 				cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
+				if (lugar > lista.getCant()) {
+					throw excepcionRango();
+				}
 			}
 			catch (excepcionRango& ex) {
 				cerr << ex.what();
