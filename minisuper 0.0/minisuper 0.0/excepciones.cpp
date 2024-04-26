@@ -1,12 +1,12 @@
 #include "excepciones.h"
 
 const char* excepcionCategoria::what() const {
-    return "Error: categoria mal puesta (01, 02, 03)";
+    return "Error: categoria inexistente (01, 02, 03)";
     cout << endl;
 }
 
 const char* excepcionFecha::what() const {
-    return "Error: formato no aceptado de fecha";
+    return "Error: formato de fecha no aceptado ";
     cout << endl;
 }
 

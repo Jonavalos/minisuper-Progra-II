@@ -349,14 +349,14 @@ void interfaz::crearFact(listaG<T>& lista, ContenedorLista* listaVentas) {
 		do {
 			try {
 				cout << "Digite el lugar del producto que desea comprar (0 para salir): "; cin >> lugar;
-				if (lugar > lista.getCant()) {
+				if (lugar > lista.getCant() || lugar<0) {
 					throw excepcionRango();
 				}
 			}
 			catch (excepcionRango& ex) {
-				cerr << ex.what();
+				cerr << ex.what() << endl;
 			}
-		} while (lugar > lista.getCant());
+		} while (lugar > lista.getCant() || lugar < 0);
 		if (lugar != 0) {
 			if (prod == nullptr) {
 				prod = new decoradorProducto(carrito1, lista.getObjLugar(lugar));
