@@ -185,7 +185,7 @@ string ContenedorLista::toString() const
 	iteradorLista* i = getIterador();
 	s << " ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ LISTA ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ " << endl;
 	while (i->masElementos()) {
-		s << n << " -> " << endl;
+		s << "Factura N: " << n << endl;
 		s << *(i->proximoElemento()) << endl;
 		n++;
 	}

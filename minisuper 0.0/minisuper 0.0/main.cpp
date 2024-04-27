@@ -53,10 +53,10 @@ int main() {
 	embutido p8(p7);
 	cout << p8;*/
 
-	producto* miel = new conserva("002", "miel", "es miel", 1020, "01", 150, 100, true);	
-	producto* arroz = new prodPerecedero("003", "arroz", "es arroz", 1000, "02", 150, 100, 1, 1, 1, true, 300.5);
-	producto* pan = new abarrote("004", "pan", "pan con queso", 650, "02", 150, 100, 1, 1, 1, true, 1.5, "Panaderia de pan");
-	producto* salami = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 100, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
+	producto* miel = new conserva("002", "miel", "es miel", 1020, "01", 150, 1, true);	
+	producto* arroz = new prodPerecedero("003", "arroz", "es arroz", 1000, "02", 150, 2, 1, 1, 1, true, 300.5);
+	producto* pan = new abarrote("004", "pan", "pan con queso", 650, "02", 150, 3, 1, 1, 1, true, 1.5, "Panaderia de pan");
+	producto* salami = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 100, 5, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
 
 	listaG<producto>* listaGenericaProducto = new listaG<producto>();
 	listaGenericaProducto->ingresarUltimo(*miel);
@@ -89,11 +89,11 @@ int main() {
 
 	ContenedorLista* listaVentas1 = new ContenedorLista();
 	
-	controladora co;
-	co.control0();
+	/*controladora co;
+	co.control0();*/
 
-	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
@@ -108,7 +108,7 @@ int main() {
 	/*cout << listaVentas1->top5() << endl;*//*
 	listaVentas1->reportarFacturasPorCliente("1111");*/
 
-	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	cout << listaVentas1->toString();
 
 	//delete listaGenericaProducto;
 	//delete listaVentas1;

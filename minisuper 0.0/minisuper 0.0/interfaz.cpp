@@ -120,14 +120,14 @@ int interfaz::ingresarCantidad(compraProducto* prod) {
 	do {
 		try {
 			cout << "Digite la cantidad que desea: "; cin >> cant; prod->setCantidad(cant);
-			if (cant > prod->getLimite() && cant > prod->getExistencia()) {
+			if (((prod->getExistencia() - cant) < prod->getLimite())) {
 				throw excepcionCantidad();
 			}
 		}
 		catch (excepcionCantidad& ex) {
 			cerr << ex.what();
 		}
-	} while (cant < prod->getLimite() && cant > prod->getExistencia());
+	} while (((prod->getExistencia() - cant) < prod->getLimite()));
 
 	return cant;
 }

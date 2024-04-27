@@ -23,7 +23,6 @@ string venta::toString() const
 	auto now = chrono::system_clock::now();
 	time_t now_c = chrono::system_clock::to_time_t(now);
 
-	s << "Factura N: " << endl;		//sacar número de factura mediante el contenedor de fact
 	s << "Fecha y hora actual: " << ctime(&now_c);
 	if (_cliente) {
 		s << _cliente->toString() << endl << endl;
