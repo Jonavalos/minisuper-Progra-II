@@ -51,6 +51,57 @@ public:
 
 	static bool caracteresValidos(string s);
 	static int ingresarCantidad(compraProducto*);
+
+	//
+
+	static void guardarListaProducto(listaG<producto>& list) {
+		fstream strm("../listaProducto.txt", ios::out);
+		
+		if (strm.good()) {
+			for (int i = 1; i <= list.getCant(); i++) {
+				list.getObjLugar(i)->guardar(strm);
+			}
+			strm.close();
+		}
+		
+	}
+
+	static listaG<producto>* recuperarListaProducto() {
+		fstream strm("../listaProducto.txt", ios::in);
+		string categ = "";
+
+
+		listaG<producto>* list = new listaG<producto>;
+
+		if (strm.good()) {
+			
+			while (getline(strm, categ, SEPARA_VALOR)) {
+				if (categ == "01") {
+					producto* obj = conserva::recuperar(strm);
+					list->ingresarUltimo(*obj);
+				}
+				if (categ == "02") {
+					producto* obj = abarrote::recuperar(strm);
+					list->ingresarUltimo(*obj);
+				}
+				if (categ == "03") {
+					producto* obj = embutido::recuperar(strm);
+					list->ingresarUltimo(*obj);
+				}
+				if (categ != "01" && categ != "02" && categ != "03") {
+					break;
+				}
+				
+			}//end while
+			return list;
+
+			strm.close();
+		}//end good
+
+		return nullptr;
+	}
+
+
 };
 
 
@@ -309,7 +360,7 @@ void interfaz::prodDeDeterminadaCat(listaG<T>& lista) {
 		}
 	} while (cate != "01" && cate != "02" && cate != "03");
 
-	while (lugar <= lista.getCant() && lista.getNodoLugar(lugar) != nullptr) {
+	while (lugar <= lista.getCant() && lista.getObjLugar(lugar) != nullptr) {
 		if (lista.getObjLugar(lugar)->getCategoria() == cate) {
 			cout << lista.getObjLugar(lugar)->toString();
 		}
@@ -323,7 +374,7 @@ void interfaz::prodBajosExist(listaG<T>& lista) {
 
 	cout << "Reporte de Productos Bajos en Existencia" << endl;
 
-	while (lugar <= lista.getCant() && lista.getNodoLugar(lugar) != nullptr) {
+	while (lugar <= lista.getCant() && lista.getObjLugar(lugar) != nullptr) {
 		if (lista.getObjLugar(lugar)->getExistencia() <= 1) {
 			cout << lista.getObjLugar(lugar)->toString();
 		}

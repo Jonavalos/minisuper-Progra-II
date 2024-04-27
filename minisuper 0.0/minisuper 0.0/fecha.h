@@ -10,6 +10,9 @@ public:
 	virtual ~fecha();
 	string toString() const;
 
+	int getDia() const;
+	int getMes() const;
+	int getAnio() const;
 
 private:
 	int _dia;

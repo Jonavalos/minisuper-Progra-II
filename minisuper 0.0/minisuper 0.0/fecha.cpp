@@ -16,3 +16,18 @@ string fecha::toString() const
 	s << " (" << _dia << "/" << _mes << "/" << _anio << ") ";
 	return s.str();
 }
+
+int fecha::getDia() const
+{
+	return _dia;
+}
+
+int fecha::getMes() const
+{
+	return _mes;
+}
+
+int fecha::getAnio() const
+{
+	return _anio;
+}

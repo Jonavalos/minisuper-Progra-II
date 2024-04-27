@@ -28,7 +28,10 @@ public:
 	}
 
 	T* getObj() {
-		return _obj;
+		if (_obj!=nullptr) {
+			return _obj;
+		}
+		return nullptr;
 	}
 
 	nodoG<T>* getNext() {

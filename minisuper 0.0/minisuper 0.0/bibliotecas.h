@@ -9,9 +9,8 @@
 #include <ctime>
 #include <iomanip>
 #include <regex>
+#include <string>
+#include <fstream>
 using namespace std;
-
-#define SEPARA_VALOR ','
-#define SEPARA_REGISTRO '\n'
 
 #endif // !BIBLIOTECAS_H

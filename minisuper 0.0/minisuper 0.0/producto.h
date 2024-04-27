@@ -3,6 +3,9 @@
 #include "categoria.h"
 #include "fecha.h"
 #include "baseObj.h"
+#include "utiles.h"
+#include "defines.h"
+
 class producto: public baseObj
 {
 public:
@@ -31,6 +34,10 @@ public:
 	//**PREGUNTAR**
 	//tirar excepcion de categoria no existente
 	
+	// PERSISTENCIA DE DATOS->
+
+	virtual void guardar(fstream& strm) = 0;
+
 
 protected:
 	string _codigo;

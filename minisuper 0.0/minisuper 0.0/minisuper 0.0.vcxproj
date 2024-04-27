@@ -151,6 +151,7 @@
     <ClCompile Include="nodoVenta.cpp" />
     <ClCompile Include="prodPerecedero.cpp" />
     <ClCompile Include="producto.cpp" />
+    <ClCompile Include="utiles.cpp" />
     <ClCompile Include="venta.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +167,7 @@
     <ClInclude Include="controladora.h" />
     <ClInclude Include="decoradorAbs.h" />
     <ClInclude Include="decoradorProducto.h" />
+    <ClInclude Include="defines.h" />
     <ClInclude Include="embutido.h" />
     <ClInclude Include="excepciones.h" />
     <ClInclude Include="fecha.h" />
@@ -178,6 +180,7 @@
     <ClInclude Include="nodoVenta.h" />
     <ClInclude Include="prodPerecedero.h" />
     <ClInclude Include="producto.h" />
+    <ClInclude Include="utiles.h" />
     <ClInclude Include="venta.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -13,7 +13,7 @@ public:
 	void ingresarPrimero(const T& obj);
 	void ingresarUltimo(const T& obj);
 
-	nodoG<T>* getNodoLugar(int lugar);
+	//nodoG<T>* getNodoLugar(int lugar);
 	T* getObjLugar(int lugar);
 	bool eliminarLugar(int lugar);
 	int getCant();
@@ -33,6 +33,29 @@ public:
 private:
 	nodoG<T>* head;
 
+	//template<class T>//hacer private
+	nodoG<T>* getNodoLugar(int lugar)
+	{
+		nodoG<T>* pex = head;
+		int n = 0;
+
+		if (lugar == 1) {
+			return pex;
+		}
+		else {
+			while (n + 1 < lugar && pex != nullptr) {
+				pex = pex->getNext();
+				n++;
+			}
+			if (n + 1 == lugar && pex != nullptr) {
+				return pex;
+			}
+			if (pex == nullptr) {
+				return nullptr;
+			}
+		}
+		return nullptr;
+	}
 };
 
 template<class T>
@@ -91,29 +114,7 @@ inline void listaG<T>::ingresarUltimo(const T& obj)
 
 }
 
-template<class T>//hacer private
-inline nodoG<T>* listaG<T>::getNodoLugar(int lugar)
-{
-	nodoG<T>* pex = head;
-	int n = 0;
 
-	if (lugar == 1) {
-		return pex;
-	}
-	else {
-		while (n + 1 < lugar && pex != nullptr) {
-			pex = pex->getNext();
-			n++;
-		}
-		if (n + 1 == lugar) {
-			return pex;
-		}
-		if (pex == nullptr) {
-			return nullptr;
-		}
-	}
-	return nullptr;
-}
 
 template<class T>
 inline T* listaG<T>::getObjLugar(int lugar)
