@@ -1,9 +1,8 @@
 #ifndef EMBUTIDO_H
 #define EMBUTIDO_H
-#include "carne.h"
-#include "empaque.h"
+#include "prodPerecedero.h"
 
-class embutido : public carne
+class embutido : public prodPerecedero
 {
 
 public:
@@ -11,7 +10,6 @@ public:
 	embutido();
 	embutido(string codigo, string nombreComercial, string descripcion, double precioCosto, string categoria, int existencia, int limite, int dia, int mes, int anio, bool nacional, double peso, string nombreAnimal, string parteDelAnimal, bool tripa, string marca);
 	embutido(string codigo, string nombreComercial, string descripcion, double precioCosto, string categoria, int existencia, int limite, fecha* fechaP, bool nacional, double peso, string nombreAnimal, string parteDelAnimal, bool tripa, string marca);
-	embutido(string codigo, string nombreComercial, string descripcion, double precioCosto, string categoria, int existencia, int limite, perecedero* perecederoPtr, bool nacional, double peso, string nombreAnimal, string parteDelAnimal, bool tripa, string marca);
 	embutido(const embutido& obj);
 	virtual ~embutido();
 
@@ -20,7 +18,9 @@ public:
 private:
 
 	string _marca;
-	empaque* _empaquePtr;
+	bool _tripa;
+	string _nombreAnimal;
+	string _parteDelAnimal;
 
 };
 

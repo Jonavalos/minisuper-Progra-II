@@ -11,10 +11,6 @@ abarrote::abarrote(string codigo, string nombreComercial, string descripcion, do
 	: prodPerecedero(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, fechaP, nacional, peso), _empresaNombre(empresaNombre) {
 }
 
-abarrote::abarrote(string codigo, string nombreComercial, string descripcion, double precioCosto, string categoria, int existencia, int limite, perecedero* perecederoPtr, bool nacional, double peso, string empresaNombre)
-	: prodPerecedero(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite, perecederoPtr, nacional, peso), _empresaNombre(empresaNombre) {
-}
-
 abarrote::abarrote(const abarrote& obj) : prodPerecedero(obj), _empresaNombre(obj._empresaNombre) {
 }
 

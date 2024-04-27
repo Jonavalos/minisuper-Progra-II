@@ -1,34 +1,29 @@
 #include "prodPerecedero.h"
 
 prodPerecedero::prodPerecedero() :producto(), _nacional(true), _peso(0.0) {
-	_perecederoPtr = new perecedero();
+	_fechaPtr = new fecha();
 }
 
 prodPerecedero::~prodPerecedero(){
-	if (_perecederoPtr != nullptr) {
-		delete _perecederoPtr;
+	if (_fechaPtr != nullptr) {
+		delete _fechaPtr;
 	}
 }
 
 prodPerecedero::prodPerecedero(string codigo, string nombreComercial, string descripcion, double precioCosto, string categoria, int existencia, int limite, int dia, int mes, int anio, bool nacional, double peso)
 	:producto(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite), _nacional(nacional), _peso(peso) {
-	_perecederoPtr = new perecedero(dia, mes, anio);
+	_fechaPtr = new fecha(dia, mes, anio);
 }
 
 prodPerecedero::prodPerecedero(string codigo, string nombreComercial, string descripcion, double precioCosto, string categoria, int existencia, int limite, fecha* fechaP, bool nacional, double peso)
 	:producto(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite), _nacional(nacional), _peso(peso) {
-	_perecederoPtr = new perecedero(fechaP);
-}
-
-prodPerecedero::prodPerecedero(string codigo, string nombreComercial, string descripcion, double precioCosto, string categoria, int existencia, int limite, perecedero* perecederoPtr, bool nacional, double peso)
-	:producto(codigo, nombreComercial, descripcion, precioCosto, categoria, existencia, limite), _nacional(nacional), _peso(peso) {
-	_perecederoPtr = new perecedero(*perecederoPtr);
+	_fechaPtr = new fecha(*fechaP);
 }
 
 
 prodPerecedero::prodPerecedero(const prodPerecedero& obj)
 	:producto(obj), _nacional(obj._nacional), _peso(obj._peso) {
-	_perecederoPtr = new perecedero(*obj._perecederoPtr);
+	_fechaPtr = new fecha(*obj._fechaPtr);
 }
 
 
@@ -46,7 +41,7 @@ string prodPerecedero::toString() const
 	}
 	
 	s << "Peso: " << _peso << endl;
-	s << "Fecha caducidad:" << _perecederoPtr->fechaCaducidadToString() << endl;
+	s << "Fecha caducidad:" << _fechaPtr->toString() << endl;
 	//s << "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" << endl;
 
 	return s.str();
