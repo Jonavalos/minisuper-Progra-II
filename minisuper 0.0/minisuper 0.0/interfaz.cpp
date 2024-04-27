@@ -96,9 +96,11 @@ int interfaz::reporte() {
 void interfaz::factDeterminadoCliente(ContenedorLista& listaVenta) {
 	string cedula;
 
-	cout << "Reporte de Clientes por su Cedula" << endl;
-
-	listaVenta.reportarFacturasPorCliente(cedula);
+	cout << "Reporte de Clientes por su Cedula..." << endl;
+	cout << "Ingrese la cedula: " << endl;
+	if (cin >> cedula) {
+		listaVenta.reportarFacturasPorCliente(cedula);
+	}
 }
 
 void interfaz::mejoresClientes(ContenedorLista& listaVenta) {
