@@ -66,26 +66,44 @@ int main() {
 	cout << listaGenericaProducto->toString() << endl;
 	
 
-	/*compraProducto* car1 = new carrito();
+	compraProducto* car1 = new carrito();
 	compraProducto* decMiel = new decoradorProducto(car1, miel);
 	compraProducto* decArroz = new decoradorProducto(decMiel, arroz);
 	compraProducto* decPan = new decoradorProducto(decArroz, pan);
 	compraProducto* decSalami= new decoradorProducto(decPan, salami);
 	compraProducto* decArroz2 = new decoradorProducto(decSalami, arroz);
 	compraProducto* decMiel2 = new decoradorProducto(decArroz2, miel);
-	compraProducto* decMiel3 = new decoradorProducto(decMiel2, miel);*/
+	compraProducto* decMiel3 = new decoradorProducto(decMiel2, miel);
 
-	//decSalami->setCompraPtr(decPan);
-	//decSalami->setProducto(salami);
-	//decSalami->setPrecioAcumulado();
+	//cout << decMiel3->toString() << endl;
 
-	/*cout << decSalami->toString() << endl;
-	cout << "precio acumulado: " << endl;
-	cout << decSalami->getPrecioAcumulado() << endl;*/
+	/*fstream strm1("../decorador.txt", ios::out);
+	if (strm1.good()) {
+		decMiel3->guardar(strm1);
+		strm1.close();
+	}
 
-	/*cliente* client1 = new cliente("1111");*/
-	/*venta* venta1 = new venta(client1, decMiel3);
-	cout << venta1->toString() << endl;*/
+	fstream strm2("../decorador.txt", ios::in);
+	if (strm2.good()) {
+		cout<<decoradorProducto::recuperar1(strm2)->toString();
+		strm2.close();
+	}*/
+
+	cliente* client1 = new cliente("1111");
+	venta* venta1 = new venta(client1, decMiel3, 404, 0.13);
+	cout << venta1->toString() << endl;
+
+	fstream strm1("../venta.txt", ios::out);
+	if (strm1.good()) {
+		venta1->guardar(strm1);
+		strm1.close();
+	}
+
+	fstream strm2("../venta.txt", ios::in);
+	if (strm2.good()) {
+		cout << venta::recuperar(strm2)->toString() << endl;
+		strm2.close();
+	}
 
 	//ContenedorLista* listaVentas1 = new ContenedorLista();
 	
@@ -110,12 +128,12 @@ int main() {
 
 	//cout << listaVentas1->toString();
 
-	cout << "-----------------------------" << endl;
-	cout << "-----------------------------" << endl;
-	cout << "-----------------------------" << endl;
+	//cout << "-----------------------------" << endl;
+	//cout << "-----------------------------" << endl;
+	//cout << "-----------------------------" << endl;
 
-	interfaz::guardarListaProducto(*listaGenericaProducto);
-	cout << interfaz::recuperarListaProducto()->toString() << endl;
+	//interfaz::guardarListaProducto(*listaGenericaProducto);
+	//cout << interfaz::recuperarListaProducto()->toString() << endl;
 
 	//delete listaGenericaProducto;
 	//delete listaVentas1;

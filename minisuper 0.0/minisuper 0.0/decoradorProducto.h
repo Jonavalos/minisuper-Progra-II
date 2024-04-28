@@ -3,6 +3,7 @@
 #include "decoradorAbs.h"
 #include "producto.h"
 
+
 class decoradorProducto :public decoradorAbs	
 {												
 												
@@ -26,6 +27,16 @@ public:
 	virtual void setExistencia(int);
 
 	virtual string toString();
+
+	virtual void guardar(fstream& strm) {
+		setPrecioAcumulado();
+		strm << _precioAcumulado << SEPARA_VALOR;
+		_productoPtr->guardar(strm);
+
+		_compraPtr->guardar(strm);
+	}
+
+	static compraProducto* recuperar1(fstream& strm);
 
 private:
 	producto* _productoPtr;

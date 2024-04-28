@@ -7,7 +7,7 @@ class carrito: public compraProducto
 {
 public:
 	carrito();
-	virtual ~carrito();
+	virtual ~carrito();//(0.0, 0)
 	virtual string getNombre();
 	virtual string getCodigo();
 	virtual double getPrecio();
@@ -25,6 +25,12 @@ public:
 	virtual void setExistencia(int);
 
 	virtual void aumentarCantidad();
+
+	virtual void guardar(fstream& strm) {
+		strm << "carrito" << SEPARA_REGISTRO;
+	}
+
+
 private:
 
 

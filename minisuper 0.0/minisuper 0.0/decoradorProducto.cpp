@@ -1,4 +1,8 @@
 #include "decoradorProducto.h"
+#include "conserva.h"
+#include "abarrote.h"
+#include "embutido.h"
+#include "carrito.h"
 
 decoradorProducto::decoradorProducto()
 	: decoradorAbs(0.0, 1, nullptr), _productoPtr(nullptr) {}
@@ -78,7 +82,39 @@ void decoradorProducto::setExistencia(int exist) {
 
 string decoradorProducto::toString() {
 	stringstream s;
-	s << _cantidad << setw(10) << this->getNombre() << " [ " << this->getCodigo() << " ]" << setw(13) << this->getPrecioCosto() << setw(13) <<  this->getPrecio() << endl;
+	s << "1" << setw(10) << this->getNombre() << " [ " << this->getCodigo() << " ]" << setw(13) << this->getPrecioCosto() << setw(13) << this->getPrecio() << endl;
 	s << _compraPtr->toString();
 	return s.str();
+}
+
+compraProducto* decoradorProducto::recuperar1(fstream& strm)
+{
+	string preAcStr = "", categ = "";
+	producto* obj = nullptr;
+	getline(strm, preAcStr, SEPARA_VALOR);
+
+	if (preAcStr == "carrito\n") {
+		return new carrito();
+	}
+
+	if (getline(strm, categ, SEPARA_VALOR)) {
+		if (categ == "01") {
+			obj = conserva::recuperar(strm);
+		}
+		if (categ == "02") {
+			obj = abarrote::recuperar(strm);
+		}
+		if (categ == "03") {
+			obj = embutido::recuperar(strm);
+		}
+		if (categ != "01" && categ != "02" && categ != "03") {
+
+		}
+	}
+
+
+
+	compraProducto* dec = new decoradorProducto(decoradorProducto::recuperar1(strm), obj);
+
+	return dec;
 }

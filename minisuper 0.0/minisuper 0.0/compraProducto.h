@@ -25,6 +25,9 @@ public:
 
 	virtual void aumentarCantidad() = 0;
 
+	//
+	virtual void guardar(fstream& strm) = 0;
+
 protected:
 	double _precioAcumulado;
 	int _cantidad;

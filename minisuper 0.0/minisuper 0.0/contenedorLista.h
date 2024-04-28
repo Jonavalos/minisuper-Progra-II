@@ -50,14 +50,19 @@ public:
 
 	bool existe(string id);
 	double sumaTotalCliente(string id);
-	string top5();
-
-
-	
+	string top5();	
 
 	iteradorLista* getIterador()const {
 		return new iteradorLista(_ppio);
 	}
+
+	virtual void guardar(fstream& strm) {
+
+
+
+	}
+
+
 
 };
 
