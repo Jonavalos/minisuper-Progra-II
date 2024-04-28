@@ -63,7 +63,7 @@ int main() {
 	listaGenericaProducto->ingresarUltimo(*arroz);
 	listaGenericaProducto->ingresarUltimo(*pan);
 	listaGenericaProducto->ingresarUltimo(*salami);
-	cout << listaGenericaProducto->toString() << endl;
+	//cout << listaGenericaProducto->toString() << endl;
 	
 
 	compraProducto* car1 = new carrito();
@@ -89,7 +89,7 @@ int main() {
 		strm2.close();
 	}*/
 
-	cliente* client1 = new cliente("1111");
+	/*cliente* client1 = new cliente("1111");
 	venta* venta1 = new venta(client1, decMiel3, 404, 0.13);
 	cout << venta1->toString() << endl;
 
@@ -104,9 +104,37 @@ int main() {
 		cout << venta::recuperar(strm2)->toString() << endl;
 		strm2.close();
 	}
+	*/
+	ContenedorLista* listaVentas1 = new ContenedorLista();
+	cliente* client1 = new cliente("1111");
+	cliente* client2 = new cliente("2222");
+	venta* venta1 = new venta(client1, decPan, 111, 0.13);
+	venta* venta2 = new venta(client2, decArroz2, 222, 0.13);
+	venta* venta3 = new venta(client1, decSalami, 333, 0.13);
+	venta* venta4 = new venta(client2, decMiel3, 444, 0.13);
+	listaVentas1->ingresaDeUltimo(*venta1);
+	listaVentas1->ingresaDeUltimo(*venta2);
+	listaVentas1->ingresaDeUltimo(*venta3);
+	listaVentas1->ingresaDeUltimo(*venta4);
 
-	//ContenedorLista* listaVentas1 = new ContenedorLista();
-	
+	//cout << listaVentas1->toString() << endl;
+
+	fstream strm1("../listaVentas.txt", ios::out);
+	if (strm1.good()) {
+		listaVentas1->guardar(strm1);
+		strm1.close();
+	}
+	cout << "***********************" << endl;
+	cout << "***********************" << endl;
+	fstream strm2("../listaVentas.txt", ios::in);
+	if (strm2.good()) {
+		
+		cout << ContenedorLista::recuperar(strm2)->toString() << endl;
+
+		strm2.close();
+	}
+
+
 	/*controladora co;
 	co.control0();*/
 

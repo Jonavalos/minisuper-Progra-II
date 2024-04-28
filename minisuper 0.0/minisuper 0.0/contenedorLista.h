@@ -56,13 +56,9 @@ public:
 		return new iteradorLista(_ppio);
 	}
 
-	virtual void guardar(fstream& strm) {
+	virtual void guardar(fstream& strm);
 
-
-
-	}
-
-
+	static ContenedorLista* recuperar(fstream& strm);
 
 };
 

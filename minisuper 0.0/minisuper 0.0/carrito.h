@@ -27,7 +27,8 @@ public:
 	virtual void aumentarCantidad();
 
 	virtual void guardar(fstream& strm) {
-		strm << "carrito" << SEPARA_REGISTRO;
+		strm << "carrito" << SEPARA_VALOR;
+		strm << "fin" << SEPARA_REGISTRO;
 	}
 
 

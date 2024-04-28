@@ -93,7 +93,8 @@ compraProducto* decoradorProducto::recuperar1(fstream& strm)
 	producto* obj = nullptr;
 	getline(strm, preAcStr, SEPARA_VALOR);
 
-	if (preAcStr == "carrito\n") {
+	if (preAcStr == "carrito") {
+		getline(strm, preAcStr, SEPARA_REGISTRO);
 		return new carrito();
 	}
 

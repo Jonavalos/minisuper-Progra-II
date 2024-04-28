@@ -237,6 +237,31 @@ string ContenedorLista::top5()
 	return vec.toString();
 }
 
+void ContenedorLista::guardar(fstream& strm)
+{
+	NodoVenta* pex = _ppio;
+	while (pex != nullptr) {
+
+		pex->getObj()->guardar(strm);
+		pex = pex->getSigNodo();
+
+	}
+}
+
+ContenedorLista* ContenedorLista::recuperar(fstream& strm)
+{
+	ContenedorLista* list = new ContenedorLista();
+
+	while (venta* obj = venta::recuperar(strm)) {
+		if (obj == nullptr)
+			break;
+		list->ingresaDeUltimo(*obj);
+
+	}
+
+	return list;
+}
+
 //-----------------------------------------------------------------------
 //-----------------------------------------------------------------------
 //-----------------------------------------------------------------------
