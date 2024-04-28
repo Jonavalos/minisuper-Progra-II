@@ -105,9 +105,12 @@ int main() {
 		strm2.close();
 	}
 	*/
+
+	//creando ventas-------
 	ContenedorLista* listaVentas1 = new ContenedorLista();
 	cliente* client1 = new cliente("1111");
-	cliente* client2 = new cliente("2222");
+	cliente* client2 = new cliente("2222");	  
+						   //cliente, decorador, total, iva
 	venta* venta1 = new venta(client1, decPan, 111, 0.13);
 	venta* venta2 = new venta(client2, decArroz2, 222, 0.13);
 	venta* venta3 = new venta(client1, decSalami, 333, 0.13);
@@ -118,7 +121,8 @@ int main() {
 	listaVentas1->ingresaDeUltimo(*venta4);
 
 	//cout << listaVentas1->toString() << endl;
-
+	
+	//guardar--------
 	fstream strm1("../listaVentas.txt", ios::out);
 	if (strm1.good()) {
 		listaVentas1->guardar(strm1);
@@ -126,6 +130,8 @@ int main() {
 	}
 	cout << "***********************" << endl;
 	cout << "***********************" << endl;
+
+	//recuperar-----
 	fstream strm2("../listaVentas.txt", ios::in);
 	if (strm2.good()) {
 		
