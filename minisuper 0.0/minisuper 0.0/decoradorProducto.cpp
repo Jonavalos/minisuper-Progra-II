@@ -82,7 +82,7 @@ void decoradorProducto::setExistencia(int exist) {
 
 string decoradorProducto::toString() {
 	stringstream s;
-	s << "1" << setw(10) << this->getNombre() << " [ " << this->getCodigo() << " ]" << setw(13) << this->getPrecioCosto() << setw(13) << this->getPrecio() << endl;
+	s << _cantidad << setw(10) << this->getNombre() << " [ " << this->getCodigo() << " ]" << setw(13) << this->getPrecioCosto() << setw(13) << this->getPrecio() << endl;
 	s << _compraPtr->toString();
 	return s.str();
 }

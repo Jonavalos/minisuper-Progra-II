@@ -47,12 +47,11 @@ public:
 			static void prodBajosExist(listaG<T>&);
 			static void factDeterminadoCliente(ContenedorLista&);
 			static void mejoresClientes(ContenedorLista&);
-
+		static void archivos(ContenedorLista&);
 
 	static bool caracteresValidos(string s);
 	static int ingresarCantidad(compraProducto*);
-
-	//
+	
 
 	static void guardarListaProducto(listaG<producto>& list) {
 		fstream strm("../listaProducto.txt", ios::out);
@@ -315,7 +314,7 @@ void interfaz::modificarProducto(listaG<T>& lista) {
 			cerr << ex.what();
 		}
 	} while (opc > 2);
-
+	cout << lista.toString();
 	do {
 		try {
 			cout << "Ingrese el lugar del producto que desea modificar: "; cin >> lugar;

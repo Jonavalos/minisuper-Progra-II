@@ -14,9 +14,10 @@ int interfaz::menu() {
 	cout << "1. Mantenimiento" << endl;
 	cout << "2. Ventas" << endl;
 	cout << "3. Reporte" << endl;
-	cout << "4. SALIR" << endl;
+	cout << "4. Archivos" << endl;
+	cout << "5. SALIR" << endl;
 	try {
-		cout << "Ingrese una opcion: "; cin >> op; //excp
+		cout << "Ingrese una opcion: "; cin >> op;
 		if (op < 1 && op>4) {
 			throw excepcionRango();
 		}
@@ -109,13 +110,31 @@ void interfaz::mejoresClientes(ContenedorLista& listaVenta) {
 	cout << listaVenta.top5();
 }
 
+void interfaz::archivos(ContenedorLista& listaVentas1) {
+	fstream strm1("../listaVentas.txt", ios::out);
+	if (strm1.good()) {
+		listaVentas1.guardar(strm1);
+		strm1.close();
+	}
+	cout << "***********************" << endl;
+	cout << "***********************" << endl;
+
+	fstream strm2("../listaVentas.txt", ios::in);
+	if (strm2.good()) {
+
+		cout << ContenedorLista::recuperar(strm2)->toString() << endl;
+
+		strm2.close();
+	}
+}
+
 bool interfaz::caracteresValidos(string s) {
 	regex e("^([A-Za-z_])*$");
 	return regex_match(s, e);
 }
 
 int interfaz::ingresarCantidad(compraProducto* prod) {
-	int cant = 0;
+	int cant;
 
 	do {
 		try {

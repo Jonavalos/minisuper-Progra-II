@@ -63,7 +63,6 @@ int main() {
 	listaGenericaProducto->ingresarUltimo(*arroz);
 	listaGenericaProducto->ingresarUltimo(*pan);
 	listaGenericaProducto->ingresarUltimo(*salami);
-	//cout << listaGenericaProducto->toString() << endl;
 	
 
 	compraProducto* car1 = new carrito();
@@ -74,37 +73,6 @@ int main() {
 	compraProducto* decArroz2 = new decoradorProducto(decSalami, arroz);
 	compraProducto* decMiel2 = new decoradorProducto(decArroz2, miel);
 	compraProducto* decMiel3 = new decoradorProducto(decMiel2, miel);
-
-	//cout << decMiel3->toString() << endl;
-
-	/*fstream strm1("../decorador.txt", ios::out);
-	if (strm1.good()) {
-		decMiel3->guardar(strm1);
-		strm1.close();
-	}
-
-	fstream strm2("../decorador.txt", ios::in);
-	if (strm2.good()) {
-		cout<<decoradorProducto::recuperar1(strm2)->toString();
-		strm2.close();
-	}*/
-
-	/*cliente* client1 = new cliente("1111");
-	venta* venta1 = new venta(client1, decMiel3, 404, 0.13);
-	cout << venta1->toString() << endl;
-
-	fstream strm1("../venta.txt", ios::out);
-	if (strm1.good()) {
-		venta1->guardar(strm1);
-		strm1.close();
-	}
-
-	fstream strm2("../venta.txt", ios::in);
-	if (strm2.good()) {
-		cout << venta::recuperar(strm2)->toString() << endl;
-		strm2.close();
-	}
-	*/
 
 	//creando ventas-------
 	ContenedorLista* listaVentas1 = new ContenedorLista();
@@ -121,28 +89,10 @@ int main() {
 	listaVentas1->ingresaDeUltimo(*venta4);
 
 	//cout << listaVentas1->toString() << endl;
-	
-	//guardar--------
-	fstream strm1("../listaVentas.txt", ios::out);
-	if (strm1.good()) {
-		listaVentas1->guardar(strm1);
-		strm1.close();
-	}
-	cout << "***********************" << endl;
-	cout << "***********************" << endl;
-
-	//recuperar-----
-	fstream strm2("../listaVentas.txt", ios::in);
-	if (strm2.good()) {
-		
-		cout << ContenedorLista::recuperar(strm2)->toString() << endl;
-
-		strm2.close();
-	}
 
 
-	/*controladora co;
-	co.control0();*/
+	controladora co(listaGenericaProducto, listaVentas1);
+	co.control0();
 
 	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
@@ -150,24 +100,6 @@ int main() {
 	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-
-	//cout << listaVentas1->toString() << endl;
-	//cout << listaVentas1->top5() << endl;
-
-	/*venta* venta1 = new venta(client1, decMiel3, 23864, 246);
-	listaGenericaVenta->ingresaDeUltimo(*venta1);*/
-	//cout << listaVentas1->toString();
-	/*cout << listaVentas1->top5() << endl;*//*
-	listaVentas1->reportarFacturasPorCliente("1111");*/
-
-	//cout << listaVentas1->toString();
-
-	//cout << "-----------------------------" << endl;
-	//cout << "-----------------------------" << endl;
-	//cout << "-----------------------------" << endl;
-
-	//interfaz::guardarListaProducto(*listaGenericaProducto);
-	//cout << interfaz::recuperarListaProducto()->toString() << endl;
 
 	//delete listaGenericaProducto;
 	//delete listaVentas1;
@@ -176,8 +108,6 @@ int main() {
 }
 //TO DO
 /*
--verificar que se pueda añadir al carrito segun sus existencias
-
 */
 
 
@@ -192,6 +122,8 @@ int main() {
 
 //Dudas:
 /*
+-el importe es el total con respecto a las cantidades o con respecto al precio costo de un producto?
+
 -porcentaje de ganancia implica creacion de un getGanancia en producto?
 -en fecha, se puede usar la fecha default(constructor sin parametros) como fecha actual?
 

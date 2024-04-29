@@ -5,9 +5,7 @@
 
 class controladora {
 public:
-	//inhabilitar constructores de copia buscar ejemplo con deletes, no se ocuparia crear mas de una controladora
 	controladora();
-	//template<class T>
 	controladora(listaG<producto>*, ContenedorLista*);
 	virtual ~controladora();
 
@@ -28,7 +26,7 @@ public:
 		void control3_3();
 		void control3_4();
 		void control3_5();
-	
+	void control4();
 
 private:
 
