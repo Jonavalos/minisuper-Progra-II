@@ -88,11 +88,27 @@ int main() {
 	listaVentas1->ingresaDeUltimo(*venta3);
 	listaVentas1->ingresaDeUltimo(*venta4);
 
+	//guardar--------
+	fstream strm1("../listaVentas.txt", ios::out);
+	if (strm1.good()) {
+		listaVentas1->guardar(strm1);
+		strm1.close();
+	}
+	cout << "***********************" << endl;
+	cout << "***********************" << endl;
+
+	//recuperar-----
+	fstream strm2("../listaVentas.txt", ios::in);
+	if (strm2.good()) {
+		cout << ContenedorLista::recuperar(strm2)->toString() << endl;
+		strm2.close();
+	}
+
 	//cout << listaVentas1->toString() << endl;
 
 
-	controladora co(listaGenericaProducto, listaVentas1);
-	co.control0();
+	//controladora co(listaGenericaProducto, listaVentas1);
+	//co.control0();
 
 	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
 	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);

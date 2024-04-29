@@ -89,9 +89,10 @@ string decoradorProducto::toString() {
 
 compraProducto* decoradorProducto::recuperar1(fstream& strm)
 {
-	string preAcStr = "", categ = "";
+	string preAcStr = "", cantStr="", categ = "";
 	producto* obj = nullptr;
 	getline(strm, preAcStr, SEPARA_VALOR);
+	getline(strm, cantStr, SEPARA_VALOR);
 
 	if (preAcStr == "carrito") {
 		getline(strm, preAcStr, SEPARA_REGISTRO);
