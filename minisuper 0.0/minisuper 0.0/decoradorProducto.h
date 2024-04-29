@@ -31,6 +31,7 @@ public:
 	virtual void guardar(fstream& strm) {
 		setPrecioAcumulado();
 		strm << _precioAcumulado << SEPARA_VALOR;
+		strm << _cantidad << SEPARA_VALOR;
 		_productoPtr->guardar(strm);
 
 		_compraPtr->guardar(strm);
