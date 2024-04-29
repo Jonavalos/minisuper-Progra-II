@@ -78,11 +78,11 @@ int main() {
 	ContenedorLista* listaVentas1 = new ContenedorLista();
 	cliente* client1 = new cliente("1111");
 	cliente* client2 = new cliente("2222");	  
-						   //cliente, decorador, total, iva
-	venta* venta1 = new venta(client1, decPan, 111, 0.13);
-	venta* venta2 = new venta(client2, decArroz2, 222, 0.13);
-	venta* venta3 = new venta(client1, decSalami, 333, 0.13);
-	venta* venta4 = new venta(client2, decMiel3, 444, 0.13);
+						   //cliente, decorador, total, iva			cant
+	venta* venta1 = new venta(client1, decPan, 1762.8, 169);		//2
+	venta* venta2 = new venta(client2, decArroz2, 1356, 130);		//1
+	venta* venta3 = new venta(client1, decSalami, 6757.4, 598);		//4
+	venta* venta4 = new venta(client2, decMiel3, 3976.47, 397.8);	//3
 	listaVentas1->ingresaDeUltimo(*venta1);
 	listaVentas1->ingresaDeUltimo(*venta2);
 	listaVentas1->ingresaDeUltimo(*venta3);
@@ -108,40 +108,11 @@ int main() {
 }
 //TO DO
 /*
+* problema con las cantidades al hacer intancias en el main
 */
-
-
-//Recomendaciones:
-/*
--usar los ifndef define endif
--con los accesores booleanos, usar 'is' en lugar de 'get' (isOpen, getOpen)
--usar todos los tipos de constructores hasta evacuar dudas con georges (ver ejemplo en prodPerecedero)
--templates en .h y no .cpp
-*/
-
 
 //Dudas:
 /*
 -el importe es el total con respecto a las cantidades o con respecto al precio costo de un producto?
-
--porcentaje de ganancia implica creacion de un getGanancia en producto?
--en fecha, se puede usar la fecha default(constructor sin parametros) como fecha actual?
-
--El DRC del enunciado trae todas los atributos? se pueden modificar?
---en 'producto', se tendria que hacer otro parametro de fecha de ingeso? (segun el DRC)
---en 'perecedero', se tendria que hacer otro parametro de fecha de vencimiento? (segun el DRC)
-
--En los constructores de sub-clases, se llena el constructor de la clase base con los valores o con un puntero de la clase?
-(hice varios posibles constructores, si no se usan, se pueden borrar al final) (ver ejemplo en 'prodPerecedero')
-
-*/
-
-//Posibles exepciones:
-/*
--categoria invalida
--fecha invalida
--limite/existencia
--opciones menu de la interfaz
--lugar invalido en lista (eliminar inexistente)
 
 */

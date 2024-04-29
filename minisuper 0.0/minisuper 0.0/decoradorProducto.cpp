@@ -24,7 +24,7 @@ double decoradorProducto::getPrecioAcumulado() {
 	return this->_precioAcumulado + _compraPtr->getPrecioAcumulado();
 }
 
-double decoradorProducto::getPrecio() { //verificar impuestos y cosas
+double decoradorProducto::getPrecio() {
 	return _productoPtr->getPrecioCosto() * 1.13 * getCategoria();
 }
 
