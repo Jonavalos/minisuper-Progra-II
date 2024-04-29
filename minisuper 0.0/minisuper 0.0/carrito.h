@@ -28,6 +28,7 @@ public:
 
 	virtual void guardar(fstream& strm) {
 		strm << "carrito" << SEPARA_VALOR;
+		strm << "de compras" << SEPARA_VALOR;
 		strm << "fin" << SEPARA_REGISTRO;
 	}
 
