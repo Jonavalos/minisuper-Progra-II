@@ -89,46 +89,29 @@ int main() {
 	listaVentas1->ingresaDeUltimo(*venta4);
 
 	//guardar--------
-	fstream strm1("../listaVentas.txt", ios::out);
-	if (strm1.good()) {
-		listaVentas1->guardar(strm1);
-		strm1.close();
-	}
-	cout << "***********************" << endl;
-	cout << "***********************" << endl;
+	//fstream strm1("../listaVentas.txt", ios::out);
+	//if (strm1.good()) {
+	//	listaVentas1->guardar(strm1);
+	//	strm1.close();
+	//}
+	//cout << "***********************" << endl;
+	//cout << "***********************" << endl;
 
-	//recuperar-----
-	fstream strm2("../listaVentas.txt", ios::in);
-	if (strm2.good()) {
-		cout << ContenedorLista::recuperar(strm2)->toString() << endl;
-		strm2.close();
-	}
+	////recuperar-----
+	//fstream strm2("../listaVentas.txt", ios::in);
+	//if (strm2.good()) {
+	//	cout << ContenedorLista::recuperar(strm2)->toString() << endl;
+	//	strm2.close();
+	//}
 
 	//cout << listaVentas1->toString() << endl;
 
 
-	//controladora co(listaGenericaProducto, listaVentas1);
-	//co.control0();
-
-	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
-	//interfaz::crearFact(*listaGenericaProducto, listaVentas1);
+	controladora co(listaGenericaProducto, listaVentas1);
+	co.control0();
 
 	//delete listaGenericaProducto;
 	//delete listaVentas1;
 
 	return 0;
 }
-//TO DO
-/*
-* problema con las cantidades al hacer intancias en el main
-*/
-
-//Dudas:
-/*
--el importe es el total con respecto a las cantidades o con respecto al precio costo de un producto?
-
-*/

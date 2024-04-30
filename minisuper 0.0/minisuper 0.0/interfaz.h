@@ -47,6 +47,7 @@ public:
 			static void prodBajosExist(listaG<T>&);
 			static void factDeterminadoCliente(ContenedorLista&);
 			static void mejoresClientes(ContenedorLista&);
+			static void todasLasFact(ContenedorLista&);
 		static void archivos(ContenedorLista&);
 
 	static bool caracteresValidos(string s);

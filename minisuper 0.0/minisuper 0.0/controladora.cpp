@@ -54,9 +54,10 @@ void controladora::control0() {
 				case 3: control3_3(); break;
 				case 4: control3_4(); break;
 				case 5: control3_5(); break;
+				case 6: control3_6(); break;
 				default: break;
 				}
-			} while (op3 != 6);
+			} while (op3 != 7);
 			break;
 		case 4:
 			control4(); break;
@@ -95,6 +96,10 @@ void controladora::control3_4() {
 
 void controladora::control3_5() {
 	interfaz::mejoresClientes(*listaVentas);
+}
+
+void controladora::control3_6() {
+	interfaz::todasLasFact(*listaVentas);
 }
 
 void controladora::control4() {

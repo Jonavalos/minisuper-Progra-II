@@ -80,10 +80,11 @@ int interfaz::reporte() {
 	cout << "3. Productos por debajo del minimo de existencia" << endl;
 	cout << "4. Facturas de un determinado cliente por su cedula" << endl;
 	cout << "5. Cedulas de los 5 mejores clientes" << endl;
-	cout << "6. Retornar" << endl;
+	cout << "6. Todas las facturas" << endl;
+	cout << "7. Retornar" << endl;
 	try {
 		cout << "Ingrese una opcion: "; cin >> opc; //excpReporte
-		if (opc < 1 && opc > 6) {
+		if (opc < 1 && opc > 7) {
 			throw excepcionRango();
 		}
 	}
@@ -108,6 +109,11 @@ void interfaz::mejoresClientes(ContenedorLista& listaVenta) {
 	cout << "Lista de los 5 Mejores Clientes" << endl << endl;
 
 	cout << listaVenta.top5();
+}
+
+void interfaz::todasLasFact(ContenedorLista& lista) {
+	cout << "Lista de Todas las Facturas" << endl << endl;
+	cout << lista.toString();
 }
 
 void interfaz::archivos(ContenedorLista& listaVentas1) {
@@ -138,7 +144,7 @@ int interfaz::ingresarCantidad(compraProducto* prod) {
 
 	do {
 		try {
-			cout << "Digite la cantidad que desea: "; cin >> cant; prod->setCantidad(cant);
+			cout << "Digite la cantidad que desea: "; cin >> cant;
 			if (((prod->getExistencia() - cant) < prod->getLimite())) {
 				throw excepcionCantidad();
 			}
@@ -148,5 +154,6 @@ int interfaz::ingresarCantidad(compraProducto* prod) {
 		}
 	} while (((prod->getExistencia() - cant) < prod->getLimite()));
 
+	prod->setCantidad(cant);
 	return cant;
 }

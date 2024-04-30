@@ -26,6 +26,7 @@ public:
 		void control3_3();
 		void control3_4();
 		void control3_5();
+		void control3_6();
 	void control4();
 
 private:

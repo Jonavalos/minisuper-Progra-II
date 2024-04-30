@@ -21,7 +21,7 @@ string decoradorProducto::getCodigo() {
 }
 
 double decoradorProducto::getPrecioAcumulado() {
-	return this->_precioAcumulado + _compraPtr->getPrecioAcumulado();
+	return (_cantidad * (this->_precioAcumulado + _compraPtr->getPrecioAcumulado()));
 }
 
 double decoradorProducto::getPrecio() {
