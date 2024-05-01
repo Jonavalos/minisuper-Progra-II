@@ -3,55 +3,8 @@
 #include "carrito.h"
 #include "cliente.h"
 #include "venta.h"
-#include "ansi_term.h"
+
 int main() {
-	//2
-	//cout << "hello world!" << endl;
-	
-	//producto* ptr1 = new producto("001", "papas", "son papas", 1000, "02", 100, 100);
-	//delete ptr1;
-
-	/*producto* ptr2 = new conserva("002", "miel", "es miel", 1000, "01", 100, 100, true);
-	producto* ptr3 = new conserva(*((conserva*)ptr2));
-	delete ptr2;
-	cout << *ptr3 << endl;
-	delete ptr3;
-
-
-	conserva p1("102", "miel", "es miel", 1000, "01", 100, 100, true);
-	conserva p2(p1);
-	cout << p2 << endl;
-
-
-	producto* ptr4 = new prodPerecedero("003", "arroz", "es arroz", 1000, "02", 100, 100, 1, 1, 1, true, 300.5);
-	producto* ptr5 = new prodPerecedero(*((prodPerecedero*)ptr4));
-	delete ptr4;
-	cout << *ptr5;
-	delete ptr5;
-
-	prodPerecedero p3("103", "arroz", "es arroz", 1000, "02", 100, 100, 1, 1, 1, true, 300.5);
-	prodPerecedero p4(p3);
-	cout << p4;
-
-	producto* abarrotePtr = new abarrote("004", "pan", "pan con queso", 650, "02", 100, 100, 1, 1, 1, true, 1.5, "Panaderia de pan");
-	producto* aPtr = new abarrote(*((abarrote*)abarrotePtr));
-	delete abarrotePtr;
-	cout << *aPtr;
-	delete aPtr;
-
-	abarrote p5("004", "pan", "pan con queso", 650, "02", 100, 100, 1, 1, 1, true, 1.5, "Panaderia");
-	abarrote p6(p5);
-	cout << p6;
-
-	producto* embutidoPtr = new embutido("005", "Salami", "Salami de la salada", 1150, "03", 100, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
-	producto* ePtr = new embutido((embutido&)*embutidoPtr);
-	delete embutidoPtr;
-	cout << *ePtr;
-	delete ePtr;
-
-	embutido p7("005", "Salami", "Salami de la salada", 1150, "03", 100, 100, 1, 1, 1, true, 0.5, "Cerdo", "Pierna", false, "Iberico");
-	embutido p8(p7);
-	cout << p8;*/
 
 	producto* miel = new conserva("002", "miel", "es miel", 1020, "01", 150, 1, true);	
 	producto* arroz = new abarrote("003", "arroz", "es arroz", 1000, "02", 150, 2, 1, 1, 3, true, 300.5, "arroz inc.");
@@ -89,29 +42,27 @@ int main() {
 	listaVentas1->ingresaDeUltimo(*venta4);
 
 	//guardar--------
-	//fstream strm1("../listaVentas.txt", ios::out);
-	//if (strm1.good()) {
-	//	listaVentas1->guardar(strm1);
-	//	strm1.close();
-	//}
-	//cout << "***********************" << endl;
-	//cout << "***********************" << endl;
+	fstream strm1("../listaVentas.txt", ios::out);
+	if (strm1.good()) {
+		listaVentas1->guardar(strm1);
+		strm1.close();
+	}
+	cout << "***********************" << endl;
+	cout << "***********************" << endl;
 
-	////recuperar-----
-	//fstream strm2("../listaVentas.txt", ios::in);
-	//if (strm2.good()) {
-	//	cout << ContenedorLista::recuperar(strm2)->toString() << endl;
-	//	strm2.close();
-	//}
-
-	//cout << listaVentas1->toString() << endl;
+	//recuperar-----
+	fstream strm2("../listaVentas.txt", ios::in);
+	if (strm2.good()) {
+		cout << ContenedorLista::recuperar(strm2)->toString() << endl;
+		strm2.close();
+	}
 
 
 	controladora co(listaGenericaProducto, listaVentas1);
 	co.control0();
 
-	//delete listaGenericaProducto;
-	//delete listaVentas1;
+	delete listaGenericaProducto;
+	delete listaVentas1;
 
 	return 0;
 }

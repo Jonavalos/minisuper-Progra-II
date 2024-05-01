@@ -21,16 +21,10 @@
     <ClCompile Include="producto.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="baseObj.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="categoria.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="fecha.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="perecedero.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="conserva.cpp">
@@ -40,12 +34,6 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="abarrote.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="carne.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="empaque.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="embutido.cpp">
@@ -93,6 +81,15 @@
     <ClCompile Include="excepciones.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="iteradorLista.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="iteradorListaG.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="utiles.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bibliotecas.h">
@@ -101,16 +98,10 @@
     <ClInclude Include="producto.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="baseObj.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="categoria.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="fecha.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="perecedero.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="conserva.h">
@@ -120,12 +111,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="abarrote.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="carne.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="empaque.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="embutido.h">
@@ -171,6 +156,18 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="excepciones.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="defines.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="iteradorLista.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="iteradorListaG.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="utiles.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
